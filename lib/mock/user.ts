@@ -1,0 +1,18 @@
+export const MOCK_USER = {
+  username: "demo888",
+  phone: "+60*****888",
+  email: "demo888@example.com",
+  fullName: "Demo User",
+  birthdate: "1990-01-01",
+  currency: "MYR",
+  balance: 0.00,
+  promotionBalance: 0.00,
+  turnover: 0.00,
+  turnoverRequired: 0.00,
+  points: 0.00,
+  vipLevel: "PREMIUM",
+  messages: 0,
+  pendingMissions: 0,
+  referralCode: "DEMO888",
+  referralUrl: "https://example.com/zh-my?ref=DEMO888",
+};
