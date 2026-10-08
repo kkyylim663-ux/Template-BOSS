@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { AuthProvider }  from "@/context/AuthContext";
-import { ModalProvider } from "@/context/ModalContext";
-import LayoutShell       from "@/components/layout/LayoutShell";
+import { AuthProvider }     from "@/context/AuthContext";
+import { ModalProvider }    from "@/context/ModalContext";
+import { LanguageProvider } from "@/context/LanguageContext";
+import LayoutShell          from "@/components/layout/LayoutShell";
 
 export const metadata: Metadata = {
   title: "BO55 马来西亚 | 在线游戏、优惠活动与奖励",
@@ -10,10 +11,12 @@ export const metadata: Metadata = {
 
 export default function ZhMyLayout({ children }: { children: React.ReactNode }) {
   return (
-    <AuthProvider>
-      <ModalProvider>
-        <LayoutShell>{children}</LayoutShell>
-      </ModalProvider>
-    </AuthProvider>
+    <LanguageProvider>
+      <AuthProvider>
+        <ModalProvider>
+          <LayoutShell>{children}</LayoutShell>
+        </ModalProvider>
+      </AuthProvider>
+    </LanguageProvider>
   );
 }

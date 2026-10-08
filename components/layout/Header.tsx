@@ -1,9 +1,10 @@
 "use client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { RefreshCw, Plus, ChevronDown, Mail, Target, Menu, X, Gift, Landmark, History } from "lucide-react";
+import { RefreshCw, Plus, ChevronDown, Mail, Target, Menu, X, Gift, Landmark, History, Check } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import { useModal } from "@/context/ModalContext";
+import { useLanguage } from "@/context/LanguageContext";
 import { useState } from "react";
 import { MenuGroups } from "./Sidebar";
 
@@ -27,6 +28,7 @@ const pill: React.CSSProperties = {
 export default function Header() {
   const { user, isLoggedIn, logout, refreshBalance } = useAuth();
   const { openLogin, openRegister } = useModal();
+  const { lang, setLang } = useLanguage();
   const router = useRouter();
   const [balOpen, setBalOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
@@ -91,7 +93,7 @@ export default function Header() {
     </div>
   );
 
-  const lang = (
+  const langMenu = (
     <div className="relative">
       <button className="flex items-center gap-2" style={{ height: 32 }} onClick={() => { setLangOpen(v => !v); setBalOpen(false); }}>
         <span className="flex items-center justify-center" style={{
@@ -108,13 +110,30 @@ export default function Header() {
           {[{ c: "Malaysia", l: ["English", "中文", "Malay"] }, { c: "Singapore", l: ["English", "中文"] }].map(g => (
             <div key={g.c} style={{ marginBottom: 4 }}>
               <div style={{ fontSize: 12, fontWeight: 600, color: "var(--muted-3)", padding: "4px 8px" }}>{g.c}</div>
-              {g.l.map(l => (
-                <button key={l} onClick={close} className="w-full text-left" style={{ fontSize: 14, fontWeight: 600, padding: "6px 8px", borderRadius: 8 }}
-                  onMouseEnter={e => (e.currentTarget.style.background = "var(--card)")}
-                  onMouseLeave={e => (e.currentTarget.style.background = "transparent")}>
-                  {l}
-                </button>
-              ))}
+              {g.l.map(l => {
+                const code = l === "English" ? "en" : l === "中文" ? "zh" : null;
+                const active = code === lang;
+                const disabled = code === null;
+                return (
+                  <button
+                    key={l}
+                    onClick={() => { if (code) setLang(code); close(); }}
+                    disabled={disabled}
+                    className="w-full text-left flex items-center justify-between"
+                    style={{
+                      fontSize: 14, fontWeight: 600, padding: "6px 8px", borderRadius: 8,
+                      color: disabled ? "var(--muted-2)" : active ? "var(--gold)" : "#fff",
+                      cursor: disabled ? "default" : "pointer",
+                    }}
+                    onMouseEnter={e => { if (!disabled) e.currentTarget.style.background = "var(--card)"; }}
+                    onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
+                  >
+                    {l}
+                    {active && <Check size={14} />}
+                    {disabled && <span style={{ fontSize: 10 }}>Soon</span>}
+                  </button>
+                );
+              })}
             </div>
           ))}
         </div>
@@ -164,7 +183,7 @@ export default function Header() {
               <button className="btn-gold" style={{ width: 96 }} onClick={openRegister}>注册</button>
             </>
           )}
-          <div className="only-desktop">{lang}</div>
+          <div className="only-desktop">{langMenu}</div>
         </div>
 
         {(balOpen || langOpen) && <div className="fixed inset-0 z-[65]" onClick={close} />}

@@ -8,6 +8,7 @@ import LoginModal from "@/components/modals/LoginModal";
 import RegisterModal from "@/components/modals/RegisterModal";
 import AnnouncementModal from "@/components/modals/AnnouncementModal";
 import FloatingChat, { SideSocial } from "@/components/ui/FloatingChat";
+import Translator from "@/components/i18n/Translator";
 import { useModal } from "@/context/ModalContext";
 import { useEffect } from "react";
 
@@ -40,6 +41,7 @@ export default function LayoutShell({ children }: { children: React.ReactNode })
       {modal === "announcement" && <AnnouncementModal />}
 
       <FloatingChat />
+      <Translator />
     </>
   );
 }
