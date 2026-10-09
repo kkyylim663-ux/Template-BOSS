@@ -13,6 +13,13 @@ const CATS: [string, keyof (typeof VIP_LEVELS)[number] | null][] = [
 
 const fmt = (n: number) => n.toLocaleString("en-US");
 
+// Muted bronze -> gold -> platinum progression, keeping the same dark-navy/gold
+// mood as the real site instead of a full rainbow hue rotation.
+const LEVEL_TINTS = [
+  "#5a4a2e", "#6b4f2a", "#7a5c2e", "#8a6a2e", "#9c7a2e",
+  "#ad8a2e", "#c0982e", "#d4a62e", "#e0b23a", "#f0c04a",
+];
+
 function HeaderDeco({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex items-center justify-center" style={{ gap: 12, height: 16, fontSize: 16, fontWeight: 600 }}>
@@ -35,7 +42,9 @@ export default function VipPage() {
     return (
       <div className="flex flex-col justify-between flex-shrink-0" style={{
         width: big ? "42%" : "33%", aspectRatio: "2 / 1", borderRadius: 12, padding: "23px 28px",
-        background: `linear-gradient(135deg, hsl(${(i * 36) % 360} 50% 30%), #141836)`, opacity: big ? 1 : 0.6,
+        background: `linear-gradient(135deg, ${LEVEL_TINTS[(i + VIP_LEVELS.length) % VIP_LEVELS.length]}, #0f1225)`,
+        border: big ? "1px solid rgba(255,196,64,.4)" : "1px solid transparent",
+        opacity: big ? 1 : 0.55,
       }}>
         <span style={{ fontSize: big ? 28 : 22, fontWeight: 800, fontStyle: "italic" }}>{l.name}</span>
         <div className="flex" style={{ gap: 24 }}>

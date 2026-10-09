@@ -95,7 +95,8 @@ input, select, textarea { font-family: inherit; }
   .app-main { margin: 0; padding: 8px 8px calc(var(--mobilenav-h) + 16px); }
   .only-desktop { display: none !important; }
   .only-mobile { display: flex !important; }
-  .float-up { margin-bottom: 64px; }
+  .chat-fab { bottom: calc(var(--mobilenav-h) + 14px) !important; }
+  .gift-fab { bottom: calc(var(--mobilenav-h) + 114px) !important; }
 }
 
 /* ═════════ Surfaces ═════════ */

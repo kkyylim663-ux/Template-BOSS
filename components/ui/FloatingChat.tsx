@@ -33,7 +33,7 @@ export default function FloatingChat() {
   return (
     <>
       {!closed && (
-        <div className="fixed z-50 float-up" style={{ right: 10, bottom: 150, width: 90, height: 90 }}>
+        <div className="fixed z-50 gift-fab" style={{ right: 10, bottom: 150, width: 90, height: 90 }}>
           <div className="flex items-center justify-center" style={{ width: 90, height: 90, borderRadius: 16, background: "linear-gradient(180deg,#ff5b5b,#c4161c)", color: "#ffd66b" }}>
             <Gift size={44} strokeWidth={1.6} />
           </div>
@@ -42,7 +42,7 @@ export default function FloatingChat() {
           </button>
         </div>
       )}
-      <Link href="/zh-my/contact-us" className="fixed z-50 flex items-center justify-center float-up" style={{ right: 19, bottom: 10, width: 60, height: 60, borderRadius: "50%", background: "var(--gold)", color: "#000", boxShadow: "0 4px 16px rgba(0,0,0,.4)" }} aria-label="在线客服">
+      <Link href="/zh-my/contact-us" className="fixed z-50 flex items-center justify-center chat-fab" style={{ right: 19, bottom: 10, width: 60, height: 60, borderRadius: "50%", background: "var(--gold)", color: "#000", boxShadow: "0 4px 16px rgba(0,0,0,.4)" }} aria-label="在线客服">
         <MessageCircle size={28} />
         <span className="absolute flex items-center justify-center" style={{ top: 2, right: 2, width: 18, height: 18, borderRadius: "50%", background: "var(--red)", color: "#fff", fontSize: 10, fontWeight: 700 }}>1</span>
       </Link>

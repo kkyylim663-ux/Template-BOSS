@@ -52,7 +52,7 @@ const socials = [
 
 export default function Footer() {
   const pathname = usePathname();
-  const showSeo = !pathname.startsWith("/zh-my/account") && !pathname.startsWith("/zh-my/tournament");
+  const showSeo = pathname === "/zh-my";
   const providers = Object.values(GAME_PROVIDERS).flat().map(p => p.name);
 
   return (
