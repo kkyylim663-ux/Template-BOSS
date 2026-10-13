@@ -2,7 +2,7 @@
 import { Star, LayoutGrid, ChevronLeft, ChevronRight } from "lucide-react";
 import { SectionTitle } from "@/components/ui/bo";
 import { EventCard } from "@/components/home/HotEventsSection";
-import { HOT_EVENT_PROVIDERS } from "@/lib/mock/home";
+import { HOT_EVENT_PROVIDERS, HOT_ART } from "@/lib/mock/home";
 
 export default function EventPage() {
   const arrow: React.CSSProperties = { width: 32, height: 50, borderRadius: 4, padding: 6, background: "#8f92bd", color: "var(--muted)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 };
@@ -21,7 +21,7 @@ export default function EventPage() {
         </div>
       </div>
       <div className="grid grid-cols-3 lg:grid-cols-6" style={{ gap: 10, marginBottom: 16 }}>
-        {HOT_EVENT_PROVIDERS.map(p => <EventCard key={p} name={p} w="100%" h="auto" />)}
+        {HOT_EVENT_PROVIDERS.map((p, i) => <EventCard key={p} name={p} art={HOT_ART[i]} w="100%" h="auto" />)}
       </div>
     </div>
   );

@@ -1,15 +1,19 @@
 "use client";
 import Link from "next/link";
 import { Flame, ImageIcon } from "lucide-react";
-import { HOT_EVENT_PROVIDERS } from "@/lib/mock/home";
+import { HOT_EVENT_PROVIDERS, HOT_ART } from "@/lib/mock/home";
 import { CtrlPair, SectionTitle, useScroller } from "@/components/ui/bo";
 
-export function EventCard({ name, w = 148, h = 197 }: { name: string; w?: number | string; h?: number | string }) {
+export function EventCard({ name, art, w = 148, h = 197 }: { name: string; art?: number; w?: number | string; h?: number | string }) {
   return (
     <Link href="/zh-my/event" className="relative flex-shrink-0 block ev-card" style={{ width: w, height: h === "auto" ? undefined : h, aspectRatio: h === "auto" ? "148 / 197" : undefined }}>
       <span className="ph flex-col" style={{ width: "100%", height: "100%", borderRadius: 12, gap: 8 }}>
         <ImageIcon size={26} strokeWidth={1.4} />
         <span style={{ fontSize: 13, fontWeight: 700, color: "rgba(255,255,255,.45)", textAlign: "center", padding: "0 8px" }}>{name}</span>
+        {art !== undefined && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={`/games/home/${art}.webp`} alt={name} loading="lazy" draggable={false} onError={e => { e.currentTarget.style.display = "none"; }} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", borderRadius: 12 }} />
+        )}
       </span>
       <span className="absolute flex items-center justify-center ev-ribbon" style={{
         left: 12, right: 12, bottom: 0, height: 21, borderRadius: "6px 6px 0 0",
@@ -33,7 +37,7 @@ export default function HotEventsSection() {
         </div>
       </div>
       <div ref={ref} className="scroll-x flex" style={{ gap: 12 }}>
-        {HOT_EVENT_PROVIDERS.map(p => <EventCard key={p} name={p} />)}
+        {HOT_EVENT_PROVIDERS.map((p, i) => <EventCard key={p} name={p} art={HOT_ART[i]} />)}
       </div>
     </section>
   );

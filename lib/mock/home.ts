@@ -26,16 +26,30 @@ export const MATCHES = [
 ];
 
 export const PROVIDER_SECTIONS = [
-  { title: "老虎机", href: "/zh-my/slot", providers: ["Pocket Games Soft", "Vplus", "Nextspin", "Fastspin", "Spadegaming", "Relax Gaming", "Besoft", "Microgaming"] },
+  { title: "老虎机", href: "/zh-my/slot", providers: ["Pragmatic Play", "Pocket Games Soft", "Vplus", "JILI", "Fastspin", "Nextspin", "Spadegaming", "Relax Gaming", "Besoft", "Microgaming"] },
   { title: "真人娱乐场", href: "/zh-my/livecsn", providers: ["Evolution Gaming", "AE Sexy", "SA Gaming", "WM Casino", "Playtech Live", "Imagine Live", "ION Casino"] },
   { title: "体育", href: "/zh-my/sport", providers: ["M9Bet", "CMD368", "WBet", "SBO Sport"] },
-  { title: "捕鱼", href: "/zh-my/fishing", providers: ["Vplus Fishing", "YB Fishing", "RSG Fishing", "FC Fishing", "JDB Fishing", "KY Fishing", "MegaWin Fishing"] },
-  { title: "彩票", href: "/zh-my/lottery", providers: ["JILI Lottery", "TC Lottery", "Habanero Lottery"] },
-  { title: "快速游戏", href: "/zh-my/crash", providers: ["GGSoft", "Joker Fast", "PP Fast", "JILI Fast", "inOut Fast"] },
-  { title: "电子游戏", href: "/zh-my/arcade", providers: ["Spribe", "Avatarux", "JILI 3D", "Joker 3D", "PP 3D", "FG 3D", "365 3D"] },
-  { title: "扑克", href: "/zh-my/poker", providers: ["KY Poker", "MegaWin Poker", "JILI Poker"] },
-  { title: "弹珠", href: "/zh-my/plinko", providers: ["GGSoft Plinko", "Joker Plinko", "PP Plinko", "JILI Plinko"] },
+  { title: "捕鱼", href: "/zh-my/fishing", providers: ["YB Fishing", "Spadegaming Fishing", "Vplus Fishing", "JILI Fishing", "KY Fishing", "RSG Fishing", "FC Fishing"] },
+  { title: "彩票", href: "/zh-my/lottery", providers: ["HW95 Lottery", "TC Lottery", "Habanero Lottery"] },
+  { title: "快速游戏", href: "/zh-my/crash", providers: ["Funky Fast", "JILI Fast", "King Midas Fast", "Joker Fast", "PP Fast"] },
+  { title: "电子游戏", href: "/zh-my/arcade", providers: ["King Midas 3D", "JILI 3D", "Spribe", "Funky 3D", "Joker 3D", "PP 3D", "365 3D"] },
+  { title: "扑克", href: "/zh-my/poker", providers: ["KY Poker", "MegaWin Poker", "JILI Poker", "JILI Poker H", "V8 Poker"] },
+  { title: "弹珠", href: "/zh-my/plinko", providers: ["JILI Plinko", "Funky Plinko", "Spribe Plinko", "King Midas Plinko", "Joker Plinko"] },
 ];
+
+/** cover artwork index (public/games/home/<n>.webp), by section href and card position; locally sourced, git-ignored */
+export const HOME_ART: Record<string, number[]> = {
+  "/zh-my/slot": [10, 11, 12, 13, 14],
+  "/zh-my/livecsn": [15, 16, 17, 18, 19],
+  "/zh-my/sport": [20, 21, 22, 23],
+  "/zh-my/fishing": [24, 25, 26, 27, 28],
+  "/zh-my/lottery": [29],
+  "/zh-my/crash": [30, 31, 32, 33, 34],
+  "/zh-my/arcade": [35, 36, 37, 38, 39],
+  "/zh-my/poker": [40, 41, 42, 43, 44],
+  "/zh-my/plinko": [45, 46, 47, 48],
+};
+export const HOT_ART = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 export const RANKING = [
   { game: "Thunderkick", player: "+60******551", mul: "35x", bet: "11.00", pay: "385.00" },
