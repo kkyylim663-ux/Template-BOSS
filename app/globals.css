@@ -92,6 +92,9 @@ input, select, textarea { font-family: inherit; }
   .header-right { gap: 6px; }
   .home-banner { aspect-ratio: 4 / 1; }
   .home-banner-title { font-size: 16px; }
+  .social-row { height: 40px !important; justify-content: space-between; padding: 0 4px; }
+  .social-row .social-btn { flex: 0 0 auto !important; background: transparent !important; padding: 0 !important; border-radius: 0 !important; }
+  .social-row .social-btn svg { width: 40px; height: 40px; }
   .vip-big { width: 64%; }
   .vip-side { width: 22%; }
   .app-header { height: var(--mobile-header-h); padding: 0 10px; background: var(--pill); }
@@ -117,6 +120,7 @@ input, select, textarea { font-family: inherit; }
 .sec-title svg { width: 24px; height: 24px; color: var(--gold); flex-shrink: 0; margin: 2px; }
 
 .social-btn { transition: background .2s, transform .2s; }
+.social-btn svg { width: 30px; height: 30px; }
 .social-btn:hover { background: var(--solid) !important; transform: translateY(-1px); }
 
 /* paired carousel buttons */

@@ -2,7 +2,7 @@ import { SOCIALS, SocialCircle } from "@/components/ui/SocialIcons";
 
 export default function SocialBar() {
   return (
-    <div className="flex" style={{ marginTop: 8, gap: 12, height: 46 }}>
+    <div className="flex social-row" style={{ marginTop: 8, gap: 12, height: 46 }}>
       {SOCIALS.map(item => { const { label, href } = item; return (
         <a
           key={label}
