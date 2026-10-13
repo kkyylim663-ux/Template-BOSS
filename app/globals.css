@@ -84,12 +84,16 @@ input, select, textarea { font-family: inherit; }
 .header-right { gap: 16px; }
 .home-banner { aspect-ratio: 1110 / 277; }
 .home-banner-title { font-size: 28px; }
+.vip-big { width: 42%; }
+.vip-side { width: 33%; }
 
 @media (max-width: 1024px) {
   .app-footer { padding: 16px; border-radius: 0 !important; margin: 0 -8px; }
   .header-right { gap: 6px; }
   .home-banner { aspect-ratio: 2 / 1; }
   .home-banner-title { font-size: 16px; }
+  .vip-big { width: 64%; }
+  .vip-side { width: 22%; }
   .app-header { height: var(--mobile-header-h); padding: 0 10px; background: var(--pill); }
   .app-menu, .app-right, .side-social { display: none !important; }
   .app-main { margin: 0; padding: 8px 8px calc(var(--mobilenav-h) + 16px); }

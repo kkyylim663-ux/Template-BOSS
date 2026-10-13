@@ -40,16 +40,16 @@ export default function VipPage() {
   const LevelCard = ({ i, big }: { i: number; big?: boolean }) => {
     const l = VIP_LEVELS[(i + VIP_LEVELS.length) % VIP_LEVELS.length];
     return (
-      <div className="flex flex-col justify-between flex-shrink-0" style={{
-        width: big ? "42%" : "33%", aspectRatio: "2 / 1", borderRadius: 12, padding: "23px 28px",
+      <div className={`flex flex-col justify-between flex-shrink-0 ${big ? "vip-big" : "vip-side"}`} style={{
+        aspectRatio: "2 / 1", borderRadius: 12, padding: "10% 13%", containerType: "inline-size",
         background: `linear-gradient(135deg, ${LEVEL_TINTS[(i + VIP_LEVELS.length) % VIP_LEVELS.length]}, #0f1225)`,
         border: big ? "1px solid rgba(255,196,64,.4)" : "1px solid transparent",
         opacity: big ? 1 : 0.55,
       }}>
-        <span style={{ fontSize: big ? 28 : 22, fontWeight: 800, fontStyle: "italic" }}>{l.name}</span>
-        <div className="flex" style={{ gap: 24 }}>
-          <div><div style={{ fontSize: 14, fontWeight: 700 }}>0 / {fmt(l.turnoverReq)}</div><div style={{ fontSize: 12 }}>流水要求</div></div>
-          <div><div style={{ fontSize: 14, fontWeight: 700 }}>0 / {fmt(l.depositReq)}</div><div style={{ fontSize: 12 }}>存款要求</div></div>
+        <span style={{ fontSize: "6.6cqw", fontWeight: 700, fontStyle: "italic" }}>{l.name}</span>
+        <div className="flex" style={{ gap: "10cqw" }}>
+          <div><div style={{ fontSize: "5.6cqw", fontWeight: 700 }}>0 / {fmt(l.turnoverReq)}</div><div style={{ fontSize: "4.6cqw" }}>流水要求</div></div>
+          <div><div style={{ fontSize: "5.6cqw", fontWeight: 700 }}>0 / {fmt(l.depositReq)}</div><div style={{ fontSize: "4.6cqw" }}>存款要求</div></div>
         </div>
       </div>
     );
