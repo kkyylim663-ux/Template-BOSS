@@ -17,7 +17,7 @@ export default function UserReviews() {
       </div>
       <div ref={ref} className="scroll-x flex" style={{ gap: 12 }}>
         {REVIEWS.map(r => (
-          <div key={r.name} className="flex flex-col flex-shrink-0" style={{ width: "calc((100% - 24px) / 3)", minWidth: 260, height: 156, background: "var(--card)", borderRadius: 20, padding: 12, gap: 12 }}>
+          <div key={r.name} className="flex flex-col flex-shrink-0 rv-card" style={{ width: "calc((100% - 24px) / 3)", minWidth: 260, height: 156, background: "var(--card)", borderRadius: 20, padding: 12, gap: 12 }}>
             <div className="flex items-center" style={{ height: 30, gap: 8 }}>
               <span className="flex items-center justify-center" style={{ width: 30, height: 30, borderRadius: "50%", background: "var(--solid)" }}><User size={16} /></span>
               <span style={{ fontSize: 18, fontWeight: 600, color: "#e2e1e2" }}>{r.name}</span>

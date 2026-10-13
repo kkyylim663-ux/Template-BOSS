@@ -24,12 +24,12 @@ function Row({ title, href, providers, Icon }: { title: string; href: string; pr
   const { ref, prev, next } = useScroller();
   const slug = (n: string) => `${href}?provider=${encodeURIComponent(n.toLowerCase().replace(/\s+/g, ""))}`;
   return (
-    <section className="flex flex-col" style={{ marginTop: 32, gap: 16 }}>
+    <section className="flex flex-col prov-sec" style={{ marginTop: 32, gap: 16 }}>
       <div className="flex items-center justify-between" style={{ height: 32 }}>
         <Link href={href}><SectionTitle icon={Icon}>{title}</SectionTitle></Link>
-        <CtrlPair square onPrev={prev} onNext={next} />
+        <div className="only-desktop"><CtrlPair square onPrev={prev} onNext={next} /></div>
       </div>
-      <div ref={ref} className="scroll-x flex" style={{ gap: 12 }}>
+      <div ref={ref} className="scroll-x flex prov-row" style={{ gap: 12 }}>
         {providers.map(p => <ProviderCard key={p} name={p} href={slug(p)} />)}
       </div>
     </section>

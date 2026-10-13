@@ -15,7 +15,7 @@
   --white: #ffffff;
 
   --header-h: 81px;
-  --mobile-header-h: 55px;
+  --mobile-header-h: 67px;
   --mobilenav-h: 60px;
 
   /* legacy aliases used by modals */
@@ -103,7 +103,36 @@ input, select, textarea { font-family: inherit; }
   .cat-item > span { padding: 0 10px !important; gap: 6px !important; }
   .cat-item > span > span:first-child { width: 28px !important; height: 28px !important; }
   .cat-item > span > span:first-child svg { width: 24px; height: 24px; }
-  .cat-label { font-size: 16px !important; line-height: 20px !important; }
+  .cat-label { font-size: 12px !important; font-weight: 400 !important; line-height: 16px !important; }
+  .marquee-bar { height: 33px !important; }
+  .hot-sec { margin-top: 12px !important; }
+  .home-banner { margin-top: 12px; border-radius: 8px !important; }
+  .cat-row { height: 50px !important; }
+  .cat-scroll { gap: 8px !important; }
+  .cat-item { width: 120px !important; }
+  .ev-card { width: 109px !important; height: 145px !important; }
+  .ev-ribbon { font-size: 11px !important; font-weight: 400 !important; }
+  .mt-sec { padding: 12px 8px !important; }
+  .mt-scroll { margin-top: 16px !important; }
+  .mt-card { width: 241px !important; height: 138px !important; padding: 10px !important; }
+  .mt-card .mt-logo { width: 40px !important; height: 40px !important; }
+  .mt-card .mt-odds { width: 66px !important; height: 30px !important; border-radius: 8px !important; }
+  .mt-card .mt-join { width: 78px !important; flex: none !important; height: 30px !important; border-radius: 8px !important; }
+  .mt-card > div:last-child { justify-content: space-between; gap: 4px !important; }
+  .jp-sec { aspect-ratio: auto !important; height: 132px; }
+  .bv-sec { padding: 12px !important; }
+  .bv-inner { border-radius: 12px !important; }
+  .rk-card { padding: 8px !important; }
+  .rv-card { width: 250px !important; min-width: 250px !important; height: 131px !important; }
+  .prov-sec { gap: 8px !important; }
+  .prov-row .ph { border-radius: 12px !important; }
+  .prov-row > a { width: 120px !important; height: 160px !important; }
+  .sec-title { font-size: 16px !important; }
+  .cat-arrow { display: none !important; }
+  .cat-scroll { padding: 0 !important; }
+  .mt-team { font-weight: 600 !important; }
+  .mt-league { font-weight: 400 !important; }
+  .mt-date { font-size: 12px !important; }
   .vip-big { width: 64%; }
   .vip-side { width: 22%; }
   .app-header { height: var(--mobile-header-h); padding: 0 10px; background: var(--pill); }
@@ -114,6 +143,11 @@ input, select, textarea { font-family: inherit; }
   .chat-fab { bottom: calc(var(--mobilenav-h) + 14px) !important; }
   .gift-fab { bottom: calc(var(--mobilenav-h) + 114px) !important; }
 }
+
+.mt-team { font-size: 12px; font-weight: 700; }
+.mt-league { font-size: 10px; font-weight: 500; }
+.mt-date { font-size: 14px; font-weight: 800; }
+.mt-time { font-size: 12px; font-weight: 400; }
 
 /* ═════════ Surfaces ═════════ */
 .bo-card { background: var(--card); }

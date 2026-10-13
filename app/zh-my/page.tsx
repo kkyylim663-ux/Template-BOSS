@@ -1,6 +1,7 @@
 import MarqueeBanner from "@/components/home/MarqueeBanner";
 import SocialBar from "@/components/home/SocialBar";
 import HomeBanner from "@/components/home/HomeBanner";
+import MobileAuthButtons from "@/components/home/MobileAuthButtons";
 import QuickAccessCards from "@/components/home/QuickAccessCards";
 import CategorySlider from "@/components/home/CategorySlider";
 import HotEventsSection from "@/components/home/HotEventsSection";
@@ -17,6 +18,7 @@ export default function HomePage() {
       <MarqueeBanner />
       <SocialBar />
       <HomeBanner />
+      <MobileAuthButtons />
       <QuickAccessCards />
       <CategorySlider />
       <HotEventsSection />

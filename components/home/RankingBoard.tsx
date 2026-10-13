@@ -9,7 +9,7 @@ export default function RankingBoard() {
   return (
     <section style={{ marginTop: 32 }}>
       <SectionTitle icon={BarChart3}>排名</SectionTitle>
-      <div style={{ marginTop: 12, background: "var(--card)", borderRadius: 12, padding: 20, border: "0.8px solid var(--card)" }}>
+      <div className="rk-card" style={{ marginTop: 12, background: "var(--card)", borderRadius: 12, padding: 20, border: "0.8px solid var(--card)" }}>
         <div className="grid" style={{ gridTemplateColumns: cols, height: 28, background: "var(--card)", borderRadius: 4, padding: "5px 8px", fontSize: 14, fontWeight: 600, textAlign: "center" }}>
           {["游戏", "玩家", "倍数", "投注金额", "派彩"].map(h => <span key={h}>{h}</span>)}
         </div>

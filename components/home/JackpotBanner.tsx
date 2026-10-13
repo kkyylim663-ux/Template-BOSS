@@ -9,7 +9,7 @@ export default function JackpotBanner() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden flex items-center justify-center" style={{
+    <section className="relative overflow-hidden flex items-center justify-center jp-sec" style={{
       marginTop: 32, aspectRatio: "1110 / 249", borderRadius: 20, containerType: "inline-size",
       background: "radial-gradient(ellipse at 50% 60%, rgba(255,173,0,.35), transparent 60%), linear-gradient(180deg,#3a1d07,#130a24)",
     }}>

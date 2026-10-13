@@ -12,7 +12,7 @@ function Logo({ small }: { small?: boolean }) {
   return (
     <Link href="/zh-my" className="flex items-center" style={{ width: small ? 84 : 200, height: small ? 40 : 50 }}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/logo.png" alt="Logo" style={{ height: small ? 52 : 100, width: "auto", maxWidth: "none", marginLeft: small ? -6 : -24, objectFit: "contain" }} />
+      <img src="/logo.png" alt="Logo" style={{ height: small ? 64 : 100, width: "auto", maxWidth: "none", marginLeft: small ? 0 : -24, objectFit: "contain" }} />
     </Link>
   );
 }
@@ -141,7 +141,7 @@ export default function Header() {
     <>
       <header className="app-header">
         {/* mobile: hamburger */}
-        <button className="only-mobile items-center" style={{ width: 38, height: 55, paddingLeft: 8 }} onClick={() => setDrawer(true)} aria-label="菜单">
+        <button className="only-mobile items-center" style={{ width: 38, height: 67, paddingLeft: 8 }} onClick={() => setDrawer(true)} aria-label="菜单">
           <Menu size={24} />
         </button>
 
@@ -175,8 +175,8 @@ export default function Header() {
             </>
           ) : (
             <>
-              <button className="btn-dark" style={{ width: 96 }} onClick={openLogin}>登录</button>
-              <button className="btn-gold" style={{ width: 96 }} onClick={openRegister}>注册</button>
+              <button className="btn-dark only-desktop" style={{ width: 96 }} onClick={openLogin}>登录</button>
+              <button className="btn-gold only-desktop" style={{ width: 96 }} onClick={openRegister}>注册</button>
             </>
           )}
           <div className="only-desktop">{langMenu}</div>

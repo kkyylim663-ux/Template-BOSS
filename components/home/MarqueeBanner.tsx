@@ -3,7 +3,7 @@ import { RUNNING_TEXT } from "@/lib/mock/home";
 
 export default function MarqueeBanner() {
   return (
-    <div className="flex items-center" style={{ marginTop: 4, height: 34, background: "var(--card)", borderRadius: 8, padding: 8 }}>
+    <div className="flex items-center marquee-bar" style={{ marginTop: 4, height: 34, background: "var(--card)", borderRadius: 8, padding: 8 }}>
       <span className="flex" style={{ width: 28, flexShrink: 0 }}>
         <Volume2 size={16} style={{ color: "var(--gold)" }} />
       </span>
