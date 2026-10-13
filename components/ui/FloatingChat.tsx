@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { Gift, MessageCircle, X, Facebook, Instagram, Send, Music2, ChevronRight, ChevronLeft } from "lucide-react";
 import { useState } from "react";
+import { useModal } from "@/context/ModalContext";
 
 export function SideSocial() {
   const [open, setOpen] = useState(false);
@@ -30,11 +31,12 @@ export function SideSocial() {
 
 export default function FloatingChat() {
   const [closed, setClosed] = useState(false);
+  const { openAnnouncement } = useModal();
   return (
     <>
       {!closed && (
         <div className="fixed z-50 gift-fab" style={{ right: 10, bottom: 150, width: 90, height: 90 }}>
-          <div className="flex items-center justify-center" style={{ width: 90, height: 90, borderRadius: 16, background: "linear-gradient(180deg,#ff5b5b,#c4161c)", color: "#ffd66b" }}>
+          <div role="button" tabIndex={0} onClick={openAnnouncement} className="flex items-center justify-center cursor-pointer" style={{ width: 90, height: 90, borderRadius: 16, background: "linear-gradient(180deg,#ff5b5b,#c4161c)", color: "#ffd66b" }}>
             <Gift size={44} strokeWidth={1.6} />
           </div>
           <button onClick={() => setClosed(true)} className="absolute flex items-center justify-center" style={{ top: -8, right: -8, width: 20, height: 20, borderRadius: "50%", background: "var(--solid)" }} aria-label="关闭">
