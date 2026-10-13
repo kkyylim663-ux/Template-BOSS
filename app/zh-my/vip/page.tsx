@@ -39,17 +39,19 @@ export default function VipPage() {
 
   const LevelCard = ({ i, big }: { i: number; big?: boolean }) => {
     const l = VIP_LEVELS[(i + VIP_LEVELS.length) % VIP_LEVELS.length];
+    const n = ((i % VIP_LEVELS.length) + VIP_LEVELS.length) % VIP_LEVELS.length;
     return (
-      <div className={`flex flex-col justify-between flex-shrink-0 ${big ? "vip-big" : "vip-side"}`} style={{
-        aspectRatio: "2 / 1", borderRadius: 12, padding: "10% 13%", containerType: "inline-size",
-        background: `linear-gradient(135deg, ${LEVEL_TINTS[(i + VIP_LEVELS.length) % VIP_LEVELS.length]}, #0f1225)`,
-        border: big ? "1px solid rgba(255,196,64,.4)" : "1px solid transparent",
+      <div className={`relative flex-shrink-0 ${big ? "vip-big" : "vip-side"}`} style={{
+        aspectRatio: "2 / 1", borderRadius: 12, containerType: "inline-size",
+        background: `linear-gradient(135deg, ${LEVEL_TINTS[n]}, #0f1225)`,
         opacity: big ? 1 : 0.55,
       }}>
-        <span style={{ fontSize: "6.6cqw", fontWeight: 700, fontStyle: "italic" }}>{l.name}</span>
-        <div className="flex" style={{ gap: "10cqw" }}>
-          <div><div style={{ fontSize: "5.6cqw", fontWeight: 700 }}>0 / {fmt(l.turnoverReq)}</div><div style={{ fontSize: "4.6cqw" }}>流水要求</div></div>
-          <div><div style={{ fontSize: "5.6cqw", fontWeight: 700 }}>0 / {fmt(l.depositReq)}</div><div style={{ fontSize: "4.6cqw" }}>存款要求</div></div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={`/vip/vip-${n + 1}.webp`} alt="" draggable={false} onError={e => { e.currentTarget.style.display = "none"; }} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none" }} />
+        <span style={{ position: "absolute", left: "6%", top: "9%", fontSize: "7cqw", fontWeight: 800, fontStyle: "italic", textShadow: "0 2px 6px rgba(0,0,0,.7)" }}>{l.name}</span>
+        <div className="flex" style={{ position: "absolute", left: "6%", top: "60%", gap: "7cqw", textShadow: "0 1px 4px rgba(0,0,0,.8)" }}>
+          <div><div style={{ fontSize: "5.4cqw", fontWeight: 700 }}>0 / {fmt(l.turnoverReq)}</div><div style={{ fontSize: "4.2cqw" }}>流水要求</div></div>
+          <div><div style={{ fontSize: "5.4cqw", fontWeight: 700 }}>0 / {fmt(l.depositReq)}</div><div style={{ fontSize: "4.2cqw" }}>存款要求</div></div>
         </div>
       </div>
     );
