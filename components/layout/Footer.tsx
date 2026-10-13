@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { SOCIALS } from "@/components/ui/SocialIcons";
+import { SOCIALS, SocialCircle } from "@/components/ui/SocialIcons";
 import { ShieldCheck, BadgeCheck, Lock, Fingerprint, HeartHandshake, Ban, CreditCard } from "lucide-react";
 import { SEO_CONTENT, type SeoContent } from "@/lib/mock/seo";
 import { GAME_PROVIDERS } from "@/lib/mock/games";
@@ -76,9 +76,9 @@ export default function Footer() {
           <div>
             <Title>关注我们</Title>
             <div className="flex items-center" style={{ gap: 8 }}>
-              {SOCIALS.map(({ Icon, href, bg, fg }) => (
-                <a key={href} href={href} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center" style={{ width: 20, height: 20, borderRadius: "50%", background: bg, color: fg, border: "1px solid #fff" }}>
-                  <Icon size={12} />
+              {SOCIALS.map(item => (
+                <a key={item.href} href={item.href} target="_blank" rel="noopener noreferrer" aria-label={item.label} className="flex items-center justify-center">
+                  <SocialCircle item={item} size={20} border={1} />
                 </a>
               ))}
             </div>
