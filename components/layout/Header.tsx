@@ -8,11 +8,11 @@ import { useLanguage } from "@/context/LanguageContext";
 import { useState } from "react";
 import { MenuGroups } from "./Sidebar";
 
-function Logo({ small }: { small?: boolean }) {
+function Logo({ small, compact }: { small?: boolean; compact?: boolean }) {
   return (
-    <Link href="/zh-my" className="flex items-center" style={{ width: small ? 140 : 200, height: small ? 40 : 50, justifyContent: small ? "center" : undefined }}>
+    <Link href="/zh-my" className="flex items-center" style={{ width: compact ? 124 : small ? 140 : 200, height: compact ? 34 : small ? 40 : 50, justifyContent: small ? "center" : undefined }}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/logo-h.png" alt="Logo" style={{ height: small ? 40 : 50, width: "auto", maxWidth: "none", objectFit: "contain" }} />
+      <img src="/logo-h.png" alt="Logo" style={{ height: compact ? 34 : small ? 40 : 50, width: "auto", maxWidth: "none", objectFit: "contain" }} />
     </Link>
   );
 }
@@ -146,7 +146,9 @@ export default function Header() {
         </button>
 
         <div className="only-desktop"><Logo /></div>
-        <div className="only-mobile" style={{ position: "absolute", left: "50%", top: "50%", transform: "translate(-50%, -50%)" }}><Logo small /></div>
+        {isLoggedIn
+          ? <div className="only-mobile items-center" style={{ marginLeft: 4 }}><Logo small compact /></div>
+          : <div className="only-mobile" style={{ position: "absolute", left: "50%", top: "50%", transform: "translate(-50%, -50%)" }}><Logo small /></div>}
 
         <div className="flex items-center header-right">
           {isLoggedIn && user ? (
