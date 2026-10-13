@@ -25,7 +25,7 @@ export const PROMOTIONS: Promotion[] = [
   { id: 8,  title: "幸运刮刮乐", tab: "MINI GAME", period: LONG, apply: false },
   { id: 9,  title: "幸运红包雨", tab: "MINI GAME", period: LONG, apply: false },
   { id: 10, title: "热门活动！ 每日免费领取20马币", tab: "免费奖金", period: P, apply: false },
-  { id: 11, title: "BO55 救援奖励 100%", tab: "日常活动", period: LONG, apply: false },
+  { id: 11, title: "TitanX 救援奖励 100%", tab: "日常活动", period: LONG, apply: false },
   { id: 12, title: "老虎机 300% 欢迎红利", tab: "新会员", period: LONG, apply: true },
   { id: 13, title: "真人娱乐场 55% 欢迎奖金", tab: "新会员", period: LONG, apply: true },
   { id: 14, title: "体育 55% 欢迎红利", tab: "运动", period: LONG, apply: true },

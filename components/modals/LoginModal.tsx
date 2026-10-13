@@ -136,7 +136,7 @@ export default function LoginModal() {
         <div className="flex flex-col items-center text-center" style={{ marginTop: 20, gap: 6 }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/logo.png" alt="Logo" style={{ height: 56, width: "auto", margin: "-8px 0" }} />
-          <div className="text-sm font-bold" style={{ color: "var(--text-primary)" }}>欢迎回到 BO55</div>
+          <div className="text-sm font-bold" style={{ color: "var(--text-primary)" }}>欢迎回到 TitanX</div>
           <p className="text-xs leading-relaxed" style={{ color: "var(--text-muted)" }}>
             业界领先安全技术，严格保护您的个人信息和资金安全。
           </p>

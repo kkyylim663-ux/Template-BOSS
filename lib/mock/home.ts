@@ -1,5 +1,5 @@
 export const RUNNING_TEXT =
-  "BO55 —— 简单、快捷、稳定，享受属于您的精彩娱乐时光。BO55 官方网站致力于为用户打造便捷、稳定、流畅的在线娱乐体验。平台提供便捷的账户服务与多元化娱乐内容，让用户能够轻松进入专属娱乐空间，享受更加顺畅的操作体验。";
+  "TitanX —— 简单、快捷、稳定，享受属于您的精彩娱乐时光。TitanX 官方网站致力于为用户打造便捷、稳定、流畅的在线娱乐体验。平台提供便捷的账户服务与多元化娱乐内容，让用户能够轻松进入专属娱乐空间，享受更加顺畅的操作体验。";
 
 export const BANNERS = [
   { title: "DAILY TURNOVER REBATE NOW LIVE", href: "/zh-my/promotion" },

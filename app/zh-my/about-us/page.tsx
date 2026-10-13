@@ -12,8 +12,8 @@ const boxes = [
 ];
 
 const article = [
-  ["关于我们", "这是一份为您量身定制的 BO55 “关于我们” (About Us) 的介绍。"],
-  ["欢迎来到 BO55：简单、快捷、稳定", "BO55 致力于为马来西亚玩家提供安全、公平、流畅的在线娱乐体验。"],
+  ["关于我们", "这是一份为您量身定制的 TitanX “关于我们” (About Us) 的介绍。"],
+  ["欢迎来到 TitanX：简单、快捷、稳定", "TitanX 致力于为马来西亚玩家提供安全、公平、流畅的在线娱乐体验。"],
   ["我们的使命", "以玩家为中心，提供丰富游戏、优质优惠与 24/7 专业客服。"],
   ["为什么选择我们", "持牌经营、独立认证、快速存取款，让每一位会员安心游戏。"],
 ];
@@ -33,7 +33,7 @@ export default function AboutUs() {
         ))}
       </div>
       <div className="flex flex-col" style={{ padding: "4px 8px", gap: 16 }}>
-        <span style={{ fontSize: 24, fontWeight: 600 }}>关于BO55</span>
+        <span style={{ fontSize: 24, fontWeight: 600 }}>关于TitanX</span>
         <div style={{ fontSize: 14 }}>
           {article.map(([h, p]) => (
             <div key={h}>

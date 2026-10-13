@@ -136,7 +136,7 @@ export default function RegisterModal() {
         {/* Register perks */}
         <div className="flex flex-col items-center text-center" style={{ marginTop: 20, gap: 8 }}>
           <h3 className="text-sm font-bold" style={{ color: "var(--text-primary)" }}>
-            立即注册 &amp; 解锁 BO55 专属福利
+            立即注册 &amp; 解锁 TitanX 专属福利
           </h3>
           {[
             "🎁 高达 299% 欢迎奖金",

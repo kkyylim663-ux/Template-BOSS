@@ -16,7 +16,7 @@ export default function AffiliatePage() {
     <div className="flex flex-col" style={{ gap: 16, marginBottom: 16 }}>
       <Ph radius={16} style={{ height: 306 }} iconSize={56}>
         <div className="absolute flex flex-col" style={{ left: 48, top: "50%", transform: "translateY(-50%)", gap: 12 }}>
-          <span style={{ fontSize: 28, fontWeight: 800, color: "#fff" }}>BO55 代理计划</span>
+          <span style={{ fontSize: 28, fontWeight: 800, color: "#fff" }}>TitanX 代理计划</span>
           <span style={{ fontSize: 16, color: "rgba(255,255,255,.8)" }}>高额被动收入，从今天开始</span>
           <div className="flex" style={{ gap: 10 }}>
             <button className="btn-dark" style={{ width: 96 }} onClick={openLogin}>登录</button>

@@ -17,7 +17,7 @@ export default function TncPage() {
     <div style={{ marginBottom: 16 }}>
       <PageBanner title="条款与条件" icon={FileText} />
       <div className="flex flex-col" style={{ padding: "4px 8px", gap: 16 }}>
-        <span style={{ fontSize: 24, fontWeight: 600 }}>BO55 — 使用条款与条件</span>
+        <span style={{ fontSize: 24, fontWeight: 600 }}>TitanX — 使用条款与条件</span>
         <div style={{ fontSize: 14 }}>
           <p style={{ fontWeight: 500 }}>最近更新日期：[18 November 2025]</p>
           {sections.map(([h, p]) => (

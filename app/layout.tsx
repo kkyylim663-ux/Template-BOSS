@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "BO55 马来西亚",
-  description: "BO55 – Simple, Fast, and Reliable",
+  title: "TitanX 马来西亚",
+  description: "TitanX – Simple, Fast, and Reliable",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
