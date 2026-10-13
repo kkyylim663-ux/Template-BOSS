@@ -39,6 +39,8 @@ export default function PromotionPage() {
         <div key={p.id} style={{ background: "var(--card)", marginBottom: 16 }}>
           <Ph style={{ aspectRatio: "1110 / 397" }} iconSize={40}>
             <span style={{ position: "absolute", bottom: 16, left: 16, fontSize: 22, fontWeight: 800, color: "rgba(255,255,255,.35)" }}>{p.title}</span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={`/promo/${p.id}.webp`} alt={p.title} loading="lazy" draggable={false} onError={e => { e.currentTarget.style.display = "none"; }} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
           </Ph>
           <div style={{ padding: "0 16px 16px" }}>
             <span className="block" style={{ fontSize: 18, fontWeight: 600, margin: "12px 0 8px" }}>{p.title}</span>
