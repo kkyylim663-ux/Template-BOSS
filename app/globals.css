@@ -84,8 +84,8 @@ input, select, textarea { font-family: inherit; }
 .header-right { gap: 16px; }
 .home-banner { aspect-ratio: 1110 / 277; }
 .home-banner-title { font-size: 28px; }
-.vip-big { width: 42%; }
-.vip-side { width: 33%; }
+.vip-big { width: 45.8%; }
+.vip-side { width: 36.7%; }
 
 @media (max-width: 1024px) {
   .app-footer { padding: 16px; border-radius: 0 !important; margin: 0 -8px; }
