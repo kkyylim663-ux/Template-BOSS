@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ImageIcon } from "lucide-react";
 import { BANNERS } from "@/lib/mock/home";
 
 export default function HomeBanner() {
@@ -20,11 +19,12 @@ export default function HomeBanner() {
             key={i}
             href={b.href}
             target={b.href.startsWith("http") ? "_blank" : undefined}
-            className="ph h-full flex-col"
-            style={{ flex: "0 0 100%", gap: 10, background: `linear-gradient(135deg, hsl(${230 + i * 12} 45% 22%), #0d1028)` }}
+            aria-label={b.title}
+            className="h-full block"
+            style={{ flex: "0 0 100%" }}
           >
-            <ImageIcon size={36} strokeWidth={1.4} />
-            <span className="home-banner-title" style={{ fontWeight: 800, color: "rgba(255,255,255,.5)", textAlign: "center", padding: "0 24px" }}>{b.title}</span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={`/banners/banner-${i + 1}.webp`} alt={b.title} draggable={false} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
           </Link>
         ))}
       </div>
