@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { Crown, ChevronLeft, ChevronRight, Wallet, TrendingUp, Gem, ArrowDownUp, Banknote, Percent, Sparkles } from "lucide-react";
 import { VIP_LEVELS } from "@/lib/mock/vip";
 import { Seg } from "@/components/ui/bo";
@@ -36,31 +36,32 @@ function HeaderDeco({ children }: { children: React.ReactNode }) {
   );
 }
 
+const LevelCard = memo(function LevelCard({ i, big }: { i: number; big?: boolean }) {
+  const l = VIP_LEVELS[(i + VIP_LEVELS.length) % VIP_LEVELS.length];
+  const n = ((i % VIP_LEVELS.length) + VIP_LEVELS.length) % VIP_LEVELS.length;
+  return (
+    <div className={`relative flex-shrink-0 ${big ? "vip-big" : "vip-side"}`} style={{
+      aspectRatio: "2 / 1", containerType: "inline-size",
+      opacity: big ? 1 : 0.55,
+    }}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={`/vip/vip-${n + 1}.webp`} alt="" draggable={false} onError={e => { e.currentTarget.parentElement!.style.background = `linear-gradient(135deg, ${LEVEL_TINTS[n]}, #0f1225)`; e.currentTarget.parentElement!.style.borderRadius = "12px"; e.currentTarget.style.display = "none"; }} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none" }} />
+      <span style={{ position: "absolute", left: "7%", top: "10%", fontSize: "7cqw", fontWeight: 800, fontStyle: "italic", textShadow: "0 2px 6px rgba(0,0,0,.7)" }}>{l.name}</span>
+      <div className="flex" style={{ position: "absolute", left: "7%", top: "56%", gap: "6cqw", textShadow: "0 1px 4px rgba(0,0,0,.8)" }}>
+        <div><div style={{ fontSize: "5cqw", fontWeight: 700 }}>0 / {short(l.turnoverReq)}</div><div style={{ fontSize: "4cqw" }}>流水要求</div></div>
+        <div><div style={{ fontSize: "5cqw", fontWeight: 700 }}>0 / {short(l.depositReq)}</div><div style={{ fontSize: "4cqw" }}>存款要求</div></div>
+      </div>
+    </div>
+  );
+});
+
 export default function VipPage() {
   const { user } = useAuth();
   const [idx, setIdx] = useState(0);
+  useEffect(() => { for (let n = 1; n <= VIP_LEVELS.length; n++) { const im = new Image(); im.src = `/vip/vip-${n}.webp`; } }, []);
   const [tab, setTab] = useState<"rebate" | "limit">("rebate");
   const lv = VIP_LEVELS[idx];
   const cur = user?.vipLevel ?? "PREMIUM";
-
-  const LevelCard = ({ i, big }: { i: number; big?: boolean }) => {
-    const l = VIP_LEVELS[(i + VIP_LEVELS.length) % VIP_LEVELS.length];
-    const n = ((i % VIP_LEVELS.length) + VIP_LEVELS.length) % VIP_LEVELS.length;
-    return (
-      <div className={`relative flex-shrink-0 ${big ? "vip-big" : "vip-side"}`} style={{
-        aspectRatio: "2 / 1", containerType: "inline-size",
-        opacity: big ? 1 : 0.55,
-      }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={`/vip/vip-${n + 1}.webp`} alt="" draggable={false} onError={e => { e.currentTarget.parentElement!.style.background = `linear-gradient(135deg, ${LEVEL_TINTS[n]}, #0f1225)`; e.currentTarget.parentElement!.style.borderRadius = "12px"; e.currentTarget.style.display = "none"; }} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none" }} />
-        <span style={{ position: "absolute", left: "7%", top: "10%", fontSize: "7cqw", fontWeight: 800, fontStyle: "italic", textShadow: "0 2px 6px rgba(0,0,0,.7)" }}>{l.name}</span>
-        <div className="flex" style={{ position: "absolute", left: "7%", top: "56%", gap: "6cqw", textShadow: "0 1px 4px rgba(0,0,0,.8)" }}>
-          <div><div style={{ fontSize: "5cqw", fontWeight: 700 }}>0 / {short(l.turnoverReq)}</div><div style={{ fontSize: "4cqw" }}>流水要求</div></div>
-          <div><div style={{ fontSize: "5cqw", fontWeight: 700 }}>0 / {short(l.depositReq)}</div><div style={{ fontSize: "4cqw" }}>存款要求</div></div>
-        </div>
-      </div>
-    );
-  };
 
   const Stat = ({ Icon, v, l }: { Icon: React.ElementType; v: string; l: string }) => (
     <div className="flex items-center" style={{ background: "var(--card)", borderRadius: 12, padding: 8, gap: 8 }}>
