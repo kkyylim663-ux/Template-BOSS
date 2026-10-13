@@ -77,9 +77,9 @@ export default function Footer() {
             <Title>关注我们</Title>
             <div className="flex items-center" style={{ gap: 8 }}>
               {SOCIALS.map(item => (
-                <a key={item.href} href={item.href} target="_blank" rel="noopener noreferrer" aria-label={item.label} className="flex items-center justify-center">
+                <div key={item.href} role="img" aria-label={item.label} className="flex items-center justify-center">
                   <SocialCircle item={item} size={20} />
-                </a>
+                </div>
               ))}
             </div>
           </div>
