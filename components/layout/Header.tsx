@@ -10,9 +10,9 @@ import { MenuGroups } from "./Sidebar";
 
 function Logo({ small }: { small?: boolean }) {
   return (
-    <Link href="/zh-my" className="flex items-center" style={{ width: small ? 140 : 200, height: small ? 40 : 50, justifyContent: small ? "center" : undefined }}>
+    <Link href="/zh-my" className="flex items-center" style={{ width: small ? 170 : 200, height: small ? 57 : 50, justifyContent: small ? "center" : undefined }}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/logo.png" alt="Logo" style={{ height: small ? 72 : 100, width: "auto", maxWidth: "none", marginLeft: small ? 0 : -24, objectFit: "contain" }} />
+      <img src="/logo-h.png" alt="Logo" style={{ height: small ? 48 : 50, width: "auto", maxWidth: "none", objectFit: "contain" }} />
     </Link>
   );
 }
