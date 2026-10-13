@@ -10,9 +10,9 @@ import { MenuGroups } from "./Sidebar";
 
 function Logo({ small }: { small?: boolean }) {
   return (
-    <Link href="/zh-my" className="flex items-center" style={{ width: small ? 84 : 200, height: small ? 40 : 50 }}>
+    <Link href="/zh-my" className="flex items-center" style={{ width: small ? 140 : 200, height: small ? 40 : 50, justifyContent: small ? "center" : undefined }}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/logo.png" alt="Logo" style={{ height: small ? 64 : 100, width: "auto", maxWidth: "none", marginLeft: small ? 0 : -24, objectFit: "contain" }} />
+      <img src="/logo.png" alt="Logo" style={{ height: small ? 72 : 100, width: "auto", maxWidth: "none", marginLeft: small ? 0 : -24, objectFit: "contain" }} />
     </Link>
   );
 }
@@ -146,7 +146,7 @@ export default function Header() {
         </button>
 
         <div className="only-desktop"><Logo /></div>
-        <div className="only-mobile"><Logo small /></div>
+        <div className="only-mobile" style={{ position: "absolute", left: "50%", top: "50%", transform: "translate(-50%, -50%)" }}><Logo small /></div>
 
         <div className="flex items-center header-right">
           {isLoggedIn && user ? (

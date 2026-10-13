@@ -98,17 +98,9 @@ input, select, textarea { font-family: inherit; }
   .qa-card { min-height: 80px !important; height: 80px; }
   .qa-icon { width: 40px !important; height: 40px !important; }
   .qa-sub { font-size: 12px !important; font-weight: 600 !important; line-height: 16px !important; }
-  .cat-item { width: 124px !important; height: 50px !important; padding: 0 !important; }
-  .cat-item > span { padding: 0 10px !important; gap: 6px !important; }
-  .cat-item > span > span:first-child { width: 28px !important; height: 28px !important; }
-  .cat-item > span > span:first-child svg { width: 24px; height: 24px; }
-  .cat-label { font-size: 12px !important; font-weight: 400 !important; line-height: 16px !important; }
   .marquee-bar { height: 33px !important; }
   .hot-sec { margin-top: 12px !important; }
   .home-banner { margin-top: 12px; border-radius: 8px !important; }
-  .cat-row { height: 50px !important; }
-  .cat-scroll { gap: 8px !important; }
-  .cat-item { width: 120px !important; }
   .ev-card { width: 109px !important; height: 145px !important; }
   .ev-ribbon { font-size: 11px !important; font-weight: 400 !important; }
   .mt-sec { padding: 12px 8px !important; }
@@ -128,7 +120,14 @@ input, select, textarea { font-family: inherit; }
   .prov-row > a { width: 120px !important; height: 160px !important; }
   .sec-title { font-size: 16px !important; }
   .cat-arrow { display: none !important; }
-  .cat-scroll { padding: 0 !important; }
+  .cat-wrap { margin-top: 12px; padding: 12px 0; }
+  .cat-row { height: 50px !important; }
+  .cat-scroll { gap: 8px !important; padding: 0 !important; }
+  .cat-card { width: 120px !important; height: 50px !important; }
+  .cat-shape { left: 26px !important; border-radius: 10px !important; }
+  .cat-ico { width: 44px !important; height: 44px !important; left: -2px !important; top: 3px !important; }
+  .cat-ico svg { width: 24px !important; height: 24px !important; }
+  .cat-label { left: 52px !important; right: 6px !important; font-size: 12px !important; line-height: 14px !important; }
   .mt-team { font-weight: 600 !important; }
   .mt-league { font-weight: 400 !important; }
   .mt-date { font-size: 12px !important; }
@@ -173,6 +172,44 @@ input, select, textarea { font-family: inherit; }
 }
 .fab-img.on { opacity: 1; transform: scale(1) rotate(0deg); }
 @media (prefers-reduced-motion: reduce) { .fab-float, .fab-img { animation: none; } }
+
+/* category strip: slanted dark plate, icon bursts out of its left edge */
+.cat-wrap { margin-top: 12px; padding: 12px 0; }
+.cat-scroll { gap: 12px; padding: 0 12px; align-items: center; }
+.cat-arrow { width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0; }
+.cat-card {
+  position: relative; flex: 0 0 auto; width: 196px; height: 70px; display: block;
+  transition: transform .25s;
+}
+.cat-shape {
+  position: absolute; left: 44px; right: 0; top: 4px; bottom: 4px;
+  border-radius: 16px; transform: skewX(-9deg);
+  background: linear-gradient(90deg, rgba(57,59,86,.62), rgba(57,59,86,.2));
+  border: 1px solid rgba(255,255,255,.06);
+  overflow: hidden; transition: background .25s, box-shadow .25s;
+}
+.cat-shape::after {
+  content: ""; position: absolute; top: 0; bottom: 0; width: 40%; left: -60%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,.22), transparent);
+  transition: left .6s;
+}
+.cat-ico {
+  position: absolute; left: 0; top: -4px; width: 78px; height: 78px; display: flex; align-items: center; justify-content: center;
+  color: var(--gold); transition: transform .3s cubic-bezier(.2,1.4,.4,1);
+}
+.cat-ico img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 4px 6px rgba(0,0,0,.45)); }
+.cat-label {
+  position: absolute; left: 88px; right: 14px; top: 50%; transform: translateY(-50%);
+  font-size: 16px; font-weight: 500; line-height: 20px; color: #fff; text-align: left;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.cat-card:hover .cat-shape, .cat-card.active .cat-shape {
+  background: linear-gradient(90deg, rgba(150,140,205,.6), rgba(110,105,170,.28));
+  box-shadow: 0 6px 18px rgba(120,110,200,.28);
+}
+.cat-card:hover .cat-shape::after { left: 120%; }
+.cat-card:hover .cat-ico { transform: translateY(-4px) scale(1.08) rotate(-4deg); }
+.cat-card:hover { transform: translateY(-1px); }
 
 /* ═════════ Surfaces ═════════ */
 .bo-card { background: var(--card); }

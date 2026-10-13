@@ -3,7 +3,7 @@ import SocialBar from "@/components/home/SocialBar";
 import HomeBanner from "@/components/home/HomeBanner";
 import MobileAuthButtons from "@/components/home/MobileAuthButtons";
 import QuickAccessCards from "@/components/home/QuickAccessCards";
-import CategorySlider from "@/components/home/CategorySlider";
+import Categories from "@/components/home/Categories";
 import HotEventsSection from "@/components/home/HotEventsSection";
 import UpcomingMatches from "@/components/home/UpcomingMatches";
 import ProviderSections from "@/components/home/ProviderSections";
@@ -20,7 +20,7 @@ export default function HomePage() {
       <HomeBanner />
       <MobileAuthButtons />
       <QuickAccessCards />
-      <CategorySlider />
+      <Categories />
       <HotEventsSection />
       <UpcomingMatches />
       <ProviderSections />
