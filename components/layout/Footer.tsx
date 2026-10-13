@@ -2,19 +2,19 @@
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { Facebook, Instagram, Send, MessageCircle, Music2, ShieldCheck, BadgeCheck, Lock, Fingerprint, HeartHandshake, Ban, CreditCard } from "lucide-react";
-import { SEO_HEADINGS } from "@/lib/mock/home";
+import { SEO_CONTENT, type SeoContent } from "@/lib/mock/seo";
 import { GAME_PROVIDERS } from "@/lib/mock/games";
 
-function SeoArticle() {
+function SeoArticle({ content }: { content: SeoContent }) {
   const [open, setOpen] = useState(false);
   return (
     <div style={{ padding: "4px 8px", marginBottom: 8 }}>
       <div style={{ maxHeight: open ? "none" : 100, overflow: "hidden", position: "relative", fontSize: 14 }}>
-        <h1 style={{ fontSize: 21, fontWeight: 600, margin: "12px 0" }}>BO55 官方网站 马来西亚 2026 最新入口</h1>
+        <h1 style={{ fontSize: 21, fontWeight: 600, margin: "12px 0" }}>{content.h1}</h1>
         <p style={{ fontSize: 14, fontWeight: 500, margin: "12px 0" }}>
-          BO55 是面向马来西亚玩家的在线游戏平台之一，为会员提供多元化的在线娱乐体验。通过 BO55 官方网站，玩家可以轻松进入游戏、查看优惠活动并管理个人账户。
+          {content.intro}
         </p>
-        {SEO_HEADINGS.map(s => (
+        {content.sections.map(s => (
           <div key={s.h}>
             <h2 style={{ fontSize: 21, fontWeight: 600, margin: "12px 0" }}>{s.h}</h2>
             <p style={{ fontSize: 14, fontWeight: 500, margin: "12px 0" }}>{s.p}</p>
@@ -52,12 +52,13 @@ const socials = [
 
 export default function Footer() {
   const pathname = usePathname();
-  const showSeo = pathname === "/zh-my";
+  const seoKey = pathname.replace(/^\/zh-my\/?/, "").split("/")[0];
+  const seoContent = SEO_CONTENT[seoKey];
   const providers = Object.values(GAME_PROVIDERS).flat().map(p => p.name);
 
   return (
     <div style={{ marginTop: 16 }}>
-      {showSeo && <SeoArticle />}
+      {seoContent && <SeoArticle content={seoContent} />}
       <footer className="app-footer" style={{ background: "var(--card)", borderRadius: 20 }}>
         <div className="grid grid-cols-1 lg:grid-cols-3" style={{ marginBottom: 24, rowGap: 24 }}>
           <div>
