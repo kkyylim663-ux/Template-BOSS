@@ -48,8 +48,8 @@ export default function VipPage() {
       }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={`/vip/vip-${n + 1}.webp`} alt="" draggable={false} onError={e => { e.currentTarget.style.display = "none"; }} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none" }} />
-        <span style={{ position: "absolute", left: "6%", top: "9%", fontSize: "7cqw", fontWeight: 800, fontStyle: "italic", textShadow: "0 2px 6px rgba(0,0,0,.7)" }}>{l.name}</span>
-        <div className="flex" style={{ position: "absolute", left: "6%", top: "60%", gap: "7cqw", textShadow: "0 1px 4px rgba(0,0,0,.8)" }}>
+        <span style={{ position: "absolute", left: "7%", top: "10%", fontSize: "7cqw", fontWeight: 800, fontStyle: "italic", textShadow: "0 2px 6px rgba(0,0,0,.7)" }}>{l.name}</span>
+        <div className="flex" style={{ position: "absolute", left: "7%", top: "56%", gap: "7cqw", textShadow: "0 1px 4px rgba(0,0,0,.8)" }}>
           <div><div style={{ fontSize: "5.4cqw", fontWeight: 700 }}>0 / {fmt(l.turnoverReq)}</div><div style={{ fontSize: "4.2cqw" }}>流水要求</div></div>
           <div><div style={{ fontSize: "5.4cqw", fontWeight: 700 }}>0 / {fmt(l.depositReq)}</div><div style={{ fontSize: "4.2cqw" }}>存款要求</div></div>
         </div>
