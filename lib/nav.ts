@@ -23,8 +23,8 @@ export const sidebarGroups: NavGroup[] = [
     items: [
       { label: "首页",     href: "/zh-my",                  icon: Home },
       { label: "促销",     href: "/zh-my/promotion",         icon: Tag },
-      { label: "VIP",      href: "/zh-my/vip",               icon: Crown,   requireAuth: true },
-      { label: "奖励",     href: "/zh-my/reward",            icon: Gift,    requireAuth: true },
+      { label: "VIP",      href: "/zh-my/vip",               icon: Crown, },
+      { label: "奖励",     href: "/zh-my/reward",            icon: Gift, },
       { label: "任务",     href: "/zh-my/mission",           icon: Target,  requireAuth: true },
       { label: "比赛",     href: "/zh-my/tournament",        icon: Trophy },
       { label: "推荐",     href: "/zh-my/account/referral",  icon: Users,   requireAuth: true },

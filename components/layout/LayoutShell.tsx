@@ -4,6 +4,7 @@ import Sidebar from "./Sidebar";
 import LiveFeed from "./LiveFeed";
 import Footer from "./Footer";
 import MobileNav from "./MobileNav";
+import NavProgress from "./NavProgress";
 import LoginModal from "@/components/modals/LoginModal";
 import RegisterModal from "@/components/modals/RegisterModal";
 import AnnouncementModal from "@/components/modals/AnnouncementModal";
@@ -26,6 +27,7 @@ export default function LayoutShell({ children }: { children: React.ReactNode })
 
   return (
     <>
+      <NavProgress />
       <Header />
       <Sidebar />
       <SideSocial />
