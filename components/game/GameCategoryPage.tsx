@@ -2,7 +2,7 @@
 import { Suspense, useState } from "react";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { LayoutGrid, ChevronLeft, ChevronRight, Search, ImageIcon, User, type LucideIcon } from "lucide-react";
-import { GAME_PROVIDERS } from "@/lib/mock/games";
+import { GAME_PROVIDERS, CARD_COUNT, SLOT_GAMES, TAB_ICON_KEYS } from "@/lib/mock/games";
 import { SectionTitle, useScroller } from "@/components/ui/bo";
 import { ProviderCard } from "@/components/home/ProviderSections";
 import { sidebarGroups } from "@/lib/nav";
@@ -12,14 +12,20 @@ interface Props {
   empty?: boolean;
 }
 
-function GameCard({ i }: { i: number }) {
+const HOT_SLOT = new Set([0, 1, 2, 3, 4, 7]);
+
+function GameCard({ i, src, name, n }: { i: number; src?: string; name?: string; n?: number }) {
   const [hover, setHover] = useState(false);
   return (
     <div style={{ padding: "4px 0" }} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
       <div className="relative" style={{ aspectRatio: "1 / 1", borderRadius: 16, overflow: "hidden" }}>
         <div className="ph w-full h-full"><ImageIcon size={28} strokeWidth={1.4} /></div>
+        {src && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={src} alt={name} loading="lazy" draggable={false} onError={e => { e.currentTarget.style.display = "none"; }} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+        )}
         <span className="absolute flex items-center" style={{ top: 8, left: 8, height: 22, borderRadius: 20, padding: "4px 8px", gap: 2, background: "rgba(0,0,0,.5)", fontSize: 12, fontWeight: 600 }}>
-          <User size={12} /> {40 + i * 7}
+          <User size={12} /> {n ?? 40 + i * 7}
         </span>
         {hover && (
           <div className="absolute inset-0 flex flex-col items-center justify-center" style={{ gap: 8, background: "rgba(9,12,30,.7)" }}>
@@ -28,7 +34,7 @@ function GameCard({ i }: { i: number }) {
           </div>
         )}
       </div>
-      <span className="block truncate" style={{ fontSize: 12, fontWeight: 600, padding: "4px 8px 0" }}>占位游戏 {i + 1}</span>
+      <span className="block truncate" style={{ fontSize: 12, fontWeight: 600, padding: "4px 8px 0" }}>{name ?? `占位游戏 ${i + 1}`}</span>
     </div>
   );
 }
@@ -72,8 +78,10 @@ function Inner({ category, empty }: Props) {
           <div ref={ref} className="scroll-x flex flex-1" style={{ padding: "0 12px", gap: 12 }}>
             <button style={tile(!active)} onClick={() => pick(null)} title="全部"><LayoutGrid size={24} /></button>
             {providers.map(p => (
-              <button key={p.key} style={tile(active === p.key)} onClick={() => pick(p.key)} title={p.name}>
-                <span style={{ fontSize: 9, fontWeight: 700, lineHeight: "11px", textAlign: "center", color: "rgba(255,255,255,.7)", overflow: "hidden", maxHeight: 34 }}>{p.name}</span>
+              <button key={p.key} className="relative" style={tile(active === p.key)} onClick={() => pick(p.key)} title={p.name}>
+                {!TAB_ICON_KEYS.has(p.key) && <span style={{ fontSize: 9, fontWeight: 700, lineHeight: "11px", textAlign: "center", color: "rgba(255,255,255,.7)", overflow: "hidden", maxHeight: 34 }}>{p.name}</span>}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                {TAB_ICON_KEYS.has(p.key) && <img src={`/games/tabs/${p.key}.webp`} alt={p.name} loading="lazy" draggable={false} onError={e => { e.currentTarget.style.display = "none"; }} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain", padding: 4, borderRadius: 8 }} />}
               </button>
             ))}
           </div>
@@ -99,11 +107,14 @@ function Inner({ category, empty }: Props) {
       )}
 
       <div className="grid grid-cols-3 lg:grid-cols-6" style={{ gap: 10, marginBottom: 16 }}>
-        {active
-          ? [0, 1].map(i => <GameCard key={i} i={i} />)
-          : providers.slice(0, 2).map(p => (
-              <ProviderCard key={p.key} name={p.name} href={`${pathname}?provider=${p.key}`} w="100%" h="auto" />
-            ))}
+        {category === "slot" && active
+          ? SLOT_GAMES.slice(0, 12).map((g, i) => <GameCard key={i} i={i} src={`/games/slot/${i}.webp`} name={g.name} n={g.n} />)
+          : active
+            ? [0, 1].map(i => <GameCard key={i} i={i} />)
+            : Array.from({ length: CARD_COUNT[category] ?? providers.length }, (_, i) => {
+                const p = providers[i];
+                return <ProviderCard key={i} name={p?.name ?? ""} href={p ? `${pathname}?provider=${p.key}` : pathname} art={`/games/cards/${category}-${i}.webp`} hot={category === "slot" ? HOT_SLOT.has(i) : false} w="100%" h="auto" />;
+              })}
       </div>
     </div>
   );

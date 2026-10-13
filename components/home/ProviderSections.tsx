@@ -6,7 +6,7 @@ import { CtrlPair, SectionTitle, useScroller } from "@/components/ui/bo";
 
 const ICONS = [Gamepad2, Tv2, Trophy, Fish, Ticket, Rocket, Joystick, Spade, CircleDot];
 
-export function ProviderCard({ name, href, art, w = 180, h = 240 }: { name: string; href: string; art?: number; w?: number | string; h?: number | string }) {
+export function ProviderCard({ name, href, art, hot, w = 180, h = 240 }: { name: string; href: string; art?: number | string; hot?: boolean; w?: number | string; h?: number | string }) {
   return (
     <Link href={href} className="relative flex-shrink-0 block" style={{ width: w, height: h === "auto" ? undefined : h, aspectRatio: h === "auto" ? "3 / 4" : undefined }}>
       <span className="ph flex-col" style={{ width: "100%", height: "100%", borderRadius: 16, gap: 8 }}>
@@ -14,12 +14,18 @@ export function ProviderCard({ name, href, art, w = 180, h = 240 }: { name: stri
         <span style={{ fontSize: 14, fontWeight: 700, color: "rgba(255,255,255,.5)", textAlign: "center", padding: "0 10px" }}>{name}</span>
         {art !== undefined && (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={`/games/home/${art}.webp`} alt={name} loading="lazy" draggable={false} onError={e => { e.currentTarget.style.display = "none"; }} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", borderRadius: 16 }} />
+          <img src={typeof art === "string" ? art : `/games/home/${art}.webp`} alt={name} loading="lazy" draggable={false} onError={e => { e.currentTarget.style.display = "none"; }} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", borderRadius: 16 }} />
         )}
       </span>
-      <span className="absolute flex items-center justify-center" style={{ top: 6, right: 6, width: 36, height: 36, borderRadius: "50%", background: "rgba(245,78,81,.9)" }}>
-        <Flame size={18} />
-      </span>
+      {hot === undefined ? (
+        <span className="absolute flex items-center justify-center" style={{ top: 6, right: 6, width: 36, height: 36, borderRadius: "50%", background: "rgba(245,78,81,.9)" }}>
+          <Flame size={18} />
+        </span>
+      ) : hot ? (
+        <span className="absolute" style={{ top: 0, left: 0, width: 64, height: 64, overflow: "hidden", borderRadius: "16px 0 0 0", pointerEvents: "none" }}>
+          <span style={{ position: "absolute", top: 11, left: -22, width: 90, textAlign: "center", transform: "rotate(-45deg)", background: "linear-gradient(180deg,#ff5a5f,#d9232d)", color: "#fff", fontSize: 11, fontWeight: 800, lineHeight: "15px", boxShadow: "0 1px 3px rgba(0,0,0,.5)" }}>HOT</span>
+        </span>
+      ) : null}
     </Link>
   );
 }
