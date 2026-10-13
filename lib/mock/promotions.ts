@@ -1,6 +1,6 @@
 export const PROMO_TABS = [
   "全部", "日常活动", "新会员", "运动", "VIP 福利", "现场游戏", "邀请奖励",
-  "Daily Mission", "免费奖金", "Special Bonus", "SLOT", "MINI GAME", "到期",
+  "Daily Mission", "免费奖金", "SLOT", "MINI GAME", "到期",
 ] as const;
 
 export interface Promotion {
@@ -39,5 +39,4 @@ export const PROMOTIONS: Promotion[] = [
   { id: 22, title: "百家乐憾负补偿", tab: "现场游戏", period: P, apply: false },
   { id: 23, title: "百家连胜挑战赛", tab: "现场游戏", period: P, apply: false },
   { id: 24, title: "足球赛事连胜奖励", tab: "运动", period: P, apply: false },
-  { id: 25, title: "PRAGMATIC SLOT SCATTER POINTS REWARD", tab: "Special Bonus", period: P, apply: false },
 ];
