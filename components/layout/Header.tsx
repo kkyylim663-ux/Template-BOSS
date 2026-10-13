@@ -11,12 +11,8 @@ import { MenuGroups } from "./Sidebar";
 function Logo({ small }: { small?: boolean }) {
   return (
     <Link href="/zh-my" className="flex items-center" style={{ width: small ? 84 : 200, height: small ? 40 : 50 }}>
-      <span style={{
-        fontSize: small ? 22 : 34, fontWeight: 900, fontStyle: "italic", letterSpacing: -1,
-        background: "linear-gradient(180deg,#ffe08a,#ffad00 60%,#c97a00)", WebkitBackgroundClip: "text", color: "transparent",
-      }}>
-        BO55
-      </span>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src="/logo.png" alt="Logo" style={{ height: small ? 64 : 100, width: "auto", maxWidth: "none", marginLeft: small ? -14 : -24, objectFit: "contain" }} />
     </Link>
   );
 }

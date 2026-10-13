@@ -34,7 +34,8 @@ export default function LoginModal() {
         </button>
 
         <div className="flex justify-center" style={{ marginBottom: 16 }}>
-          <span style={{ fontSize: 22, fontWeight: 800, color: "#fff", letterSpacing: 1 }}>BO55</span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo.png" alt="Logo" style={{ height: 72, width: "auto", margin: "-10px 0" }} />
         </div>
 
         {/* Promo banner */}
@@ -133,7 +134,8 @@ export default function LoginModal() {
 
         {/* Welcome blurb */}
         <div className="flex flex-col items-center text-center" style={{ marginTop: 20, gap: 6 }}>
-          <span style={{ fontSize: 16, fontWeight: 800, color: "var(--gold)" }}>BO55</span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo.png" alt="Logo" style={{ height: 56, width: "auto", margin: "-8px 0" }} />
           <div className="text-sm font-bold" style={{ color: "var(--text-primary)" }}>欢迎回到 BO55</div>
           <p className="text-xs leading-relaxed" style={{ color: "var(--text-muted)" }}>
             业界领先安全技术，严格保护您的个人信息和资金安全。

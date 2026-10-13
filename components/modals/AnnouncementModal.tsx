@@ -44,7 +44,8 @@ export default function AnnouncementModal() {
 
         <div style={{ background: "linear-gradient(180deg,#14183a 0%,#0b0e22 100%)", border: "1px solid rgba(255,173,0,.35)", borderRadius: 20, padding: "20px 16px 18px", boxShadow: "0 0 40px rgba(255,140,0,.25)" }}>
           <div className="text-center" style={{ marginBottom: 12 }}>
-            <div style={{ fontSize: 26, fontWeight: 900, fontStyle: "italic", letterSpacing: 1 }}>BO55</div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo.png" alt="Logo" style={{ height: 84, width: "auto", margin: "-14px auto -10px" }} />
             <div style={{ fontSize: 30, fontWeight: 900, lineHeight: 1.05, color: "#fff" }}>
               REWARDS <span style={{ color: "var(--gold)" }}>UPDATE</span>
             </div>

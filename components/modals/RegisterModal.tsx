@@ -45,7 +45,8 @@ export default function RegisterModal() {
         </button>
 
         <div className="flex justify-center" style={{ marginBottom: 16 }}>
-          <span style={{ fontSize: 22, fontWeight: 800, color: "#fff", letterSpacing: 1 }}>BO55</span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo.png" alt="Logo" style={{ height: 72, width: "auto", margin: "-10px 0" }} />
         </div>
 
         {/* Promo banner */}
