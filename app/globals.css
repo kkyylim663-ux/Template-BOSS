@@ -116,6 +116,9 @@ input, select, textarea { font-family: inherit; }
 .sec-title { display: flex; align-items: center; gap: 4px; height: 30px; font-size: 20px; font-weight: 600; color: #fff; white-space: nowrap; }
 .sec-title svg { width: 24px; height: 24px; color: var(--gold); flex-shrink: 0; margin: 2px; }
 
+.social-btn { transition: background .2s, transform .2s; }
+.social-btn:hover { background: var(--solid) !important; transform: translateY(-1px); }
+
 /* paired carousel buttons */
 .ctrl-pair { display: flex; gap: 8px; }
 .ctrl-btn {

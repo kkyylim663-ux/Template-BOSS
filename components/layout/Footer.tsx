@@ -1,7 +1,8 @@
 "use client";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { Facebook, Instagram, Send, MessageCircle, Music2, ShieldCheck, BadgeCheck, Lock, Fingerprint, HeartHandshake, Ban, CreditCard } from "lucide-react";
+import { SOCIALS } from "@/components/ui/SocialIcons";
+import { ShieldCheck, BadgeCheck, Lock, Fingerprint, HeartHandshake, Ban, CreditCard } from "lucide-react";
 import { SEO_CONTENT, type SeoContent } from "@/lib/mock/seo";
 import { GAME_PROVIDERS } from "@/lib/mock/games";
 
@@ -42,13 +43,6 @@ const Logo = ({ w = 20, label, Icon }: { w?: number; label?: string; Icon?: Reac
   </span>
 );
 
-const socials = [
-  { Icon: Facebook, href: "https://www.facebook.com/BO55official" },
-  { Icon: Instagram, href: "https://www.instagram.com/bo55_official" },
-  { Icon: Music2, href: "https://www.tiktok.com/@bo55official" },
-  { Icon: MessageCircle, href: "https://wa.me/" },
-  { Icon: Send, href: "https://t.me/BO55VIP" },
-];
 
 export default function Footer() {
   const pathname = usePathname();
@@ -82,8 +76,8 @@ export default function Footer() {
           <div>
             <Title>关注我们</Title>
             <div className="flex items-center" style={{ gap: 8 }}>
-              {socials.map(({ Icon, href }) => (
-                <a key={href} href={href} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center" style={{ width: 20, height: 20, borderRadius: "50%", background: "var(--solid)" }}>
+              {SOCIALS.map(({ Icon, href, bg, fg }) => (
+                <a key={href} href={href} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center" style={{ width: 20, height: 20, borderRadius: "50%", background: bg, color: fg }}>
                   <Icon size={12} />
                 </a>
               ))}

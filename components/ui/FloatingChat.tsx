@@ -1,24 +1,19 @@
 "use client";
 import Link from "next/link";
-import { MessageCircle, X, Facebook, Instagram, Send, Music2, ChevronRight, ChevronLeft, Ticket, Mail, Disc3, Target } from "lucide-react";
+import { SOCIALS } from "@/components/ui/SocialIcons";
+import { MessageCircle, X, ChevronRight, ChevronLeft, Ticket, Mail, Disc3, Target } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 export function SideSocial() {
   const [open, setOpen] = useState(false);
-  const links = [
-    { Icon: Facebook, href: "https://www.facebook.com/BO55official" },
-    { Icon: Instagram, href: "https://www.instagram.com/bo55_official" },
-    { Icon: Music2, href: "https://www.tiktok.com/@bo55official" },
-    { Icon: MessageCircle, href: "https://wa.me/" },
-    { Icon: Send, href: "https://t.me/BO55VIP" },
-  ];
+  const links = SOCIALS;
   return (
     <div className="side-social fixed z-[55] flex items-center" style={{ left: 0, top: "40%", transform: `translateX(${open ? 0 : -64}px)`, transition: "transform .25s" }}>
       <div className="flex flex-col" style={{ background: "var(--bg)", borderRadius: "0 12px 12px 0", padding: 12, gap: 12, border: "0.8px solid var(--solid)", borderLeft: 0 }}>
-        {links.map(({ Icon, href }) => (
-          <a key={href} href={href} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center" style={{ width: 40, height: 40, borderRadius: "50%", background: "var(--solid)" }}>
-            <Icon size={18} />
+        {links.map(({ Icon, href, bg, fg }) => (
+          <a key={href} href={href} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center" style={{ width: 40, height: 40, borderRadius: "50%", background: bg, color: fg }}>
+            <Icon size={20} />
           </a>
         ))}
       </div>
