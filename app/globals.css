@@ -140,7 +140,7 @@ input, select, textarea { font-family: inherit; }
   .only-desktop { display: none !important; }
   .only-mobile { display: flex !important; }
   .chat-fab { bottom: calc(var(--mobilenav-h) + 14px) !important; }
-  .gift-fab { bottom: calc(var(--mobilenav-h) + 114px) !important; }
+  .gift-fab { bottom: calc(var(--mobilenav-h) + 100px) !important; }
 }
 
 .mt-team { font-size: 12px; font-weight: 700; }
@@ -155,6 +155,24 @@ input, select, textarea { font-family: inherit; }
 .qa-img { animation: qa-float 3.2s ease-in-out infinite; transform-origin: 50% 70%; }
 .qa-card:hover .qa-img { animation-duration: 1.2s; }
 @media (prefers-reduced-motion: reduce) { .qa-img { animation: none; } }
+
+@keyframes fab-bob {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-5px) rotate(-3deg); }
+  75% { transform: translateY(-3px) rotate(3deg); }
+}
+@keyframes fab-glow {
+  0%, 100% { filter: drop-shadow(0 3px 6px rgba(0,0,0,.4)); }
+  50% { filter: drop-shadow(0 4px 14px rgba(255,200,80,.75)); }
+}
+.fab-float { animation: fab-bob 2.6s ease-in-out infinite; }
+.fab-img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain;
+  opacity: 0; transform: scale(.55) rotate(-12deg); transition: opacity .35s, transform .45s cubic-bezier(.2,1.4,.4,1);
+  pointer-events: none; animation: fab-glow 2.2s ease-in-out infinite;
+}
+.fab-img.on { opacity: 1; transform: scale(1) rotate(0deg); }
+@media (prefers-reduced-motion: reduce) { .fab-float, .fab-img { animation: none; } }
 
 /* ═════════ Surfaces ═════════ */
 .bo-card { background: var(--card); }
