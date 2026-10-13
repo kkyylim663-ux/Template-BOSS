@@ -39,16 +39,38 @@ export default function RegisterModal() {
 
   return (
     <div className="modal-backdrop" onClick={e => { if (e.target === e.currentTarget) closeModal(); }}>
-      <div className="modal-box" style={{ maxWidth: 820, display: "flex", overflow: "hidden" }}>
-        {/* Left */}
-        <div className="flex-1 p-8">
-          {/* Tabs */}
-          <div className="flex mb-6 border-b" style={{ borderColor: "var(--border-main)" }}>
-            <button className="px-4 pb-3 text-sm" style={{ color: "var(--text-muted)" }}
-              onClick={() => { closeModal(); setTimeout(openLogin, 100); }}>登录</button>
-            <button className="px-4 pb-3 text-sm font-semibold"
-              style={{ color: "var(--gold)", borderBottom: "2px solid var(--gold)" }}>注册</button>
-          </div>
+      <div className="modal-box" style={{ maxWidth: 420, padding: 24 }}>
+        <button className="absolute top-4 right-4 btn-ghost" onClick={closeModal}>
+          <X size={18} />
+        </button>
+
+        <div className="flex justify-center" style={{ marginBottom: 16 }}>
+          <span style={{ fontSize: 22, fontWeight: 800, color: "#fff", letterSpacing: 1 }}>BO55</span>
+        </div>
+
+        {/* Promo banner */}
+        <div
+          className="flex flex-col justify-end"
+          style={{ aspectRatio: "343 / 150", borderRadius: 12, padding: 16, marginBottom: 16, background: "linear-gradient(135deg, #1a1050 0%, #0b0e1e 100%)" }}
+        >
+          <div style={{ fontSize: 18, fontWeight: 800, color: "#fff" }}>LET&apos;S MAKE YOU RICH</div>
+          <div style={{ fontSize: 12, color: "var(--text-muted)" }}>Rise higher. Win bigger.</div>
+        </div>
+
+        {/* Tabs */}
+        <div className="flex items-center justify-center" style={{ gap: 16, marginBottom: 20 }}>
+          <button
+            className="text-sm"
+            style={{ color: "var(--text-muted)", paddingBottom: 6 }}
+            onClick={() => { closeModal(); setTimeout(openLogin, 100); }}
+          >
+            登录
+          </button>
+          <span style={{ color: "var(--border-main)" }}>|</span>
+          <button className="text-sm font-semibold" style={{ color: "var(--gold)", paddingBottom: 6, borderBottom: "2px solid var(--gold)" }}>
+            注册
+          </button>
+        </div>
 
           <form onSubmit={handleSubmit} className="space-y-3">
             <div className="form-field">
@@ -109,22 +131,12 @@ export default function RegisterModal() {
               {loading ? "注册中..." : "提交"}
             </button>
           </form>
-        </div>
 
-        {/* Right promo */}
-        <div
-          className="hidden sm:flex flex-col justify-center items-center p-8 w-72 text-center"
-          style={{ background: "linear-gradient(135deg, #1a1050 0%, #0b0e1e 100%)" }}
-        >
-          <h3 className="text-lg font-bold mb-3" style={{ color: "var(--text-primary)" }}>
-            立即注册 &amp; 解锁
+        {/* Register perks */}
+        <div className="flex flex-col items-center text-center" style={{ marginTop: 20, gap: 8 }}>
+          <h3 className="text-sm font-bold" style={{ color: "var(--text-primary)" }}>
+            立即注册 &amp; 解锁 BO55 专属福利
           </h3>
-          <div
-            className="text-2xl font-black mb-2"
-            style={{ color: "var(--gold)" }}
-          >
-            BO55 专属福利
-          </div>
           {[
             "🎁 高达 299% 欢迎奖金",
             "💰 每日存款返水",
@@ -133,17 +145,13 @@ export default function RegisterModal() {
           ].map(b => (
             <div
               key={b}
-              className="w-full text-left px-3 py-2 rounded-lg mb-2 text-xs"
+              className="w-full text-left px-3 py-2 rounded-lg text-xs"
               style={{ background: "rgba(240,168,25,0.1)", color: "var(--text-primary)", border: "1px solid rgba(240,168,25,0.2)" }}
             >
               {b}
             </div>
           ))}
         </div>
-
-        <button className="absolute top-4 right-4 btn-ghost" onClick={closeModal}>
-          <X size={18} />
-        </button>
       </div>
     </div>
   );
