@@ -312,3 +312,38 @@ input, select, textarea { font-family: inherit; }
   background: var(--bg); border: 1px solid var(--solid); border-radius: 16px;
   width: 100%; max-width: 460px; max-height: 90dvh; overflow-y: auto; position: relative;
 }
+
+/* ---- jackpot banner readout ---- */
+.jp-title {
+  position: absolute; left: 0; right: 0; top: 9%; text-align: center;
+  font-size: clamp(16px, 4cqw, 44px); font-weight: 900; font-style: italic; letter-spacing: .02em; line-height: 1;
+  background: linear-gradient(180deg, #fff2b8 0%, #ffc233 48%, #ff8a00 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 2px 0 rgba(90,40,0,.9)) drop-shadow(0 0 10px rgba(255,170,0,.45));
+}
+.jp-bulbs {
+  position: absolute; left: 21%; right: 21%; top: 36%; bottom: 12%;
+  border-radius: 18px; padding: 6px;
+  background:
+    radial-gradient(circle, #e9f1ff 0 28%, transparent 32%) 0 0 / 14px 14px,
+    linear-gradient(180deg, #2a46a8, #16257a);
+  box-shadow: 0 0 22px rgba(90,140,255,.55), inset 0 0 0 2px rgba(150,190,255,.5);
+}
+.jp-screen {
+  width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+  border-radius: 12px; background: linear-gradient(180deg, #0a1240, #0d1b5e);
+  box-shadow: inset 0 0 16px rgba(0,0,0,.65);
+}
+.jp-led {
+  font-size: clamp(18px, 4.4cqw, 48px); font-weight: 800; letter-spacing: .02em; white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  /* dot-matrix look: a dot grid clipped to the glyphs */
+  background: radial-gradient(circle, #ffffff 0 52%, rgba(190,215,255,.25) 58%) 0 0 / 3.4px 3.4px;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 0 5px rgba(130,175,255,.9));
+}
+@media (max-width: 1024px) {
+  .jp-title { top: 8%; font-size: 15px; }
+  .jp-bulbs { left: 7%; right: 7%; top: 31%; bottom: 10%; padding: 5px; border-radius: 14px; background: radial-gradient(circle, #e9f1ff 0 28%, transparent 32%) 0 0 / 12px 12px, linear-gradient(180deg, #2a46a8, #16257a); }
+  .jp-led { font-size: 21px; }
+}
