@@ -23,8 +23,11 @@ export default function HomeBanner() {
             className="h-full block"
             style={{ flex: "0 0 100%" }}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={`/banners/banner-${i + 1}.webp`} alt={b.title} draggable={false} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+            <picture>
+              <source media="(max-width: 1024px)" srcSet={`/banners/banner-${i + 1}-m.webp`} />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={`/banners/banner-${i + 1}.webp`} alt={b.title} draggable={false} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+            </picture>
           </Link>
         ))}
       </div>

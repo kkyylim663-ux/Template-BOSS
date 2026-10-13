@@ -90,11 +90,20 @@ input, select, textarea { font-family: inherit; }
 @media (max-width: 1024px) {
   .app-footer { padding: 16px; border-radius: 0 !important; margin: 0 -8px; }
   .header-right { gap: 6px; }
-  .home-banner { aspect-ratio: 4 / 1; }
+  .home-banner { aspect-ratio: 2 / 1; }
   .home-banner-title { font-size: 16px; }
   .social-row { height: 40px !important; justify-content: space-between; padding: 0 4px; }
   .social-row .social-btn { flex: 0 0 auto !important; background: transparent !important; padding: 0 !important; border-radius: 0 !important; }
   .social-row .social-btn svg { width: 40px; height: 40px; }
+  .qa-card { min-height: 80px !important; height: 80px; }
+  .qa-icon { width: 40px !important; height: 40px !important; }
+  .qa-icon svg { width: 30px; height: 30px; }
+  .qa-sub { font-size: 12px !important; font-weight: 600 !important; line-height: 16px !important; }
+  .cat-item { width: 124px !important; height: 50px !important; padding: 0 !important; }
+  .cat-item > span { padding: 0 10px !important; gap: 6px !important; }
+  .cat-item > span > span:first-child { width: 28px !important; height: 28px !important; }
+  .cat-item > span > span:first-child svg { width: 24px; height: 24px; }
+  .cat-label { font-size: 16px !important; line-height: 20px !important; }
   .vip-big { width: 64%; }
   .vip-side { width: 22%; }
   .app-header { height: var(--mobile-header-h); padding: 0 10px; background: var(--pill); }

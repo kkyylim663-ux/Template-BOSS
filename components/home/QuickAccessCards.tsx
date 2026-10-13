@@ -25,13 +25,13 @@ export default function QuickAccessCards() {
   return (
     <div className="grid grid-cols-2 lg:grid-cols-4" style={{ marginTop: 12, gap: 12 }}>
       {cards.map(({ Icon, title, sub, href, bg }) => (
-        <Link key={href} href={href} className="flex items-center" style={{ minHeight: 85, borderRadius: 12, padding: 8, gap: 8, background: bg }}>
-          <span className="flex items-center justify-center" style={{ width: 64, height: 64, flexShrink: 0, color: "rgba(255,255,255,.9)" }}>
+        <Link key={href} href={href} className="flex items-center qa-card" style={{ minHeight: 85, borderRadius: 12, padding: 8, gap: 8, background: bg }}>
+          <span className="flex items-center justify-center qa-icon" style={{ width: 64, height: 64, flexShrink: 0, color: "rgba(255,255,255,.9)" }}>
             <Icon size={40} strokeWidth={1.5} />
           </span>
           <span className="flex flex-col min-w-0">
             <span style={{ fontSize: 16, fontWeight: 700, lineHeight: "24px" }}>{title}</span>
-            <span style={{ fontSize: 16, fontWeight: 400, lineHeight: "22px" }}>{sub}</span>
+            <span className="qa-sub" style={{ fontSize: 16, fontWeight: 400, lineHeight: "22px" }}>{sub}</span>
           </span>
         </Link>
       ))}

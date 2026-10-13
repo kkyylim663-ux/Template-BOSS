@@ -12,7 +12,7 @@ function Logo({ small }: { small?: boolean }) {
   return (
     <Link href="/zh-my" className="flex items-center" style={{ width: small ? 84 : 200, height: small ? 40 : 50 }}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/logo.png" alt="Logo" style={{ height: small ? 64 : 100, width: "auto", maxWidth: "none", marginLeft: small ? -14 : -24, objectFit: "contain" }} />
+      <img src="/logo.png" alt="Logo" style={{ height: small ? 52 : 100, width: "auto", maxWidth: "none", marginLeft: small ? -6 : -24, objectFit: "contain" }} />
     </Link>
   );
 }
