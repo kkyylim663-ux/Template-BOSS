@@ -12,6 +12,12 @@ const CATS: [string, keyof (typeof VIP_LEVELS)[number] | null][] = [
 ];
 
 const fmt = (n: number) => n.toLocaleString("en-US");
+// compact form for card faces so long numbers never run under the emblem
+const short = (n: number) => {
+  const u: [number, string][] = [[0.9995e12, "T"], [1e9, "B"], [1e6, "M"]];
+  for (const [v, s] of u) if (n >= v) return `${+(n / (s === "T" ? 1e12 : v)).toFixed(1)}${s}`;
+  return fmt(n);
+};
 
 // Muted bronze -> gold -> platinum progression, keeping the same dark-navy/gold
 // mood as the real site instead of a full rainbow hue rotation.
@@ -42,16 +48,15 @@ export default function VipPage() {
     const n = ((i % VIP_LEVELS.length) + VIP_LEVELS.length) % VIP_LEVELS.length;
     return (
       <div className={`relative flex-shrink-0 ${big ? "vip-big" : "vip-side"}`} style={{
-        aspectRatio: "2 / 1", borderRadius: 12, containerType: "inline-size",
-        background: `linear-gradient(135deg, ${LEVEL_TINTS[n]}, #0f1225)`,
+        aspectRatio: "2 / 1", containerType: "inline-size",
         opacity: big ? 1 : 0.55,
       }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={`/vip/vip-${n + 1}.webp`} alt="" draggable={false} onError={e => { e.currentTarget.style.display = "none"; }} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none" }} />
+        <img src={`/vip/vip-${n + 1}.webp`} alt="" draggable={false} onError={e => { e.currentTarget.parentElement!.style.background = `linear-gradient(135deg, ${LEVEL_TINTS[n]}, #0f1225)`; e.currentTarget.parentElement!.style.borderRadius = "12px"; e.currentTarget.style.display = "none"; }} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none" }} />
         <span style={{ position: "absolute", left: "7%", top: "10%", fontSize: "7cqw", fontWeight: 800, fontStyle: "italic", textShadow: "0 2px 6px rgba(0,0,0,.7)" }}>{l.name}</span>
-        <div className="flex" style={{ position: "absolute", left: "7%", top: "56%", gap: "7cqw", textShadow: "0 1px 4px rgba(0,0,0,.8)" }}>
-          <div><div style={{ fontSize: "5.4cqw", fontWeight: 700 }}>0 / {fmt(l.turnoverReq)}</div><div style={{ fontSize: "4.2cqw" }}>流水要求</div></div>
-          <div><div style={{ fontSize: "5.4cqw", fontWeight: 700 }}>0 / {fmt(l.depositReq)}</div><div style={{ fontSize: "4.2cqw" }}>存款要求</div></div>
+        <div className="flex" style={{ position: "absolute", left: "7%", top: "56%", gap: "6cqw", textShadow: "0 1px 4px rgba(0,0,0,.8)" }}>
+          <div><div style={{ fontSize: "5cqw", fontWeight: 700 }}>0 / {short(l.turnoverReq)}</div><div style={{ fontSize: "4cqw" }}>流水要求</div></div>
+          <div><div style={{ fontSize: "5cqw", fontWeight: 700 }}>0 / {short(l.depositReq)}</div><div style={{ fontSize: "4cqw" }}>存款要求</div></div>
         </div>
       </div>
     );
