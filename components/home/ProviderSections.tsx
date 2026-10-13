@@ -1,7 +1,8 @@
 "use client";
 import Link from "next/link";
 import { Gamepad2, Tv2, Trophy, Fish, Ticket, Rocket, Joystick, Spade, CircleDot, ImageIcon, Flame } from "lucide-react";
-import { PROVIDER_SECTIONS, HOME_ART } from "@/lib/mock/home";
+import { PROVIDER_SECTIONS } from "@/lib/mock/home";
+import { CARD_COUNT, GAME_PROVIDERS } from "@/lib/mock/games";
 import { CtrlPair, SectionTitle, useScroller } from "@/components/ui/bo";
 
 const ICONS = [Gamepad2, Tv2, Trophy, Fish, Ticket, Rocket, Joystick, Spade, CircleDot];
@@ -30,9 +31,12 @@ export function ProviderCard({ name, href, art, hot, w = 180, h = 240 }: { name:
   );
 }
 
-function Row({ title, href, providers, Icon }: { title: string; href: string; providers: string[]; Icon: React.ElementType }) {
+function Row({ title, href, Icon }: { title: string; href: string; Icon: React.ElementType }) {
   const { ref, prev, next } = useScroller();
-  const slug = (n: string) => `${href}?provider=${encodeURIComponent(n.toLowerCase().replace(/\s+/g, ""))}`;
+  const cat = href.split("/").pop() as string;
+  const list = GAME_PROVIDERS[cat] ?? [];
+  const n = Math.min(CARD_COUNT[cat] ?? 0, 10);
+  if (n === 0) return null;
   return (
     <section className="flex flex-col prov-sec" style={{ marginTop: 32, gap: 16 }}>
       <div className="flex items-center justify-between" style={{ height: 32 }}>
@@ -40,7 +44,10 @@ function Row({ title, href, providers, Icon }: { title: string; href: string; pr
         <div className="only-desktop"><CtrlPair square onPrev={prev} onNext={next} /></div>
       </div>
       <div ref={ref} className="scroll-x flex prov-row" style={{ gap: 12 }}>
-        {providers.map((p, i) => <ProviderCard key={p} name={p} href={slug(p)} art={HOME_ART[href]?.[i]} />)}
+        {Array.from({ length: n }, (_, i) => {
+          const p = list[i];
+          return <ProviderCard key={i} name={p?.name ?? ""} href={p ? `${href}?provider=${p.key}` : href} art={`/games/cards/${cat}-${i}.webp`} />;
+        })}
       </div>
     </section>
   );
@@ -50,7 +57,7 @@ export default function ProviderSections() {
   return (
     <>
       {PROVIDER_SECTIONS.map((s, i) => (
-        <Row key={s.href} title={s.title} href={s.href} providers={s.providers} Icon={ICONS[i]} />
+        <Row key={s.href} title={s.title} href={s.href} Icon={ICONS[i]} />
       ))}
     </>
   );
