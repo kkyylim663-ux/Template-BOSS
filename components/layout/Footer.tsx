@@ -77,7 +77,7 @@ export default function Footer() {
             <Title>关注我们</Title>
             <div className="flex items-center" style={{ gap: 8 }}>
               {SOCIALS.map(({ Icon, href, bg, fg }) => (
-                <a key={href} href={href} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center" style={{ width: 20, height: 20, borderRadius: "50%", background: bg, color: fg }}>
+                <a key={href} href={href} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center" style={{ width: 20, height: 20, borderRadius: "50%", background: bg, color: fg, border: "1px solid #fff" }}>
                   <Icon size={12} />
                 </a>
               ))}

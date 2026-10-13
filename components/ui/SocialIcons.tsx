@@ -34,9 +34,9 @@ export const TelegramIcon = ({ size, style }: P) => (
 );
 
 export const SOCIALS = [
-  { label: "Facebook", href: "https://www.facebook.com/BO55official", Icon: FacebookIcon, bg: "#1877f2", fg: "#fff" },
-  { label: "Instagram", href: "https://www.instagram.com/bo55_official", Icon: InstagramIcon, bg: "linear-gradient(45deg,#f9a825,#e1306c 50%,#833ab4)", fg: "#fff" },
-  { label: "TikTok", href: "https://www.tiktok.com/@bo55official", Icon: TikTokIcon, bg: "#ffffff", fg: "#000" },
-  { label: "Whatsapp", href: "https://wa.me/", Icon: WhatsappIcon, bg: "#25d366", fg: "#fff" },
-  { label: "Telegram", href: "https://t.me/BO55VIP", Icon: TelegramIcon, bg: "#229ed9", fg: "#fff" },
+  { label: "Facebook", href: "https://www.facebook.com/BO55official", Icon: FacebookIcon, bg: "#fff", fg: "#090c1e" },
+  { label: "Instagram", href: "https://www.instagram.com/bo55_official", Icon: InstagramIcon, bg: "transparent", fg: "#fff" },
+  { label: "TikTok", href: "https://www.tiktok.com/@bo55official", Icon: TikTokIcon, bg: "transparent", fg: "#fff" },
+  { label: "Whatsapp", href: "https://wa.me/", Icon: WhatsappIcon, bg: "transparent", fg: "#fff" },
+  { label: "Telegram", href: "https://t.me/BO55VIP", Icon: TelegramIcon, bg: "transparent", fg: "#fff" },
 ];
