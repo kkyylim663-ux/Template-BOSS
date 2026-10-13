@@ -17,12 +17,14 @@ export const HOT_EVENT_PROVIDERS = [
 ];
 
 export const MATCHES = [
-  { league: "UEFA CONFERENCE LEAGUE", home: "CS Universitatea Craiova", away: "Getafe CF", date: "16 OCT 2026 (FRI)", time: "12:45 AM (GMT +08)", h: "-0.93", a: "0.75" },
-  { league: "UEFA CONFERENCE LEAGUE", home: "CSKA Sofia", away: "AS Monaco", date: "16 OCT 2026 (FRI)", time: "12:45 AM (GMT +08)", h: "0.80", a: "0.92" },
-  { league: "UEFA CONFERENCE LEAGUE", home: "Egnatia", away: "Mlada Boleslav", date: "16 OCT 2026 (FRI)", time: "03:00 AM (GMT +08)", h: "-0.86", a: "0.80" },
-  { league: "UEFA CONFERENCE LEAGUE", home: "Hajduk Split", away: "Shakhtar", date: "16 OCT 2026 (FRI)", time: "03:00 AM (GMT +08)", h: "0.97", a: "0.67" },
-  { league: "UEFA EUROPA LEAGUE", home: "Celtic", away: "Ajax", date: "17 OCT 2026 (SAT)", time: "03:00 AM (GMT +08)", h: "0.88", a: "0.84" },
-  { league: "UEFA EUROPA LEAGUE", home: "Roma", away: "Porto", date: "17 OCT 2026 (SAT)", time: "03:00 AM (GMT +08)", h: "-0.95", a: "0.77" },
+  { league: "UEFA CONFERENCE LEAGUE", home: "CS Universitatea Craiova", away: "Getafe CF", ha: "68275.png", hb: "2054.png", date: "16 OCT 2026 (FRI)", time: "12:45 AM (GMT +08)", h: "-0.98", a: "0.80" },
+  { league: "UEFA CONFERENCE LEAGUE", home: "CSKA Sofia (N)", away: "AS Monaco", ha: "5768.png", hb: "2208.png", date: "16 OCT 2026 (FRI)", time: "12:45 AM (GMT +08)", h: "0.91", a: "0.91" },
+  { league: "UEFA CONFERENCE LEAGUE", home: "Egnatia Rrogozhine (N)", away: "Midtjylland", ha: "279743.png", hb: "4310.png", date: "16 OCT 2026 (FRI)", time: "12:45 AM (GMT +08)", h: "0.97", a: "0.85" },
+  { league: "UEFA CONFERENCE LEAGUE", home: "Hajduk Split", away: "Ajax", ha: "7669.png", hb: "2840.png", date: "16 OCT 2026 (FRI)", time: "12:45 AM (GMT +08)", h: "0.87", a: "0.95" },
+  { league: "UEFA CONFERENCE LEAGUE", home: "KAA Gent", away: "AGF Aarhus", ha: "3936.png", hb: "2523.png", date: "16 OCT 2026 (FRI)", time: "12:45 AM (GMT +08)", h: "0.80", a: "-0.98" },
+  { league: "UEFA CONFERENCE LEAGUE", home: "KuPS (N)", away: "Trabzonspor", ha: "3962.png", hb: "4028.png", date: "16 OCT 2026 (FRI)", time: "12:45 AM (GMT +08)", h: "0.91", a: "0.91" },
+  { league: "UEFA CONFERENCE LEAGUE", home: "Lugano", away: "Crvena Zvezda", ha: "4726.png", hb: "87968.png", date: "16 OCT 2026 (FRI)", time: "12:45 AM (GMT +08)", h: "0.92", a: "0.90" },
+  { league: "UEFA CONFERENCE LEAGUE", home: "Mjallby (N)", away: "Inter Club D Escaldes", ha: "4739.png", hb: "23220.png", date: "16 OCT 2026 (FRI)", time: "12:45 AM (GMT +08)", h: "0.80", a: "-0.98" },
 ];
 
 export const PROVIDER_SECTIONS = [
