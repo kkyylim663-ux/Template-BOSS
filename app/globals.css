@@ -97,7 +97,6 @@ input, select, textarea { font-family: inherit; }
   .social-row .social-btn svg { width: 40px; height: 40px; }
   .qa-card { min-height: 80px !important; height: 80px; }
   .qa-icon { width: 40px !important; height: 40px !important; }
-  .qa-icon svg { width: 30px; height: 30px; }
   .qa-sub { font-size: 12px !important; font-weight: 600 !important; line-height: 16px !important; }
   .cat-item { width: 124px !important; height: 50px !important; padding: 0 !important; }
   .cat-item > span { padding: 0 10px !important; gap: 6px !important; }
@@ -148,6 +147,14 @@ input, select, textarea { font-family: inherit; }
 .mt-league { font-size: 10px; font-weight: 500; }
 .mt-date { font-size: 14px; font-weight: 800; }
 .mt-time { font-size: 12px; font-weight: 400; }
+
+@keyframes qa-float {
+  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); filter: drop-shadow(0 2px 4px rgba(0,0,0,.35)); }
+  50% { transform: translateY(-4px) rotate(-4deg) scale(1.06); filter: drop-shadow(0 6px 10px rgba(255,200,80,.45)); }
+}
+.qa-img { animation: qa-float 3.2s ease-in-out infinite; transform-origin: 50% 70%; }
+.qa-card:hover .qa-img { animation-duration: 1.2s; }
+@media (prefers-reduced-motion: reduce) { .qa-img { animation: none; } }
 
 /* ═════════ Surfaces ═════════ */
 .bo-card { background: var(--card); }
