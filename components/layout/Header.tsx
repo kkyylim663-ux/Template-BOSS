@@ -43,8 +43,8 @@ export default function Header() {
           <RefreshCw size={10} />
         </button>
         <button className="flex items-center gap-1 flex-1" style={{ height: 22, borderRadius: 12 }} onClick={() => { setBalOpen(v => !v); setLangOpen(false); }}>
-          <span style={{ fontSize: 14, fontWeight: 600, color: "var(--muted-3)" }}>MYR</span>
-          <span style={{ fontSize: 16, fontWeight: 700 }}>{user?.balance.toFixed(2)}</span>
+          <span style={{ fontSize: 14, fontWeight: 600, color: "var(--muted-3)", lineHeight: "22px" }}>MYR</span>
+          <span style={{ fontSize: 16, fontWeight: 700, lineHeight: "22px" }}>{user?.balance.toFixed(2)}</span>
           <ChevronDown size={14} style={{ marginLeft: "auto", color: "var(--muted-3)" }} />
         </button>
         <Link href="/zh-my/account/deposit" aria-label="存款">
@@ -92,13 +92,8 @@ export default function Header() {
   const langMenu = (
     <div className="relative">
       <button className="flex items-center gap-2" style={{ height: 32 }} onClick={() => { setLangOpen(v => !v); setBalOpen(false); }}>
-        <span className="flex items-center justify-center" style={{
-          width: 32, height: 32, borderRadius: "50%", fontSize: 10, fontWeight: 800,
-          background: "linear-gradient(180deg,#cc0001 0 14%,#fff 14% 28%,#cc0001 28% 42%,#fff 42% 56%,#cc0001 56% 70%,#fff 70% 84%,#cc0001 84%)",
-          boxShadow: "inset 13px 0 0 0 #010066", color: "#ffcc00",
-        }}>
-          MY
-        </span>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/flag-my.png" alt="MY" draggable={false} style={{ width: 32, height: 32, borderRadius: "50%", objectFit: "cover" }} />
         <ChevronDown size={12} />
       </button>
       {langOpen && (
@@ -164,8 +159,8 @@ export default function Header() {
 
               {/* mobile balance */}
               <Link href="/zh-my/account/deposit" className="only-mobile items-center gap-1" style={{ background: "var(--pill)", border: "0.8px solid var(--solid)", borderRadius: 12, padding: 4, height: 40 }}>
-                <span style={{ fontSize: 12, fontWeight: 600, color: "var(--muted-3)", paddingLeft: 4 }}>MYR</span>
-                <span style={{ fontSize: 14, fontWeight: 700 }}>{user.balance.toFixed(2)}</span>
+                <span style={{ fontSize: 12, fontWeight: 600, color: "var(--muted-3)", paddingLeft: 4, lineHeight: "20px" }}>MYR</span>
+                <span style={{ fontSize: 14, fontWeight: 700, lineHeight: "20px" }}>{user.balance.toFixed(2)}</span>
                 <span className="flex items-center justify-center" style={{ width: 28, height: 28, borderRadius: 8, background: "var(--gold)", color: "#000", marginLeft: 4 }}>
                   <Plus size={16} strokeWidth={2.5} />
                 </span>
