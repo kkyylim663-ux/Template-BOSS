@@ -1,7 +1,7 @@
 "use client";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { ArrowDownToLine, ArrowUpFromLine, Tag, User, ImageIcon } from "lucide-react";
+import { ArrowDownToLine, ArrowUpFromLine, Tag, User } from "lucide-react";
 import { DEPOSIT_FEED, WITHDRAW_FEED } from "@/lib/mock/live-feed";
 import { PROMOTIONS } from "@/lib/mock/promotions";
 
@@ -38,7 +38,7 @@ function FeedCard({ title, Icon, rows }: { title: string; Icon: React.ElementTyp
 }
 
 function PromoFeed() {
-  const list = PROMOTIONS.slice(0, 10);
+  const list = PROMOTIONS;
   return (
     <div className="flex flex-col" style={{ height: "100%", background: "var(--card)", borderRadius: 16, padding: 20 }}>
       <div className="flex items-center" style={{
@@ -49,11 +49,11 @@ function PromoFeed() {
         <span style={{ fontSize: 14, fontWeight: 600 }}>促销</span>
       </div>
       <div className="overflow-hidden" style={{ flex: 1 }}>
-        <div className="marquee-y" style={{ gap: 16, animationDuration: "60s" }}>
+        <div className="marquee-y" style={{ gap: 16, animationDuration: "180s" }}>
           {[...list, ...list].map((p, i) => (
-            <Link key={i} href="/zh-my/promotion" className="ph" style={{ height: 119, borderRadius: 12, flexShrink: 0, flexDirection: "column", gap: 6 }}>
-              <ImageIcon size={22} strokeWidth={1.5} />
-              <span style={{ fontSize: 12, fontWeight: 600, color: "rgba(255,255,255,.55)", padding: "0 12px", textAlign: "center" }}>{p.title}</span>
+            <Link key={i} href="/zh-my/promotion" style={{ display: "block", borderRadius: 12, overflow: "hidden", flexShrink: 0 }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={`/promo/${p.id}.webp`} alt={p.title} draggable={false} style={{ display: "block", width: "100%", aspectRatio: "2048 / 730", objectFit: "cover" }} />
             </Link>
           ))}
         </div>
