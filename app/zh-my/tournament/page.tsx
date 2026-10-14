@@ -1,14 +1,14 @@
 "use client";
 import { Clock } from "lucide-react";
 import { TOURNAMENTS } from "@/lib/mock/tournaments";
-import { Ph } from "@/components/ui/bo";
 
 export default function TournamentPage() {
   return (
     <div className="flex flex-col" style={{ gap: 16, marginBottom: 16 }}>
       {TOURNAMENTS.map(t => (
         <div key={t.id} style={{ background: "var(--card)" }}>
-          <Ph style={{ aspectRatio: "1108 / 277" }} iconSize={40} />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={`/tournament/${t.id}.webp`} alt={t.title} draggable={false} style={{ display: "block", width: "100%", aspectRatio: "1108 / 277", objectFit: "cover" }} />
           <div style={{ padding: "0 16px" }}>
             <div className="flex flex-col" style={{ gap: 8, paddingTop: 8 }}>
               <span style={{ fontSize: 18, fontWeight: 600, lineHeight: "28px" }}>{t.title}</span>
