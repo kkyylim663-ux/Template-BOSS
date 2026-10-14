@@ -451,3 +451,5 @@ input, select, textarea { font-family: inherit; }
 @keyframes mnavTilt { 0%,100% { transform: rotate(-6deg) } 50% { transform: rotate(6deg) } }
 @keyframes mnavPulse { 0%,100% { transform: scale(1) } 50% { transform: scale(1.1) } }
 @media (prefers-reduced-motion: reduce) { .mnav-ico, .mnav-ico img, .mnav-ico svg { animation: none !important; } }
+
+@media (max-width: 1024px) { .foot-grid .foot-sec { padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,.12); } .foot-grid .foot-sec:last-child { border-bottom: 0; padding-bottom: 0; } }
