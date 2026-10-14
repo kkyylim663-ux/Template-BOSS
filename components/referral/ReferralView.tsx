@@ -107,8 +107,8 @@ export default function ReferralView() {
           </div>
 
           <div style={{ ...card, padding: 16 }}>
-            <Title icon={Coins}>排行榜</Title>
-            <div className="relative mx-auto" style={{ maxWidth: 520, marginTop: 8, containerType: "inline-size" }}>
+            <div className="flex justify-center"><Title icon={Coins}>排行榜</Title></div>
+            <div className="relative" style={{ maxWidth: 520, margin: "8px auto 0", containerType: "inline-size" }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/referral/leaderboard.png" alt="" draggable={false} style={{ display: "block", width: "100%" }} />
               {TOP3.map(p => (
@@ -117,7 +117,7 @@ export default function ReferralView() {
                 </div>
               ))}
             </div>
-            <div className="flex flex-col mx-auto" style={{ gap: 8, marginTop: 8, maxWidth: 520 }}>
+            <div className="flex flex-col" style={{ gap: 8, margin: "8px auto 0", maxWidth: 520 }}>
               {ROWS.map(([no, amt]) => (
                 <div key={no} className="flex items-center justify-between" style={{ ...inner, height: 45, padding: "0 12px", fontSize: 14, fontWeight: 600 }}>
                   <span style={{ width: "34%" }}>{no}</span><span>领取奖励</span><span style={{ width: "34%", textAlign: "right" }}>MYR&nbsp; {amt}</span>

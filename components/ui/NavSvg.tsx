@@ -8,7 +8,7 @@ export default function NavSvg({ label, size = 20, active, style }: { label: str
   return (
     <span
       aria-hidden
-      style={{ display: "inline-flex", width: size, height: size, flexShrink: 0, ["--svg-color-start" as string]: active ? "#ffad00" : "#ffffff", ...style }}
+      style={{ display: "inline-flex", width: size, height: size, flexShrink: 0, ["--svg-color-start" as string]: active ? "#ffad00" : "#ffffff", ["--svg-color-end" as string]: active ? "#ffad00" : "#ffffff", ...style }}
       dangerouslySetInnerHTML={{ __html: svg }}
     />
   );
