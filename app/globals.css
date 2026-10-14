@@ -432,3 +432,7 @@ input, select, textarea { font-family: inherit; }
   .ab-hero .ab-text span { font-size: 11px !important; padding: 3px 8px !important; gap: 4px !important; }
   .ab-hero .ab-text span svg { width: 13px !important; height: 13px !important; }
 }
+@media (max-width: 1024px) {
+  .ab-card { padding: 12px !important; min-height: 300px !important; }
+  .ab-ico { width: 110px !important; height: 110px !important; }
+}

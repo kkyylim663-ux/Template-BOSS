@@ -1,5 +1,4 @@
 "use client";
-import { Info, ImageIcon } from "lucide-react";
 import { ShieldCheck, BadgeCheck, Zap } from "lucide-react";
 
 const boxes = [
@@ -35,13 +34,14 @@ export default function AboutUs() {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-3" style={{ gap: 12, marginBottom: 16 }}>
-        {boxes.map(([amt, t, d]) => (
-          <div key={t} className="flex flex-col" style={{ background: "var(--card)", borderRadius: 12, padding: 20, minHeight: 311 }}>
-            <div className="ph" style={{ height: 160, borderRadius: 12, marginBottom: 16 }}><ImageIcon size={32} strokeWidth={1.4} /></div>
-            <span style={{ fontSize: 20, fontWeight: 600, color: "var(--gold)" }}>{amt}</span>
-            <span style={{ fontSize: 18, fontWeight: 600 }}>{t}</span>
-            <span style={{ fontSize: 14, color: "var(--muted-3)" }}>{d}</span>
+      <div className="grid grid-cols-2 lg:grid-cols-3 ab-grid" style={{ gap: 12, marginBottom: 16 }}>
+        {boxes.map(([amt, t, d], i) => (
+          <div key={t} className="flex flex-col items-center text-center ab-card" style={{ background: "rgba(57,59,86,.22)", borderRadius: 12, padding: 20, minHeight: 310 }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={`/about/${i + 1}.webp`} alt={t} draggable={false} className="ab-ico" style={{ width: 150, height: 150, objectFit: "contain", marginBottom: 12 }} />
+            <span style={{ fontSize: 20, fontWeight: 600 }}>{amt}</span>
+            <span style={{ fontSize: 18, fontWeight: 600, margin: "4px 0 8px" }}>{t}</span>
+            <span style={{ fontSize: 14, fontWeight: 400 }}>{d}</span>
           </div>
         ))}
       </div>
