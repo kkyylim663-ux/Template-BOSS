@@ -2,17 +2,22 @@
 import { useEffect, useRef } from "react";
 import { useLanguage, type Lang } from "@/context/LanguageContext";
 import { EN_DICT } from "@/lib/i18n/dict";
+import { EXTRA_DICT, EXACT_DICT } from "@/lib/i18n/dict-extra";
+
+const DICT: Record<string, string> = { ...EN_DICT, ...EXTRA_DICT };
 
 // Longest-first so compound phrases are matched before their shorter
 // sub-strings (e.g. "+ 添加新账户" before "添加").
-const ZH_KEYS = Object.keys(EN_DICT).sort((a, b) => b.length - a.length);
+const ZH_KEYS = Object.keys(DICT).sort((a, b) => b.length - a.length);
 const HAS_CJK = /[一-鿿]/;
 
 function translateString(src: string): string {
   if (!HAS_CJK.test(src)) return src;
+  const trimmed = src.trim();
+  if (EXACT_DICT[trimmed] !== undefined) return src.replace(trimmed, EXACT_DICT[trimmed]);
   let out = src;
   for (const key of ZH_KEYS) {
-    if (out.indexOf(key) !== -1) out = out.split(key).join(EN_DICT[key]);
+    if (out.indexOf(key) !== -1) out = out.split(key).join(DICT[key]);
   }
   return out;
 }
@@ -73,6 +78,33 @@ function walkMutated(root: Node, lang: Lang) {
   forEachTextNode(root, t => handleMutated(t, lang));
 }
 
+// Attribute text (placeholder / aria-label / title / alt) is translated too.
+const ATTRS = ["placeholder", "aria-label", "title", "alt"];
+const ATTR_ORIG = new WeakMap<Element, Record<string, string>>();
+const ATTR_LAST = new WeakMap<Element, Record<string, string>>();
+
+function translateAttrs(el: Element, lang: Lang) {
+  for (const a of ATTRS) {
+    const cur = el.getAttribute(a);
+    if (cur === null) continue;
+    const orig = ATTR_ORIG.get(el) ?? {};
+    const last = ATTR_LAST.get(el) ?? {};
+    if (orig[a] === undefined || last[a] !== cur) orig[a] = cur; // genuine new source value
+    const target = lang === "en" ? translateString(orig[a]) : orig[a];
+    if (cur !== target) el.setAttribute(a, target);
+    last[a] = target;
+    ATTR_ORIG.set(el, orig);
+    ATTR_LAST.set(el, last);
+  }
+}
+
+function translateAttrTree(root: Node, lang: Lang) {
+  if (root.nodeType !== Node.ELEMENT_NODE) return;
+  const el = root as Element;
+  translateAttrs(el, lang);
+  el.querySelectorAll("[placeholder],[aria-label],[title],[alt]").forEach(e => translateAttrs(e, lang));
+}
+
 export default function Translator() {
   const { lang } = useLanguage();
   const langRef = useRef(lang);
@@ -80,6 +112,7 @@ export default function Translator() {
 
   useEffect(() => {
     translateAll(document.body, lang);
+    translateAttrTree(document.body, lang);
   }, [lang]);
 
   useEffect(() => {
@@ -88,12 +121,14 @@ export default function Translator() {
       for (const rec of records) {
         if (rec.type === "characterData") {
           walkMutated(rec.target, l);
+        } else if (rec.type === "attributes") {
+          translateAttrs(rec.target as Element, l);
         } else {
-          rec.addedNodes.forEach(node => walkMutated(node, l));
+          rec.addedNodes.forEach(node => { walkMutated(node, l); translateAttrTree(node, l); });
         }
       }
     });
-    obs.observe(document.body, { childList: true, subtree: true, characterData: true });
+    obs.observe(document.body, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ATTRS });
     return () => obs.disconnect();
   }, []);
 
