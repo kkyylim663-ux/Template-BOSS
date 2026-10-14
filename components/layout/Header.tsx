@@ -12,8 +12,7 @@ import AccountDrawer from "./AccountDrawer";
 function Logo({ small, compact }: { small?: boolean; compact?: boolean }) {
   return (
     <Link href="/zh-my" className="flex items-center" style={{ width: compact ? 124 : small ? 140 : 200, height: compact ? 34 : small ? 40 : 50, justifyContent: small ? "center" : undefined }}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/logo-h.png" alt="Logo" style={{ height: compact ? 34 : small ? 40 : 50, width: "auto", maxWidth: "none", objectFit: "contain" }} />
+      {/* logo hidden on purpose: the link keeps its exact size so nothing shifts */}
     </Link>
   );
 }

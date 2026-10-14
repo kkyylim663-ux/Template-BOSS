@@ -35,8 +35,8 @@ export default function MiniGamePage({ params }: { params: Promise<{ game: strin
   return (
     <div className="fixed inset-0 flex flex-col" style={{ zIndex: 2000, background: "#090c1e" }}>
       <div className="flex items-center justify-between flex-shrink-0" style={{ height: 75, padding: "0 20px", background: "#050a1c" }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/logo.png" alt="Logo" style={{ height: 80, width: "auto", margin: "-10px 0 -10px -16px" }} />
+        {/* logo hidden on purpose: spacer keeps the original 160x80 box */}
+        <span aria-hidden style={{ display: "inline-block", width: 160, height: 80, margin: "-10px 0 -10px -16px" }} />
         <div className="flex items-center" style={{ gap: 8 }}>
           <IconBtn label="规则" onClick={() => setSheet("prize")}><Info size={20} /></IconBtn>
           <IconBtn label="全屏" onClick={() => document.documentElement.requestFullscreen?.().catch(() => {})}><Maximize size={20} /></IconBtn>

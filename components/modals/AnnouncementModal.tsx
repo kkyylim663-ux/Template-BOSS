@@ -53,9 +53,7 @@ export default function AnnouncementModal() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/popup/rewards.webp" alt="" draggable={false} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none" }} />
 
-        {/* logo */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/logo.png" alt="TitanX" draggable={false} style={{ position: "absolute", left: "33%", top: "0.5%", width: "34%", height: "auto", filter: "drop-shadow(0 0 10px rgba(80,170,255,.7))" }} />
+        {/* logo removed (absolutely positioned, no layout impact) */}
 
         {/* title */}
         <div className="flex items-center justify-center" style={{ ...abs(20.8, 16, 58.3, 9.9), fontSize: "5.1cqw", fontWeight: 900, fontStyle: "italic", letterSpacing: ".01em", lineHeight: 1, whiteSpace: "nowrap", textShadow: "0 2px 0 #06122e, 0 0 14px rgba(70,150,255,.55)", color: "#fff" }}>

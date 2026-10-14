@@ -31,8 +31,8 @@ export default function LoginBody() {
 
   const footer = (
     <div className="flex flex-col items-center text-center" style={{ marginTop: 22, gap: 8 }}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/popup/v2/logo-trim.png" alt="TitanX" style={{ height: 40, width: "auto" }} />
+      {/* logo hidden on purpose: spacer keeps the original 140x40 box */}
+      <span aria-hidden style={{ display: "block", width: 140, height: 40 }} />
       <div className="text-sm font-bold" style={{ color: "#fff", marginTop: 4 }}>Trusted and verified by:</div>
       <div className="flex justify-center items-center" style={{ gap: 16 }}>
         {[["c1", 30], ["c2", 56], ["c3", 56]].map(([b, w]) => (
