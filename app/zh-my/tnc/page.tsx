@@ -1,6 +1,6 @@
 "use client";
-import { FileText } from "lucide-react";
-import { PageBanner } from "@/components/ui/bo";
+import { ShieldCheck, Scale, FileCheck2 } from "lucide-react";
+import InfoHero from "@/components/ui/InfoHero";
 
 const sections = [
   ["1. 接受条款", "使用本网站或注册账号，即表示您同意以下《条款与条件》。"],
@@ -15,7 +15,7 @@ const sections = [
 export default function TncPage() {
   return (
     <div style={{ marginBottom: 16 }}>
-      <PageBanner title="条款与条件" icon={FileText} />
+      <InfoHero src="/info/terms.webp" title="条款与条件" sub="公平 · 透明 · 负责任" chips={[[ShieldCheck, "安全保障"], [Scale, "公平公正"], [FileCheck2, "条款透明"]]} />
       <div className="flex flex-col" style={{ padding: "4px 8px", gap: 16 }}>
         <span style={{ fontSize: 24, fontWeight: 600 }}>TitanX — 使用条款与条件</span>
         <div style={{ fontSize: 14 }}>
