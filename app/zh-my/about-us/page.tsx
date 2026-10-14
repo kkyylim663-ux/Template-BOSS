@@ -1,6 +1,6 @@
 "use client";
 import { Info, ImageIcon } from "lucide-react";
-import { PageBanner } from "@/components/ui/bo";
+import { ShieldCheck, BadgeCheck, Zap } from "lucide-react";
 
 const boxes = [
   ["2,663+", "赌场评论", "完整且公正的报告，涵盖您需要了解的顶级在线赌场的一切信息"],
@@ -21,7 +21,20 @@ const article = [
 export default function AboutUs() {
   return (
     <div style={{ marginBottom: 16 }}>
-      <PageBanner title="关于我们" icon={Info} />
+      <div className="relative overflow-hidden ab-hero" style={{ borderRadius: 16, marginBottom: 16, aspectRatio: "2204 / 608", background: "#060b20", containerType: "inline-size" }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/about/banner.webp" alt="" draggable={false} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+        <div className="absolute flex flex-col justify-center ab-text" style={{ left: "4.5%", top: 0, bottom: 0, width: "46%", gap: "1.6cqw" }}>
+          <h1 style={{ margin: 0, fontSize: "5.4cqw", fontWeight: 900, fontStyle: "italic", lineHeight: 1.05, background: "linear-gradient(180deg,#ffffff 0%,#cfe4ff 45%,#7fb6ff 100%)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", filter: "drop-shadow(0 2px 0 rgba(6,20,60,.9)) drop-shadow(0 0 12px rgba(60,150,255,.55))" }}>关于我们</h1>
+          <p style={{ margin: 0, fontSize: "2.1cqw", fontWeight: 700, color: "#ffc533", textShadow: "0 1px 6px rgba(0,0,0,.8)" }}>简单 · 快捷 · 稳定</p>
+          <div className="flex flex-wrap" style={{ gap: "0.9cqw" }}>
+            {[[ShieldCheck, "持牌经营"], [BadgeCheck, "独立认证"], [Zap, "快速存取款"]].map(([Ic, t]) => { const I = Ic as typeof ShieldCheck; return (
+              <span key={t as string} className="inline-flex items-center" style={{ gap: "0.5cqw", padding: "0.5cqw 1.2cqw", borderRadius: 999, fontSize: "1.45cqw", fontWeight: 700, background: "rgba(8,20,60,.62)", border: "1px solid rgba(90,170,255,.45)", backdropFilter: "blur(2px)" }}>
+                <I style={{ width: "1.8cqw", height: "1.8cqw", color: "#5ec1ff" }} />{t as string}
+              </span>); })}
+          </div>
+        </div>
+      </div>
       <div className="grid grid-cols-1 lg:grid-cols-3" style={{ gap: 12, marginBottom: 16 }}>
         {boxes.map(([amt, t, d]) => (
           <div key={t} className="flex flex-col" style={{ background: "var(--card)", borderRadius: 12, padding: 20, minHeight: 311 }}>

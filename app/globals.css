@@ -381,3 +381,54 @@ input, select, textarea { font-family: inherit; }
 /* route-change feedback bar */
 .nav-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; z-index: 400; background: linear-gradient(90deg, #ffad00, #ffe08a); box-shadow: 0 0 8px rgba(255,173,0,.8); animation: nav-grow 18s cubic-bezier(.1,.6,.2,1) forwards; pointer-events: none; }
 @keyframes nav-grow { 0% { width: 0 } 15% { width: 55% } 60% { width: 85% } 100% { width: 94% } }
+
+/* ---- Rewards popup v2 ---- */
+.rv2-canvas { width: min(100%, 460px, calc(88dvh * 0.6667)); animation: rv2-pop .5s cubic-bezier(.2,.8,.2,1) both; }
+.rv2-backdrop { animation: rv2-fade .3s ease both; }
+.rv2-backdrop.rv2-out { animation: rv2-fade-out .22s ease both; }
+.rv2-backdrop.rv2-out .rv2-canvas { animation: rv2-pop-out .22s ease both; }
+.rv2-logo { animation: rv2-logo-in .6s .2s cubic-bezier(.3,1.5,.5,1) both, rv2-glow 2.4s 1s ease-in-out infinite; }
+.rv2-shine {
+  position: absolute; inset: 0; pointer-events: none;
+  -webkit-mask: url(/popup/v2/logo-trim.png) center / 100% 100% no-repeat; mask: url(/popup/v2/logo-trim.png) center / 100% 100% no-repeat;
+  background: linear-gradient(105deg, transparent 38%, rgba(255,255,255,.9) 50%, transparent 62%) -150% 0 / 250% 100% no-repeat;
+  animation: rv2-shine 4s 1.2s ease-in-out infinite;
+}
+.rv2-card { animation: rv2-rise .45s cubic-bezier(.2,.8,.2,1) both; }
+.rv2-cta { background: transparent; animation: rv2-cta 2s 1s ease-out infinite; }
+.rv2-cta:hover { filter: brightness(1.12); }
+@keyframes rv2-fade { from { opacity: 0; } }
+@keyframes rv2-fade-out { to { opacity: 0; } }
+@keyframes rv2-pop { from { opacity: 0; transform: scale(.92) translateY(16px); } }
+@keyframes rv2-pop-out { to { opacity: 0; transform: scale(.94) translateY(8px); } }
+@keyframes rv2-logo-in { from { opacity: 0; transform: scale(.8); } }
+@keyframes rv2-glow { 0%, 100% { filter: drop-shadow(0 0 4px rgba(70,160,255,.45)); } 50% { filter: drop-shadow(0 0 12px rgba(90,180,255,.95)); } }
+@keyframes rv2-shine { 0% { background-position: -150% 0; } 40%, 100% { background-position: 150% 0; } }
+@keyframes rv2-rise { from { opacity: 0; transform: translateY(12px); } }
+@keyframes rv2-cta { 0% { box-shadow: 0 0 0 0 rgba(255,190,40,.6); } 70%, 100% { box-shadow: 0 0 0 16px rgba(255,190,40,0); } }
+@media (prefers-reduced-motion: reduce) {
+  .rv2-logo, .rv2-shine, .rv2-cta { animation: none; }
+  .rv2-card, .rv2-canvas { animation-duration: .01s; animation-delay: 0s !important; }
+}
+
+/* ---- Auth popup (login / register) ---- */
+.auth-body { overflow: hidden; transition: height .32s cubic-bezier(.2,.8,.2,1); }
+.auth-swap { animation: auth-in .28s cubic-bezier(.2,.8,.2,1) both; }
+.auth-ind { position: absolute; left: 0; bottom: 6px; width: 50%; height: 2px; display: flex; justify-content: center; pointer-events: none; transition: transform .32s cubic-bezier(.2,.8,.2,1); will-change: transform; }
+.auth-ind i { display: block; width: 36px; height: 2px; border-radius: 2px; background: #fff; }
+.auth-body { will-change: height; }
+.auth-headline { display: flex; flex-direction: column; gap: 1px; font-size: 21px; line-height: 1; letter-spacing: .02em; transform: skewX(-8deg); transform-origin: left bottom; color: #fff; text-shadow: 0 2px 0 #06122e, 0 0 14px rgba(70,150,255,.55); }
+.auth-gold { background: linear-gradient(180deg, #fff3b0 0%, #ffc533 45%, #f08a00 100%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; text-shadow: none; filter: drop-shadow(0 2px 0 #4a2600) drop-shadow(0 0 8px rgba(255,170,30,.55)); }
+.auth-sub { margin-top: 6px; font-size: 11px; letter-spacing: .04em; color: #dbe3ff; font-family: inherit; text-shadow: 0 1px 3px rgba(0,0,0,.8); }
+@keyframes auth-in { from { opacity: 0; transform: translateY(8px); } }
+@media (prefers-reduced-motion: reduce) { .auth-body, .auth-ind { transition: none; } .auth-swap { animation: none; } }
+
+@media (max-width: 1024px) {
+  .ab-hero { aspect-ratio: 2 / 1 !important; }
+  .ab-hero > img { object-position: 78% 50%; }
+  .ab-hero .ab-text { width: 58% !important; left: 5% !important; gap: 8px !important; }
+  .ab-hero h1 { font-size: 30px !important; }
+  .ab-hero p { font-size: 14px !important; }
+  .ab-hero .ab-text span { font-size: 11px !important; padding: 3px 8px !important; gap: 4px !important; }
+  .ab-hero .ab-text span svg { width: 13px !important; height: 13px !important; }
+}
