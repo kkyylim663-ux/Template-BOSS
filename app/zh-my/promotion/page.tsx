@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import DetailSheet, { PROMO_TERMS, type DetailData } from "@/components/ui/DetailSheet";
 import { Clock } from "lucide-react";
 import { PROMO_TABS, PROMOTIONS } from "@/lib/mock/promotions";
@@ -8,6 +9,7 @@ import { useAuth } from "@/context/AuthContext";
 import { useModal } from "@/context/ModalContext";
 
 export default function PromotionPage() {
+  const router = useRouter();
   const [detail, setDetail] = useState<DetailData | null>(null);
   const [tab, setTab] = useState<(typeof PROMO_TABS)[number]>("全部");
   const { isLoggedIn } = useAuth();
@@ -52,7 +54,7 @@ export default function PromotionPage() {
               </span>
               <div className="flex" style={{ gap: 10 }}>
                 {p.apply && (
-                  <button className="btn-dark" style={{ width: 96 }} onClick={() => { if (!isLoggedIn) openLogin(); }}>申请</button>
+                  <button className="btn-dark" style={{ width: 96 }} onClick={() => (isLoggedIn ? router.push(`/zh-my/account/mypromo?promo=${p.id}`) : openLogin())}>申请</button>
                 )}
                 <button className="btn-gold" style={{ width: 96 }} onClick={() => setDetail({
                   title: p.title, img: `/promo/${p.id}.webp`, period: `活动时间：${p.period}`,

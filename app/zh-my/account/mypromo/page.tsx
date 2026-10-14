@@ -1,13 +1,16 @@
 "use client";
-import { useState } from "react";
+import { Suspense, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { ChevronDown, Tag } from "lucide-react";
 import { BalanceWallet, Field } from "@/components/ui/bo";
 import { PROMOTIONS } from "@/lib/mock/promotions";
 
-export default function MyPromoPage() {
+function MyPromo() {
+  const params = useSearchParams();
   const [open, setOpen] = useState(false);
   const [sel, setSel] = useState<string | null>(null);
   const options = PROMOTIONS.filter(p => p.apply);
+  useEffect(() => { const id = Number(params.get("promo")); const o = PROMOTIONS.find(p => p.id === id); if (o) setSel(o.title); }, [params]);
 
   return (
     <div className="flex flex-col" style={{ gap: 8, marginBottom: 16 }}>
@@ -15,7 +18,7 @@ export default function MyPromoPage() {
       <div className="relative" style={{ background: "var(--card)", borderRadius: 12, padding: 8 }}>
         <div style={{ height: 25, fontSize: 14, fontWeight: 600 }}>选择您的促销</div>
         <button className="w-full flex items-center justify-between" style={{ height: 37, background: "var(--card)", borderRadius: 4, padding: "8px 12px", fontSize: 14, fontWeight: 600, color: sel ? "#fff" : "var(--muted-2)" }} onClick={() => setOpen(o => !o)}>
-          {sel ?? "请选择促销"} <ChevronDown size={16} />
+          {sel ?? "选择促销"} <ChevronDown size={16} />
         </button>
         {open && (
           <div className="absolute left-2 right-2 z-10" style={{ top: 74, background: "var(--pill)", border: "0.8px solid var(--solid)", borderRadius: 8, padding: 4, maxHeight: 260, overflowY: "auto" }}>
@@ -27,8 +30,8 @@ export default function MyPromoPage() {
           </div>
         )}
       </div>
-      <Field label="金额"><input className="input" placeholder="0.00" inputMode="decimal" /></Field>
-      <button className="btn-dark btn-lg" disabled>提交（前端骨架）</button>
+      <Field label="金额"><input className="input" placeholder="最低 0" inputMode="decimal" /></Field>
+      <button className="btn-dark btn-lg" disabled>提交</button>
       <div style={{ marginTop: 12 }}>
         <div className="flex items-center" style={{ gap: 6, fontSize: 14, fontWeight: 600, height: 21 }}>
           <Tag size={18} /> 您的活跃促销
@@ -37,4 +40,8 @@ export default function MyPromoPage() {
       </div>
     </div>
   );
+}
+
+export default function MyPromoPage() {
+  return <Suspense><MyPromo /></Suspense>;
 }

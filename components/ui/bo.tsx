@@ -84,15 +84,15 @@ export function BalanceWallet({ promo }: { promo?: boolean }) {
   const bal = (user?.balance ?? 0).toFixed(2);
   const Box = ({ label, value, border }: { label: string; value: string; border?: boolean }) => (
     <div style={{ flex: 1, padding: 8, borderLeft: border ? "0.8px solid rgba(0,0,0,0.15)" : undefined }}>
-      <div className="flex items-center gap-2" style={{ fontSize: 12, fontWeight: 600, color: "#1a1d3c", height: 18 }}>
+      <div className="flex items-center gap-2" style={{ fontSize: 12, fontWeight: 600, color: "#1a3a8f", height: 18 }}>
         {label}
-        {!promo && (
-          <button onClick={refreshBalance} className="flex items-center" style={{ color: "#1a1d3c" }} aria-label="刷新">
-            <RefreshCw size={12} />
+        {true && (
+          <button onClick={refreshBalance} className="flex items-center" style={{ color: "#1a3a8f", gap: 6, textDecoration: "underline" }} aria-label="刷新">
+            <RefreshCw size={12} />REFRESH
           </button>
         )}
       </div>
-      <div className="flex items-baseline gap-1" style={{ height: 34, color: "#090c1e" }}>
+      <div className="flex items-baseline gap-1" style={{ height: 34, color: "#1a3a8f" }}>
         <span style={{ fontSize: 14, fontWeight: 700 }}>MYR</span>
         <span style={{ fontSize: 24, fontWeight: 700 }}>{value}</span>
       </div>
@@ -104,7 +104,7 @@ export function BalanceWallet({ promo }: { promo?: boolean }) {
         className="flex"
         style={{
           height: 79, borderRadius: 12, padding: 4, marginBottom: 8,
-          background: "linear-gradient(100deg, #ffd66b 0%, #ffad00 45%, #f28c00 100%)",
+          background: "linear-gradient(115deg, #ffffff 0%, #f1f1f4 35%, #dcdce2 62%, #f4f4f7 100%)",
         }}
       >
         {promo ? (

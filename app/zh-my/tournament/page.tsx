@@ -1,10 +1,16 @@
 "use client";
 import { Clock } from "lucide-react";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
+import { useModal } from "@/context/ModalContext";
 import DetailSheet, { PROMO_TERMS, type DetailData } from "@/components/ui/DetailSheet";
 import { TOURNAMENTS } from "@/lib/mock/tournaments";
 
 export default function TournamentPage() {
+  const router = useRouter();
+  const { isLoggedIn } = useAuth();
+  const { openLogin } = useModal();
   const [detail, setDetail] = useState<DetailData | null>(null);
   return (
     <div className="flex flex-col" style={{ gap: 16, marginBottom: 16 }}>
@@ -20,7 +26,7 @@ export default function TournamentPage() {
                   <Clock size={14} /> {t.status === "active" ? "进行中" : "即将开始"} · {t.provider}
                 </span>
                 <div className="flex" style={{ gap: 10 }}>
-                  <button className="btn-dark" style={{ width: 96 }}>申请</button>
+                  <button className="btn-dark" style={{ width: 96 }} onClick={() => (isLoggedIn ? router.push("/zh-my/account/mypromo") : openLogin())}>申请</button>
                   <button className="btn-gold" style={{ width: 96 }} onClick={() => setDetail({
                     title: t.title, img: `/tournament/${t.id}.webp`, period: t.status === "active" ? "进行中" : "即将开始",
                     intro: `${t.title}（${t.provider}）：在指定游戏中累积有效投注与倍数，按排行榜名次瓜分奖池。名次与奖励以活动页面公布为准。`,
