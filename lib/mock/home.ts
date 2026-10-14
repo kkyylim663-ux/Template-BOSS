@@ -9,7 +9,7 @@ export const BANNERS = [
   { title: "VIP WEEKLY ANGPAU", href: "/zh-my/vip" },
   { title: "REWARD MALL", href: "/zh-my/reward" },
   { title: "DAILY MISSION", href: "/zh-my/mission" },
-  { title: "JOIN OUR TELEGRAM", href: "https://t.me/BO55VIP" },
+  { title: "JOIN OUR TELEGRAM", href: "#" },
 ];
 
 export const HOT_EVENT_PROVIDERS = [

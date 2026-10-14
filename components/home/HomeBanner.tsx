@@ -18,10 +18,10 @@ export default function HomeBanner() {
           <Link
             key={i}
             href={b.href}
-            target={b.href.startsWith("http") ? "_blank" : undefined}
+            onClick={b.href === "#" ? e => e.preventDefault() : undefined}
+            style={b.href === "#" ? { cursor: "default", flex: "0 0 100%" } : undefined}
             aria-label={b.title}
             className="h-full block"
-            style={{ flex: "0 0 100%" }}
           >
             <picture>
               <source media="(max-width: 1024px)" srcSet={`/banners/banner-${i + 1}-m.webp`} />

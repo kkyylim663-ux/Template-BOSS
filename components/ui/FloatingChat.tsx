@@ -12,7 +12,7 @@ export function SideSocial() {
     <div className="side-social fixed z-[55] flex items-center" style={{ left: 0, top: "40%", transform: `translateX(${open ? 0 : -64}px)`, transition: "transform .25s" }}>
       <div className="flex flex-col" style={{ background: "var(--bg)", borderRadius: "0 12px 12px 0", padding: 12, gap: 12, border: "0.8px solid var(--solid)", borderLeft: 0 }}>
         {links.map(item => (
-          <div key={item.href} role="img" aria-label={item.label} className="flex items-center justify-center">
+          <div key={item.label} role="img" aria-label={item.label} className="flex items-center justify-center">
             <SocialCircle item={item} size={40} />
           </div>
         ))}
