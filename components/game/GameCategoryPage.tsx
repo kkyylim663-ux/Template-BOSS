@@ -50,6 +50,7 @@ function Inner({ category, empty }: Props) {
   const pathname = usePathname();
   const active = params.get("provider");
   const [sub, setSub] = useState("全部");
+  const [kw, setKw] = useState("");
   const { ref, prev, next } = useScroller(0.6);
 
   const pick = (key: string | null) => router.replace(key ? `${pathname}?provider=${key}` : pathname, { scroll: false });
@@ -101,14 +102,21 @@ function Inner({ category, empty }: Props) {
           </div>
           <div className="relative" style={{ width: 222 }}>
             <Search size={18} className="absolute" style={{ left: 9, top: 9, color: "var(--muted-2)" }} />
-            <input className="input" style={{ paddingLeft: 34 }} placeholder="搜索游戏" />
+            <input className="input" style={{ paddingLeft: 34 }} placeholder="搜索游戏" value={kw} onChange={e => setKw(e.target.value)} />
           </div>
         </div>
       )}
 
       <div className="grid grid-cols-3 lg:grid-cols-6" style={{ gap: 10, marginBottom: 16 }}>
         {category === "slot" && active
-          ? SLOT_GAMES.slice(0, 12).map((g, i) => <GameCard key={i} i={i} src={`/games/slot/${i}.webp`} name={g.name} n={g.n} />)
+          ? (() => {
+              const k = kw.trim().toLowerCase();
+              const list = SLOT_GAMES.map((g, i) => ({ g, i })).filter(({ g, i }) =>
+                (!k || g.name.toLowerCase().includes(k)) && (sub === "全部" || (sub === "Hot" ? HOT_SLOT.has(i) : !HOT_SLOT.has(i))));
+              return list.length
+                ? list.map(({ g, i }) => <GameCard key={i} i={i} src={`/games/slot/${i}.webp`} name={g.name} n={g.n} />)
+                : [<div key="none" className="col-span-3 lg:col-span-6 flex items-center justify-center" style={{ height: 160, fontSize: 14 }}>未找到记录</div>];
+            })()
           : active
             ? [0, 1].map(i => <GameCard key={i} i={i} />)
             : Array.from({ length: CARD_COUNT[category] ?? providers.length }, (_, i) => {

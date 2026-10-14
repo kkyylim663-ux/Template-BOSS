@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import { Target, Gift, CheckCircle2, Coins, Star, Search, ClipboardList } from "lucide-react";
 import { MISSIONS } from "@/lib/mock/missions";
 import { useAuth } from "@/context/AuthContext";
@@ -10,11 +11,10 @@ const GROUP_ART: Record<string, string> = {
   "每週存款次數": "weekly-deposit-count", "每週存款金額": "weekly-deposit-amount", "每週有效投注": "weekly-valid-bet",
   "每月存款次數": "monthly-deposit-count", "每月有效投注": "monthly-valid-bet",
 };
-const groups = Array.from(new Set(MISSIONS.map(m => m.group)));
 
-function Group({ name }: { name: string }) {
+function Group({ name, list }: { name: string; list: typeof MISSIONS }) {
   const { ref, prev, next } = useScroller();
-  const items = MISSIONS.filter(m => m.group === name);
+  const items = list.filter(m => m.group === name);
   return (
     <section className="flex flex-col" style={{ gap: 12, marginTop: 16 }}>
       <div className="flex items-center justify-between" style={{ height: 30 }}>
@@ -62,6 +62,10 @@ function Group({ name }: { name: string }) {
 
 function Mission() {
   const { user } = useAuth();
+  const [kw, setKw] = useState("");
+  const k = kw.trim().toLowerCase();
+  const list = k ? MISSIONS.filter(m => (m.label + m.group).toLowerCase().includes(k)) : MISSIONS;
+  const groups = Array.from(new Set(list.map(m => m.group)));
   const stats = [
     { Icon: Coins, t: "积分奖励", v: (user?.points ?? 0).toFixed(2) },
     { Icon: CheckCircle2, t: "已完成任务", v: "0" },
@@ -88,7 +92,7 @@ function Mission() {
 
       <div className="flex items-center flex-wrap" style={{ gap: 5, marginTop: 16, minHeight: 48 }}>
         <div className="relative" style={{ flex: "1 1 60%" }}>
-          <input className="input" placeholder="搜索任务" style={{ paddingRight: 34 }} />
+          <input className="input" placeholder="搜索任务" value={kw} onChange={e => setKw(e.target.value)} style={{ paddingRight: 34 }} />
           <Search size={18} className="absolute" style={{ right: 9, top: 9, color: "var(--muted-2)" }} />
         </div>
         <div className="flex" style={{ gap: 5, flex: "1 1 35%" }}>
@@ -97,7 +101,7 @@ function Mission() {
         </div>
       </div>
 
-      {groups.map(g => <Group key={g} name={g} />)}
+      {groups.length ? groups.map(g => <Group key={g} name={g} list={list} />) : <div className="flex items-center justify-center" style={{ height: 160, fontSize: 14 }}>未找到记录</div>}
     </div>
   );
 }
