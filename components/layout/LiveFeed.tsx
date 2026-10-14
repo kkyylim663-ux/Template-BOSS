@@ -1,7 +1,7 @@
 "use client";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { ArrowDownToLine, ArrowUpFromLine, Tag, User } from "lucide-react";
+import { ArrowDownToLine, ArrowUpFromLine, Tag } from "lucide-react";
 import { DEPOSIT_FEED, WITHDRAW_FEED } from "@/lib/mock/live-feed";
 import { PROMOTIONS } from "@/lib/mock/promotions";
 
@@ -20,9 +20,8 @@ function FeedCard({ title, Icon, rows }: { title: string; Icon: React.ElementTyp
         <div className="marquee-y" style={{ gap: 16, animationDuration: "45s" }}>
           {[...rows, ...rows].map((r, i) => (
             <div key={i} className="flex items-center" style={{ height: 58, background: "var(--card)", borderRadius: 16, padding: 8, gap: 12, flexShrink: 0 }}>
-              <span className="flex items-center justify-center" style={{ width: 36, height: 36, borderRadius: "50%", background: "var(--solid)", flexShrink: 0 }}>
-                <User size={18} />
-              </span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={`/avatars/a${(r.id * 7) % 45 + 1}.webp`} alt="" draggable={false} style={{ width: 36, height: 36, borderRadius: "50%", objectFit: "cover", flexShrink: 0 }} />
               <div>
                 <div style={{ fontSize: 16, fontWeight: 600, lineHeight: "22px" }}>{r.phone}</div>
                 <div style={{ fontSize: 16, fontWeight: 700, lineHeight: "22px" }}>

@@ -31,6 +31,8 @@ export default function Header() {
   const [langOpen, setLangOpen] = useState(false);
   const [drawer, setDrawer] = useState(false);
   const [acct, setAcct] = useState(false);
+  const [dClosing, setDClosing] = useState(false);
+  const closeDrawer = () => { setDClosing(true); setTimeout(() => { setDrawer(false); setDClosing(false); }, 280); };
   const close = () => { setBalOpen(false); setLangOpen(false); };
 
   const balance = (
@@ -187,8 +189,8 @@ export default function Header() {
 
       {/* mobile drawer */}
       {drawer && (
-        <div className="fixed inset-0 z-[90]" style={{ background: "rgba(0,0,0,.6)" }} onClick={() => setDrawer(false)}>
-          <div className="h-full flex flex-col" style={{ width: "85%", maxWidth: 320, background: "#03091c" }} onClick={e => e.stopPropagation()}>
+        <div className={`fixed inset-0 z-[90] drawer-back${dClosing ? " closing" : ""}`} style={{ background: "rgba(0,0,0,.6)" }} onClick={closeDrawer}>
+          <div className={`h-full flex flex-col drawer-l${dClosing ? " closing" : ""}`} style={{ width: "85%", maxWidth: 320, background: "#03091c" }} onClick={e => e.stopPropagation()}>
             <div className="flex items-center justify-between" style={{ padding: "12px 12px 8px", flexShrink: 0 }}>
               {isLoggedIn && user ? (
                 <div className="flex items-center" style={{ gap: 10 }}>
@@ -200,10 +202,10 @@ export default function Header() {
                   </div>
                 </div>
               ) : <Logo small />}
-              <button onClick={() => setDrawer(false)} aria-label="关闭"><X size={22} /></button>
+              <button onClick={closeDrawer} aria-label="关闭"><X size={22} /></button>
             </div>
             <div className="flex-1 overflow-y-auto" style={{ padding: "0 12px 12px" }}>
-              <MenuGroups onNavigate={() => setDrawer(false)} />
+              <MenuGroups onNavigate={closeDrawer} />
             </div>
             <div className="relative flex" style={{ height: 56, flexShrink: 0, background: "#050d26", borderTop: "1px solid rgba(255,255,255,.06)" }}>
               {langOpen && (
@@ -221,7 +223,7 @@ export default function Header() {
               {isLoggedIn && (
                 <>
                   <span style={{ width: 1, background: "rgba(255,255,255,.08)", margin: "8px 0" }} />
-                  <button className="flex items-center justify-center flex-1" style={{ gap: 10, fontSize: 14, fontWeight: 600 }} onClick={() => { logout(); setDrawer(false); }}>
+                  <button className="flex items-center justify-center flex-1" style={{ gap: 10, fontSize: 14, fontWeight: 600 }} onClick={() => { logout(); closeDrawer(); }}>
                     <LogOut size={22} strokeWidth={1.8} /> 登出
                   </button>
                 </>

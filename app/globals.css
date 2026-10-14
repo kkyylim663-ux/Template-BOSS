@@ -454,3 +454,17 @@ input, select, textarea { font-family: inherit; }
 
 @media (max-width: 1024px) { .foot-grid .foot-sec { padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,.12); } .foot-grid .foot-sec:last-child { border-bottom: 0; padding-bottom: 0; } }
 @media (min-width: 1025px) { .detail-wrap { padding: 32px 0; } .detail-sheet { height: auto !important; max-height: 100% !important; border-radius: 20px; } }
+
+/* Drawers: slide in/out instead of popping */
+@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+@keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
+@keyframes slideInR { from { transform: translateX(100%) } to { transform: translateX(0) } }
+@keyframes slideOutR { from { transform: translateX(0) } to { transform: translateX(100%) } }
+@keyframes slideInL { from { transform: translateX(-100%) } to { transform: translateX(0) } }
+@keyframes slideOutL { from { transform: translateX(0) } to { transform: translateX(-100%) } }
+.drawer-back { animation: fadeIn .28s ease both; }
+.drawer-back.closing { animation: fadeOut .28s ease both; }
+.drawer-r { animation: slideInR .3s cubic-bezier(.22,.8,.3,1) both; }
+.drawer-r.closing { animation: slideOutR .28s ease-in both; }
+.drawer-l { animation: slideInL .3s cubic-bezier(.22,.8,.3,1) both; }
+.drawer-l.closing { animation: slideOutL .28s ease-in both; }
