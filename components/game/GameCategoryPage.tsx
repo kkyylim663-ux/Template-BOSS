@@ -5,6 +5,7 @@ import { LayoutGrid, ChevronLeft, ChevronRight, Search, ImageIcon, User, type Lu
 import { GAME_PROVIDERS, CARD_COUNT, SLOT_GAMES, TAB_ICON_KEYS } from "@/lib/mock/games";
 import { SectionTitle, useScroller } from "@/components/ui/bo";
 import { ProviderCard } from "@/components/home/ProviderSections";
+import { PROVIDER_GAMES } from "@/lib/mock/provider-games";
 import { sidebarGroups } from "@/lib/nav";
 
 interface Props {
@@ -108,7 +109,7 @@ function Inner({ category, empty }: Props) {
       )}
 
       <div className="grid grid-cols-3 lg:grid-cols-6" style={{ gap: 10, marginBottom: 16 }}>
-        {category === "slot" && active
+        {category === "slot" && active && !PROVIDER_GAMES[active]
           ? (() => {
               const k = kw.trim().toLowerCase();
               const list = SLOT_GAMES.map((g, i) => ({ g, i })).filter(({ g, i }) =>
@@ -118,7 +119,17 @@ function Inner({ category, empty }: Props) {
                 : [<div key="none" className="col-span-3 lg:col-span-6 flex items-center justify-center" style={{ height: 160, fontSize: 14 }}>未找到记录</div>];
             })()
           : active
-            ? [0, 1].map(i => <GameCard key={i} i={i} />)
+            ? (() => {
+                const k = kw.trim().toLowerCase();
+                const known = active ? PROVIDER_GAMES[active] : undefined;
+                if (known) {
+                  const list = known.map((g, i) => ({ g, i })).filter(({ g, i }) => (!k || g.name.toLowerCase().includes(k)) && (sub === "全部" || (sub === "Hot" ? i < 6 : i >= 6))).map(({ g }) => g);
+                  return list.length
+                    ? list.map((g, i) => <GameCard key={g.img} i={i} src={g.img} name={g.name} n={g.n} />)
+                    : [<div key="none" className="col-span-3 lg:col-span-6 flex items-center justify-center" style={{ height: 160, fontSize: 14 }}>未找到记录</div>];
+                }
+                return [0, 1].filter(() => !k).map(i => <GameCard key={i} i={i} />);
+              })()
             : Array.from({ length: CARD_COUNT[category] ?? providers.length }, (_, i) => {
                 const p = providers[i];
                 return <ProviderCard key={i} name={p?.name ?? ""} href={p ? `${pathname}?provider=${p.key}` : pathname} art={`/games/cards/${category}-${i}.webp`} hot={category === "slot" ? HOT_SLOT.has(i) : false} w="100%" h="auto" />;
