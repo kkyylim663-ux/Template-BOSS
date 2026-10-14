@@ -1,26 +1,33 @@
 "use client";
 import { useState } from "react";
-import { Zap, Landmark, Wallet, Smartphone, Bitcoin, Phone, CreditCard } from "lucide-react";
 import { BalanceWallet, Notes, TxTitle, Field, txTile as tile } from "@/components/ui/bo";
 
 const methods = [
-  { k: "quick", l: "Quick Pay", Icon: Zap },
-  { k: "bank", l: "Bank Transfer", Icon: Landmark },
-  { k: "ewallet", l: "eWallet", Icon: Wallet },
-  { k: "ewo", l: "eWallet Online", Icon: Smartphone },
-  { k: "crypto", l: "Crypto", Icon: Bitcoin },
-  { k: "phone", l: "Phone Credit", Icon: Phone },
+  { k: "quick", l: "Quick Pay", img: "quickpay" },
+  { k: "bank", l: "Bank Transfer", img: "banktransfer" },
+  { k: "ewallet", l: "eWallet", img: "qrcode" },
+  { k: "ewo", l: "eWallet Online", img: "ewallet" },
+  { k: "crypto", l: "Crypto", img: "crypto" },
+  { k: "phone", l: "Phone Credit", img: "phonecredit" },
 ];
 const channels = [
-  { k: "fpay", l: "FPay", min: "30.00", max: "5000.00" },
-  { k: "luxepay", l: "Luxepay", min: "30.00", max: "30000.00" },
   { k: "smartpay", l: "Smartpay (Online Banking)", min: "30.00", max: "5000.00" },
   { k: "onepay", l: "Onepay", min: "30.00", max: "30000.00" },
+  { k: "luxepay", l: "Luxepay", min: "30.00", max: "30000.00" },
 ];
+const banks = [["affin", "Affin Bank"], ["alliance", "Alliance Bank"], ["bsn", "BSN Bank"], ["cimb", "CIMB"], ["hlb", "Hong Leong"], ["mbb", "Maybank"], ["pbb", "Public Bank"], ["rhb", "RHB Bank"]];
+const QUICK = ["100.00", "500.00", "1,000.00"];
+
+const Pic = ({ n, size = 30 }: { n: string; size?: number }) => (
+  // eslint-disable-next-line @next/next/no-img-element
+  <img src={`/pay/${n}.png`} alt="" draggable={false} style={{ width: size, height: size, objectFit: "contain", display: "block" }} />
+);
 
 export default function DepositPage() {
   const [m, setM] = useState("quick");
-  const [c, setC] = useState<string | null>(null);
+  const [c, setC] = useState<string | null>("smartpay");
+  const [bank, setBank] = useState<string | null>(null);
+  const [amt, setAmt] = useState("");
 
   return (
     <div style={{ marginBottom: 16 }}>
@@ -28,9 +35,9 @@ export default function DepositPage() {
       <div style={{ marginBottom: 8 }}>
         <TxTitle>存款方式</TxTitle>
         <div className="grid grid-cols-3" style={{ gap: 4 }}>
-          {methods.map(({ k, l, Icon }) => (
-            <button key={k} style={tile(m === k)} onClick={() => { setM(k); setC(null); }}>
-              <Icon size={30} strokeWidth={1.6} />
+          {methods.map(({ k, l, img }) => (
+            <button key={k} style={tile(m === k)} onClick={() => { setM(k); setC("smartpay"); setBank(null); }}>
+              <Pic n={img} />
               <span style={{ fontSize: 14, fontWeight: 600 }}>{l}</span>
             </button>
           ))}
@@ -41,19 +48,41 @@ export default function DepositPage() {
         <div className="grid grid-cols-3" style={{ gap: 4 }}>
           {channels.map(ch => (
             <button key={ch.k} style={{ ...tile(c === ch.k), minHeight: 95 }} onClick={() => setC(ch.k)}>
-              <CreditCard size={30} strokeWidth={1.6} />
+              <Pic n={ch.k} />
               <span style={{ fontSize: 14, fontWeight: 600 }}>{ch.l}</span>
               <span style={{ fontSize: 12 }}>{ch.min} ~ {ch.max}</span>
             </button>
           ))}
         </div>
       </div>
+      {c === "smartpay" && (
+        <div style={{ marginBottom: 8 }}>
+          <TxTitle>存款银行</TxTitle>
+          <div className="grid grid-cols-3" style={{ gap: 4 }}>
+            {banks.map(([k, l]) => (
+              <button key={k} style={{ ...tile(bank === k), minHeight: 80 }} onClick={() => setBank(k)}>
+                <Pic n={k} />
+                <span style={{ fontSize: 12, fontWeight: 600 }}>{l}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
       {c && (
         <div className="flex flex-col" style={{ gap: 8, marginBottom: 8 }}>
           <Field label="金额" required>
-            <input className="input" placeholder="最低: 30 / 最高: 5000" inputMode="decimal" />
+            <div className="relative">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/pay/myr.png" alt="" className="absolute" style={{ left: 10, top: 8, width: 22, height: 22, objectFit: "contain" }} />
+              <input className="input" style={{ paddingLeft: 42 }} value={amt} onChange={e => setAmt(e.target.value)} placeholder="" inputMode="decimal" />
+            </div>
           </Field>
-          <button className="btn-dark btn-lg" disabled>提交（前端骨架）</button>
+          <div className="grid grid-cols-3" style={{ gap: 4 }}>
+            {QUICK.map(q => (
+              <button key={q} className="btn-dark" style={{ height: 40 }} onClick={() => setAmt(q.replace(",", ""))}>{q}</button>
+            ))}
+          </div>
+          <button className="btn-gold btn-lg" disabled={!amt}>提交</button>
         </div>
       )}
       <Notes>
