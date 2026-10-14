@@ -5,8 +5,8 @@ import { LanguageProvider } from "@/context/LanguageContext";
 import LayoutShell          from "@/components/layout/LayoutShell";
 
 export const metadata: Metadata = {
-  title: "TitanX 马来西亚 | 在线游戏、优惠活动与奖励",
-  description: "TitanX – Simple, Fast, and Reliable. 体验世界级在线博彩娱乐。",
+  title: "Test123 马来西亚 | 在线游戏、优惠活动与奖励",
+  description: "Test123 – Simple, Fast, and Reliable. 体验世界级在线博彩娱乐。",
 };
 
 export default function ZhMyLayout({ children }: { children: React.ReactNode }) {

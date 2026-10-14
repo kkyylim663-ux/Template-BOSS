@@ -25,13 +25,13 @@ const SHARE: [typeof Send, string][] = [
   [Send, "#2aabee"], [MessageCircle, "#06c755"], [MessagesSquare, "#0084ff"], [Phone, "#25d366"], [Facebook, "#1877f2"], [Mail, "#888"], [Twitter, "#1da1f2"],
 ];
 const TNC: [string, string[]][] = [
-  ["1. 谁可以参加？", ["只有在 TitanX 完成至少 1 次存款的活跃会员，才有资格参与此推荐活动并开始邀请好友。"]],
+  ["1. 谁可以参加？", ["只有在 Test123 完成至少 1 次存款的活跃会员，才有资格参与此推荐活动并开始邀请好友。"]],
   ["2. 如何加入并开始赚钱？", ["从活动页面复制你的专属推荐链接。", "通过聊天软件、社交媒体等方式分享给好友。", "当你的好友注册并完成至少 MYR100 的首存后，你将开始获得奖励！", "你可随时在活动页面查看你的推荐记录与奖励明细。"]],
   ["3. 我可以获得什么奖励？", ["(i) MYR38 免费现金", "当你的好友首次存款 MYR100 或以上，系统将自动把 MYR38 派发至你的钱包。", "(ii) 每天 0.28% 推荐奖金", "每天你都能获得好友所有真实投注金额的 0.28% 奖励，与他当初存入多少无关。"]],
   ["4. 每天推荐奖金如何计算？", ["每天计算：星期一 12:00 AM – 星期一 11:59 PM（GMT+8）", "派发时间：每周二中午 12:00", "最低派发金额：奖金需超过 MYR1 才会发放", "流水要求：奖金需完成 1 倍流水（1x）才可提款", "示例：若你本周获得 MYR1,188 奖金，你必须完成 MYR1,188 的投注流水后才能提款。"]],
   ["5. 哪些投注不计入流水？", ["和局 / 平局投注", "对冲投注（押双方）", "取消或无效的注单", "每局在轮盘下注 24 个号码或以上", "赔率低于 0.5（或欧洲盘 1.50）", "3 Pictures、Casino Hold’em、扑克", "RNG / 街机类游戏", "4D 彩票", "Mega888 非老虎机游戏（街机、桌游、真人）", "使用奖金资金在这些游戏下注将导致所有奖金 winnings 被取消。"]],
   ["6. 公平游戏政策（Fair Play Policy）", ["我们不允许重复账号或虚假账号。若你与被推荐人使用相同或共享的以下信息，将被取消资格：", "IP 地址", "银行资料", "付款卡", "装置 / 电脑设备"]],
-  ["7. 每人仅限一个账号", ["每位用户仅能参与一次推荐活动，包括以下限制：", "家庭 / 同住成员", "地址", "IP 地址", "电邮或电话号码", "支付账户（银行卡、电子钱包）", "共享电脑 / 共享设备", "✅ 所有 TitanX 一般条款与条件同样适用。"]],
+  ["7. 每人仅限一个账号", ["每位用户仅能参与一次推荐活动，包括以下限制：", "家庭 / 同住成员", "地址", "IP 地址", "电邮或电话号码", "支付账户（银行卡、电子钱包）", "共享电脑 / 共享设备", "✅ 所有 Test123 一般条款与条件同样适用。"]],
 ];
 
 const card = { background: "var(--card)", borderRadius: 12 } as const;
@@ -45,7 +45,7 @@ function Title({ children, icon }: { children: React.ReactNode; icon: React.Elem
 function ShareBlock({ url }: { url: string }) {
   const [qr, setQr] = useState("");
   const [copied, setCopied] = useState(false);
-  useEffect(() => { QRCode.toDataURL(url || "TitanX", { margin: 1, width: 200 }).then(setQr).catch(() => {}); }, [url]);
+  useEffect(() => { QRCode.toDataURL(url || "Test123", { margin: 1, width: 200 }).then(setQr).catch(() => {}); }, [url]);
   const copy = () => { navigator.clipboard?.writeText(url); setCopied(true); setTimeout(() => setCopied(false), 1500); };
   return (
     <div style={{ ...card, padding: 8 }}>
@@ -178,7 +178,7 @@ export default function ReferralView() {
       {tab === "tnc" && (
         <div style={{ ...card, padding: 16, fontSize: 14, lineHeight: "22px" }}>
           <p style={{ fontSize: 16, fontWeight: 600, margin: "0 0 8px" }}>「分享好友 · 赚取免费现金」推荐活动条款与细则</p>
-          <p style={{ margin: "0 0 16px" }}>加入 TitanX 并参与「分享好友 · 赚取免费现金」推荐活动，即代表你同意以下所有规则。</p>
+          <p style={{ margin: "0 0 16px" }}>加入 Test123 并参与「分享好友 · 赚取免费现金」推荐活动，即代表你同意以下所有规则。</p>
           {TNC.map(([h, ps]) => (
             <div key={h} style={{ marginBottom: 16 }}>
               <p style={{ fontWeight: 600, margin: "0 0 6px" }}>{h}</p>

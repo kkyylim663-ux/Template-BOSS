@@ -40,7 +40,7 @@ export default function LoginBody() {
           <img key={b} src={`/footer/${b}.png`} alt="" draggable={false} style={{ width: w as number, height: 30, objectFit: "contain" }} />
         ))}
       </div>
-      <div className="text-sm font-bold" style={{ color: "#fff", marginTop: 4 }}>欢迎回到 TitanX</div>
+      <div className="text-sm font-bold" style={{ color: "#fff", marginTop: 4 }}>欢迎回到 Test123</div>
       <p className="text-xs leading-relaxed" style={{ color: "#e4e8ff" }}>
         业界领先安全技术，严格保护您的个人信息和资金安全。
       </p>

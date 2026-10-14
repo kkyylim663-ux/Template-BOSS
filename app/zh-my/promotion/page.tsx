@@ -58,7 +58,7 @@ export default function PromotionPage() {
                 )}
                 <button className="btn-gold" style={{ width: 96 }} onClick={() => setDetail({
                   title: p.title, img: `/promo/${p.id}.webp`, period: `活动时间：${p.period}`,
-                  intro: `${p.title}：登录 TitanX 账户后，按活动要求完成存款或投注，即可领取对应奖励。奖励将于满足条件后自动发放至您的钱包或积分账户。`,
+                  intro: `${p.title}：登录 Test123 账户后，按活动要求完成存款或投注，即可领取对应奖励。奖励将于满足条件后自动发放至您的钱包或积分账户。`,
                   rules: ["登录账户并确认已完成实名资料。", p.apply ? "在本页点击“申请”，按提示选择要参与的活动。" : "无需申请，系统会在满足条件后自动派发。", "完成活动所需的存款或有效投注。", "奖励发放后，按流水要求完成投注即可提款。"],
                   terms: PROMO_TERMS,
                 })}>详情</button>

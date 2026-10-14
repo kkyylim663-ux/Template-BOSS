@@ -17,7 +17,7 @@ export default function TncPage() {
     <div style={{ marginBottom: 16 }}>
       <InfoHero src="/info/terms.webp" title="条款与条件" sub="公平 · 透明 · 负责任" chips={[[ShieldCheck, "安全保障"], [Scale, "公平公正"], [FileCheck2, "条款透明"]]} />
       <div className="flex flex-col" style={{ padding: "4px 8px", gap: 16 }}>
-        <span style={{ fontSize: 24, fontWeight: 600 }}>TitanX — 使用条款与条件</span>
+        <span style={{ fontSize: 24, fontWeight: 600 }}>Test123 — 使用条款与条件</span>
         <div style={{ fontSize: 14 }}>
           <p style={{ fontWeight: 500 }}>最近更新日期：[18 November 2025]</p>
           {sections.map(([h, p]) => (

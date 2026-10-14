@@ -74,32 +74,32 @@ export const EN_DICT: Record<string, string> = {
   "倍数": "Multiplier",
   "投注金额": "Bet Amount",
   "派彩": "Payout",
-  "TitanX 官方网站 马来西亚 2026 最新入口": "TitanX Official Website Malaysia – Latest Access 2026",
-  "TitanX 是面向马来西亚玩家的在线游戏平台之一，为会员提供多元化的在线娱乐体验。通过 TitanX 官方网站，玩家可以轻松进入游戏、查看优惠活动并管理个人账户。":
-    "TitanX is one of the leading online gaming platforms for players in Malaysia, offering members a diverse online entertainment experience. Through the TitanX official website, players can easily access games, check promotions and manage their accounts.",
-  "为什么选择 TitanX 官方网站": "Why Choose the TitanX Official Website",
-  "丰富多样的 TitanX 在线游戏选择": "A Rich Variety of TitanX Online Games",
-  "TitanX Malaysia 将游戏、Promotion 优惠活动、Reward Mall 奖励商城、Daily & Weekly Mission 任务系统整合在同一平台。":
-    "TitanX Malaysia brings games, Promotions, the Reward Mall and the Daily & Weekly Mission system together on one platform.",
-  "TitanX 官网注册、登录与使用说明": "How to Register, Log In and Use the TitanX Official Website",
+  "Test123 官方网站 马来西亚 2026 最新入口": "Test123 Official Website Malaysia – Latest Access 2026",
+  "Test123 是面向马来西亚玩家的在线游戏平台之一，为会员提供多元化的在线娱乐体验。通过 Test123 官方网站，玩家可以轻松进入游戏、查看优惠活动并管理个人账户。":
+    "Test123 is one of the leading online gaming platforms for players in Malaysia, offering members a diverse online entertainment experience. Through the Test123 official website, players can easily access games, check promotions and manage their accounts.",
+  "为什么选择 Test123 官方网站": "Why Choose the Test123 Official Website",
+  "丰富多样的 Test123 在线游戏选择": "A Rich Variety of Test123 Online Games",
+  "Test123 Malaysia 将游戏、Promotion 优惠活动、Reward Mall 奖励商城、Daily & Weekly Mission 任务系统整合在同一平台。":
+    "Test123 Malaysia brings games, Promotions, the Reward Mall and the Daily & Weekly Mission system together on one platform.",
+  "Test123 官网注册、登录与使用说明": "How to Register, Log In and Use the Test123 Official Website",
   "新会员只需几个步骤即可完成注册，登录后即可存款、领取优惠并参与各类活动。":
     "New members can register in just a few steps, then deposit, claim promotions and join activities after logging in.",
-  "TitanX Promotion、Reward Mall 与会员奖励": "TitanX Promotions, Reward Mall and Member Rewards",
+  "Test123 Promotion、Reward Mall 与会员奖励": "Test123 Promotions, Reward Mall and Member Rewards",
   "平台提供丰富的优惠活动与积分奖励，会员可在奖励商城兑换精选商品。":
     "The platform offers a wide range of promotions and point rewards, and members can redeem selected items in the Reward Mall.",
-  "TitanX 马来西亚移动端游戏体验": "The TitanX Malaysia Mobile Gaming Experience",
-  "TitanX 支持手机浏览器访问，随时随地享受流畅的游戏体验。":
-    "TitanX supports access from mobile browsers, so you can enjoy a smooth gaming experience anytime, anywhere.",
+  "Test123 马来西亚移动端游戏体验": "The Test123 Malaysia Mobile Gaming Experience",
+  "Test123 支持手机浏览器访问，随时随地享受流畅的游戏体验。":
+    "Test123 supports access from mobile browsers, so you can enjoy a smooth gaming experience anytime, anywhere.",
   "安全与责任博彩": "Safety and Responsible Gambling",
-  "TitanX 重视账户安全与负责任博彩，提供多重安全措施保护玩家权益。":
-    "TitanX takes account security and responsible gambling seriously, providing multiple safeguards to protect players' rights.",
+  "Test123 重视账户安全与负责任博彩，提供多重安全措施保护玩家权益。":
+    "Test123 takes account security and responsible gambling seriously, providing multiple safeguards to protect players' rights.",
   "常见问题（FAQ）": "Frequently Asked Questions (FAQ)",
   "如有任何疑问，请查看常见问题页面或联系 24/7 在线客服。":
     "If you have any questions, check the FAQ page or contact our 24/7 live chat.",
-  "立即进入 TitanX 官方网站": "Enter the TitanX Official Website Now",
-  "立即注册 TitanX，开启您的精彩娱乐之旅。": "Register with TitanX now and start your exciting entertainment journey.",
-  "TitanX —— 简单、快捷、稳定，享受属于您的精彩娱乐时光。TitanX 官方网站致力于为用户打造便捷、稳定、流畅的在线娱乐体验。平台提供便捷的账户服务与多元化娱乐内容，让用户能够轻松进入专属娱乐空间，享受更加顺畅的操作体验。":
-    "TitanX — Simple, Fast and Reliable. Enjoy your moments of entertainment. The TitanX official website is dedicated to delivering a convenient, stable and smooth online experience, with easy account services and diverse content.",
+  "立即进入 Test123 官方网站": "Enter the Test123 Official Website Now",
+  "立即注册 Test123，开启您的精彩娱乐之旅。": "Register with Test123 now and start your exciting entertainment journey.",
+  "Test123 —— 简单、快捷、稳定，享受属于您的精彩娱乐时光。Test123 官方网站致力于为用户打造便捷、稳定、流畅的在线娱乐体验。平台提供便捷的账户服务与多元化娱乐内容，让用户能够轻松进入专属娱乐空间，享受更加顺畅的操作体验。":
+    "Test123 — Simple, Fast and Reliable. Enjoy your moments of entertainment. The Test123 official website is dedicated to delivering a convenient, stable and smooth online experience, with easy account services and diverse content.",
   "服务出色，界面友好易用！": "Excellent service, friendly and easy-to-use interface!",
   "我喜欢丰富多样的游戏选择。": "I love the wide variety of game choices.",
   "支付速度快，客服支持非常优秀。": "Fast payments and excellent customer support.",
@@ -130,7 +130,7 @@ export const EN_DICT: Record<string, string> = {
   "记住我": "Remember me",
   "忘记密码？": "Forgot password?",
   "登录中...": "Logging in...",
-  "欢迎回到 TitanX": "Welcome back to TitanX",
+  "欢迎回到 Test123": "Welcome back to Test123",
   "业界领先安全技术，严格保护您的个人信息和资金安全。": "Industry-leading security technology strictly protects your personal information and funds.",
   "🎁 新用户高达 299% 欢迎奖金": "🎁 New users get up to 299% Welcome Bonus",
   "请输入手机号码": "Please enter your phone number",
@@ -154,7 +154,7 @@ export const EN_DICT: Record<string, string> = {
   "注册中...": "Registering...",
   "提交": "Submit",
   "立即注册 & 解锁": "Register Now & Unlock",
-  "TitanX 专属福利": "TitanX Exclusive Perks",
+  "Test123 专属福利": "Test123 Exclusive Perks",
   "🎁 高达 299% 欢迎奖金": "🎁 Up to 299% Welcome Bonus",
   "💰 每日存款返水": "💰 Daily Deposit Rebate",
   "👑 VIP 终身会员": "👑 VIP Lifetime Membership",
@@ -192,7 +192,7 @@ export const EN_DICT: Record<string, string> = {
   "幸运刮刮乐": "Lucky Scratch Card",
   "幸运红包雨": "Lucky Red Packet Rain",
   "热门活动！ 每日免费领取20马币": "Hot Event! Free 20 MYR Daily",
-  "TitanX 救援奖励 100%": "TitanX Rescue Bonus 100%",
+  "Test123 救援奖励 100%": "Test123 Rescue Bonus 100%",
   "老虎机 300% 欢迎红利": "Slots 300% Welcome Bonus",
   "真人娱乐场 55% 欢迎奖金": "Live Casino 55% Welcome Bonus",
   "体育 55% 欢迎红利": "Sports 55% Welcome Bonus",
@@ -288,7 +288,7 @@ export const EN_DICT: Record<string, string> = {
   "佣金每月准时结算到账": "Commissions settled on time every month",
   "实时报表": "Real-Time Reports",
   "随时查看推荐人数与收益": "Check your referral count and earnings anytime",
-  "TitanX 代理计划": "TitanX Affiliate Program",
+  "Test123 代理计划": "Test123 Affiliate Program",
   "高额被动收入，从今天开始": "High passive income, starting today",
 
   // ── Contact us ─────────────────────────────────────────────
@@ -371,7 +371,7 @@ export const EN_DICT: Record<string, string> = {
 
   // ── TNC page ───────────────────────────────────────────────
   "最近更新日期：[18 November 2025]": "Last Updated: [18 November 2025]",
-  "TitanX — 使用条款与条件": "TitanX — Terms & Conditions",
+  "Test123 — 使用条款与条件": "Test123 — Terms & Conditions",
   "1. 接受条款": "1. Acceptance of Terms",
   "使用本网站或注册账号，即表示您同意以下《条款与条件》。": "By using this website or registering an account, you agree to the following Terms & Conditions.",
   "2. 账户注册": "2. Account Registration",
@@ -388,10 +388,10 @@ export const EN_DICT: Record<string, string> = {
   "我们保留随时修改本条款的权利，修改内容公布后即时生效。": "We reserve the right to amend these terms at any time; changes take effect immediately upon publication.",
 
   // ── FAQ page ───────────────────────────────────────────────
-  "1. 什么是 TitanX？": "1. What is TitanX?",
-  "TitanX 是面向马来西亚玩家的在线娱乐平台，提供老虎机、真人娱乐场、体育等多种游戏。":
-    "TitanX is an online entertainment platform for players in Malaysia, offering slots, live casino, sports and many other games.",
-  "2. 如何下载 TitanX App？": "2. How do I download the TitanX App?",
+  "1. 什么是 Test123？": "1. What is Test123?",
+  "Test123 是面向马来西亚玩家的在线娱乐平台，提供老虎机、真人娱乐场、体育等多种游戏。":
+    "Test123 is an online entertainment platform for players in Malaysia, offering slots, live casino, sports and many other games.",
+  "2. 如何下载 Test123 App？": "2. How do I download the Test123 App?",
   "使用手机浏览器打开官网，选择“添加到主屏幕”即可。": "Open the official website in your mobile browser and select \"Add to Home Screen\".",
   "3. 如何联系客户支持？": "3. How do I contact customer support?",
   "可通过在线客服、WhatsApp、Telegram 或电子邮件 24/7 联系我们。": "You can reach us 24/7 via live chat, WhatsApp, Telegram or email.",
@@ -425,21 +425,21 @@ export const EN_DICT: Record<string, string> = {
   "深入了解博彩行业的运作方式及当前趋势": "An in-depth look at how the gambling industry works and current trends",
   "精彩赠品活动": "Exciting Giveaways",
   "通过精彩的赠品优惠赢取丰厚奖品和诱人奖金": "Win great prizes and tempting bonuses through exciting giveaway promotions",
-  "这是一份为您量身定制的 TitanX “关于我们” (About Us) 的介绍。": "This is a tailored introduction to TitanX's \"About Us\" page.",
-  "欢迎来到 TitanX：简单、快捷、稳定": "Welcome to TitanX: Simple, Fast and Reliable",
-  "TitanX 致力于为马来西亚玩家提供安全、公平、流畅的在线娱乐体验。": "TitanX is committed to providing players in Malaysia with a safe, fair and smooth online entertainment experience.",
+  "这是一份为您量身定制的 Test123 “关于我们” (About Us) 的介绍。": "This is a tailored introduction to Test123's \"About Us\" page.",
+  "欢迎来到 Test123：简单、快捷、稳定": "Welcome to Test123: Simple, Fast and Reliable",
+  "Test123 致力于为马来西亚玩家提供安全、公平、流畅的在线娱乐体验。": "Test123 is committed to providing players in Malaysia with a safe, fair and smooth online entertainment experience.",
   "我们的使命": "Our Mission",
   "以玩家为中心，提供丰富游戏、优质优惠与 24/7 专业客服。": "Player-focused, offering a wide range of games, great promotions and 24/7 professional support.",
   "为什么选择我们": "Why Choose Us",
   "持牌经营、独立认证、快速存取款，让每一位会员安心游戏。": "Licensed operation, independent certification and fast deposits/withdrawals, so every member can play with peace of mind.",
-  "关于TitanX": "About TitanX",
+  "关于Test123": "About Test123",
 
   // ── Deposit / Withdraw ─────────────────────────────────────
   "存款方式": "Deposit Method",
   "存款渠道": "Deposit Channel",
   "提款方式": "Withdrawal Method",
-  "用于存款的银行账户名称必须与您注册的 TitanX 账户名称一致。\n请在确认付款前确保转账金额正确。\n请勿在转账备注中包含任何与赌博相关的词语（例如：casino、bet、TitanX）。\n存款通常即时处理。如果您的交易在 5 分钟内未更新，请联系我们的 24/7 在线客服寻求帮助。\n\n任何错误的详细信息或无效交易可能导致存款延迟或被拒绝。":
-    "The bank account name used for deposit must match your registered TitanX account name.\nPlease make sure the transfer amount is correct before confirming payment.\nDo not include any gambling-related words in the transfer remarks (e.g. casino, bet, TitanX).\nDeposits are usually processed instantly. If your transaction is not updated within 5 minutes, please contact our 24/7 live chat for help.\n\nIncorrect details or invalid transactions may result in delayed or rejected deposits.",
+  "用于存款的银行账户名称必须与您注册的 Test123 账户名称一致。\n请在确认付款前确保转账金额正确。\n请勿在转账备注中包含任何与赌博相关的词语（例如：casino、bet、Test123）。\n存款通常即时处理。如果您的交易在 5 分钟内未更新，请联系我们的 24/7 在线客服寻求帮助。\n\n任何错误的详细信息或无效交易可能导致存款延迟或被拒绝。":
+    "The bank account name used for deposit must match your registered Test123 account name.\nPlease make sure the transfer amount is correct before confirming payment.\nDo not include any gambling-related words in the transfer remarks (e.g. casino, bet, Test123).\nDeposits are usually processed instantly. If your transaction is not updated within 5 minutes, please contact our 24/7 live chat for help.\n\nIncorrect details or invalid transactions may result in delayed or rejected deposits.",
   "提款前请确认已完成所有流水要求。\n收款账户名称必须与注册姓名一致。\n每日提款次数与金额以您的 VIP 等级为准。\n提款通常在 15 分钟内处理完毕。\n如提款被拒绝，金额将退回主钱包。\n如有疑问，请联系 24/7 在线客服。":
     "Please make sure you've completed all turnover requirements before withdrawing.\nThe receiving account name must match your registered name.\nDaily withdrawal count and amount depend on your VIP level.\nWithdrawals are usually processed within 15 minutes.\nIf a withdrawal is rejected, the amount will be returned to your main wallet.\nFor questions, please contact our 24/7 live chat.",
 };

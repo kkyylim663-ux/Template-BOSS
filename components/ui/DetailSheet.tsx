@@ -14,11 +14,11 @@ export interface DetailData {
 }
 
 export const PROMO_TERMS = [
-  "本优惠仅限 TitanX 注册会员，每位玩家、每个家庭、每个 IP 地址及每台设备仅限参与一次。",
+  "本优惠仅限 Test123 注册会员，每位玩家、每个家庭、每个 IP 地址及每台设备仅限参与一次。",
   "红利及相关赢利须完成指定流水要求后方可提款，具体倍数以活动说明为准。",
   "同一笔存款不可同时参与多项存款类优惠，除非活动另有说明。",
-  "若发现任何套利、对冲投注或滥用优惠的行为，TitanX 有权取消红利及赢利，并关闭相关账户。",
-  "TitanX 保留随时修改、暂停或终止本活动的权利，恕不另行通知。",
+  "若发现任何套利、对冲投注或滥用优惠的行为，Test123 有权取消红利及赢利，并关闭相关账户。",
+  "Test123 保留随时修改、暂停或终止本活动的权利，恕不另行通知。",
 ];
 
 export default function DetailSheet({ data, onClose }: { data: DetailData | null; onClose: () => void }) {
