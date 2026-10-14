@@ -8,7 +8,7 @@ import { useModal } from "@/context/ModalContext";
 const items = [
   { label: "主页", art: "nav-1", href: "/zh-my", Icon: Home, auth: false },
   { label: "存款", art: "nav-2", href: "/zh-my/account/deposit", Icon: Wallet, auth: true },
-  { label: "账户", art: "nav-3", href: "/zh-my/account/profile", Icon: UserRound, auth: true },
+  { label: "账户", art: "nav-3", href: "/zh-my/account/dashboard", Icon: UserRound, auth: true },
   { label: "促销", art: "nav-4", href: "/zh-my/promotion", Icon: Tag, auth: false },
   { label: "在线客服", art: "nav-5", href: "/zh-my/contact-us", Icon: Headset, auth: false },
 ];
