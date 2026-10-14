@@ -2,11 +2,13 @@
   "version": "0.1.0",
   "name": "bo55-my-clone",
   "dependencies": {
-    "lucide-react": "^0.525.0",
+    "@types/qrcode": "^1.5.6",
     "clsx": "^2.1.1",
+    "lucide-react": "^0.525.0",
     "next": "15.3.4",
-    "react-dom": "^19.0.0",
+    "qrcode": "^1.5.4",
     "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "tailwind-merge": "^3.3.0"
   },
   "scripts": {
@@ -15,12 +17,12 @@
     "build": "next build"
   },
   "devDependencies": {
-    "@types/react-dom": "^19",
-    "tailwindcss": "^4",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
-    "typescript": "^5",
-    "@types/react": "^19"
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "tailwindcss": "^4",
+    "typescript": "^5"
   },
   "private": true
 }

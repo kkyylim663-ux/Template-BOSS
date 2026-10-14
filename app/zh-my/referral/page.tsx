@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import { Users, Share2, UserPlus, Coins } from "lucide-react";
 import { PageBanner } from "@/components/ui/bo";
 import { useAuth } from "@/context/AuthContext";
+import ReferralView from "@/components/referral/ReferralView";
 import { useModal } from "@/context/ModalContext";
 
 const steps = [
@@ -15,6 +16,7 @@ export default function ReferralPage() {
   const { isLoggedIn } = useAuth();
   const { openLogin } = useModal();
   const router = useRouter();
+  if (isLoggedIn) return <ReferralView />;
   return (
     <div className="flex flex-col" style={{ gap: 12, marginBottom: 16 }}>
       <PageBanner title="推荐好友" icon={Users} />
