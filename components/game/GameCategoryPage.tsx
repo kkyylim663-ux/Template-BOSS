@@ -64,7 +64,7 @@ function Inner({ category, empty }: Props) {
   if (empty) {
     return (
       <div className="flex items-center" style={{ gap: 8 }}>
-        <SectionTitle icon={icon}>{title}</SectionTitle>
+        <SectionTitle icon={icon} svgLabel={title}>{title}</SectionTitle>
         {badge && <span style={{ fontSize: 10, fontWeight: 700, padding: "1px 6px", borderRadius: 6, background: "var(--gold)", color: "#000" }}>{badge}</span>}
       </div>
     );
@@ -72,7 +72,7 @@ function Inner({ category, empty }: Props) {
 
   return (
     <div className="flex flex-col" style={{ gap: 12 }}>
-      <SectionTitle icon={icon}>{title}</SectionTitle>
+      <SectionTitle icon={icon} svgLabel={title}>{title}</SectionTitle>
 
       <div style={{ background: "var(--card)", borderRadius: 8, padding: 8, border: "0.8px solid var(--solid)" }}>
         <div className="flex items-center" style={{ height: 50 }}>

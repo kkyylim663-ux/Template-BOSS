@@ -1,12 +1,14 @@
 "use client";
+import NavSvg from "@/components/ui/NavSvg";
+import { NAV_SVG } from "@/lib/nav-icons";
 import { ChevronLeft, ChevronRight, RefreshCw, ImageIcon } from "lucide-react";
 import { useRef, type ReactNode, type ElementType, type CSSProperties } from "react";
 import { useAuth } from "@/context/AuthContext";
 
-export function SectionTitle({ icon: Icon, children }: { icon: ElementType; children: ReactNode }) {
+export function SectionTitle({ icon: Icon, svgLabel, children }: { icon: ElementType; svgLabel?: string; children: ReactNode }) {
   return (
     <div className="sec-title">
-      <Icon strokeWidth={2} />
+      {svgLabel && NAV_SVG[svgLabel] ? <NavSvg label={svgLabel} size={24} active /> : <Icon strokeWidth={2} />}
       <span>{children}</span>
     </div>
   );

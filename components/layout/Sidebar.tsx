@@ -1,4 +1,6 @@
 "use client";
+import NavSvg from "@/components/ui/NavSvg";
+import { NAV_SVG } from "@/lib/nav-icons";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { sidebarGroups } from "@/lib/nav";
@@ -38,7 +40,7 @@ export function MenuGroups({ onNavigate }: { onNavigate?: () => void }) {
                 onMouseEnter={e => { if (!active) e.currentTarget.style.background = "rgba(57,59,86,0.45)"; }}
                 onMouseLeave={e => { if (!active) e.currentTarget.style.background = "transparent"; }}
               >
-                <Icon size={20} strokeWidth={1.8} style={{ marginRight: 12, flexShrink: 0, color: active ? "var(--gold)" : "#fff" }} />
+                {NAV_SVG[item.label] ? <NavSvg label={item.label} active={active} style={{ marginRight: 12 }} /> : <Icon size={20} strokeWidth={1.8} style={{ marginRight: 12, flexShrink: 0, color: active ? "var(--gold)" : "#fff" }} />}
                 <span style={{ fontSize: 14, fontWeight: 700, color: "#fff", flex: 1, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
                   {item.label}
                 </span>
@@ -66,7 +68,7 @@ export function MenuGroups({ onNavigate }: { onNavigate?: () => void }) {
                 onMouseEnter={e => { if (!active) e.currentTarget.style.background = "rgba(57,59,86,0.45)"; }}
                 onMouseLeave={e => { if (!active) e.currentTarget.style.background = "transparent"; }}
               >
-                <Icon size={20} strokeWidth={1.8} style={{ marginRight: 12, flexShrink: 0, color: active ? "var(--gold)" : "#fff" }} />
+                {NAV_SVG[item.label] ? <NavSvg label={item.label} active={active} style={{ marginRight: 12 }} /> : <Icon size={20} strokeWidth={1.8} style={{ marginRight: 12, flexShrink: 0, color: active ? "var(--gold)" : "#fff" }} />}
                 <span style={{ fontSize: 14, fontWeight: 700, color: "#fff", flex: 1, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
                   {item.label}
                 </span>
