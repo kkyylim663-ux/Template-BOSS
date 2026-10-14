@@ -1,10 +1,15 @@
 "use client";
-import { Target, Gift, CheckCircle2, Coins, Star, Search, ClipboardList, User } from "lucide-react";
+import { Target, Gift, CheckCircle2, Coins, Star, Search, ClipboardList } from "lucide-react";
 import { MISSIONS } from "@/lib/mock/missions";
 import { useAuth } from "@/context/AuthContext";
-import { Ph, SectionTitle, CtrlPair, useScroller } from "@/components/ui/bo";
+import { SectionTitle, CtrlPair, useScroller } from "@/components/ui/bo";
 import RequireAuth from "@/components/ui/RequireAuth";
 
+const GROUP_ART: Record<string, string> = {
+  "每日存款次数": "daily-deposit-count", "每日有效投注": "daily-valid-bet",
+  "每週存款次數": "weekly-deposit-count", "每週存款金額": "weekly-deposit-amount", "每週有效投注": "weekly-valid-bet",
+  "每月存款次數": "monthly-deposit-count", "每月有效投注": "monthly-valid-bet",
+};
 const groups = Array.from(new Set(MISSIONS.map(m => m.group)));
 
 function Group({ name }: { name: string }) {
@@ -21,7 +26,8 @@ function Group({ name }: { name: string }) {
           const pct = Math.min(100, (m.current / m.target) * 100);
           return (
             <div key={m.id} className="flex flex-col flex-shrink-0" style={{ width: 200, height: 355, background: "var(--card)", borderRadius: 12 }}>
-              <Ph style={{ height: 105, borderRadius: "12px 12px 0 0", flexShrink: 0 }} iconSize={24} />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={`/mission/${GROUP_ART[name]}.webp`} alt="" draggable={false} style={{ width: "100%", height: 105, objectFit: "cover", borderRadius: "12px 12px 0 0", flexShrink: 0 }} />
               <div className="flex" style={{ height: 56, padding: "0 8px", marginTop: 7 }}>
                 <span style={{ paddingTop: 4 }}><Target size={16} style={{ color: "var(--gold)" }} /></span>
                 <div className="flex flex-col" style={{ padding: "0 12px", minWidth: 0 }}>
@@ -63,11 +69,10 @@ function Mission() {
   ];
   return (
     <div style={{ marginBottom: 16 }}>
-      <div className="flex" style={{ minHeight: 162, background: "var(--card)", borderRadius: 12 }}>
+      <div className="flex" style={{ minHeight: 162, background: "var(--card) url(/mission/bg-1.png) center / cover no-repeat", borderRadius: 12 }}>
         <div className="flex flex-col items-center justify-center" style={{ width: 166, padding: 12, flexShrink: 0 }}>
-          <span className="flex items-center justify-center" style={{ width: 72, height: 72, borderRadius: "50%", background: "linear-gradient(135deg,#ffd66b,#f28c00)", color: "#000" }}>
-            <User size={36} />
-          </span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/mission/avatar.webp" alt="" draggable={false} style={{ width: 72, height: 72, borderRadius: "50%", objectFit: "cover" }} />
           <span style={{ fontSize: 14, fontWeight: 600, paddingTop: 4 }}>{user?.username}</span>
         </div>
         <div className="grid grid-cols-3 flex-1" style={{ padding: "16px 0" }}>
