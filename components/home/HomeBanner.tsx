@@ -19,7 +19,7 @@ export default function HomeBanner() {
             key={i}
             href={b.href}
             onClick={b.href === "#" ? e => e.preventDefault() : undefined}
-            style={b.href === "#" ? { cursor: "default", flex: "0 0 100%" } : undefined}
+            style={{ flex: "0 0 100%", cursor: b.href === "#" ? "default" : undefined }}
             aria-label={b.title}
             className="h-full block"
           >

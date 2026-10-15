@@ -1,12 +1,13 @@
 "use client";
 import { useState } from "react";
-import { X, Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import { useModal } from "@/context/ModalContext";
+import { AuthPanel } from "./AuthShell";
 
-export default function RegisterModal() {
+export default function RegisterBody() {
   const { login }                  = useAuth();
-  const { closeModal, openLogin }  = useModal();
+  const { closeModal }  = useModal();
 
   const [form, setForm] = useState({
     username: "", phone: "", otp: "", password: "", email: "", fullName: "", referral: "",
@@ -37,43 +38,32 @@ export default function RegisterModal() {
     closeModal();
   };
 
+  const perks = [
+    "🎁 高达 299% 欢迎奖金",
+    "💰 15.5% 每周返水",
+    "📈 1.4% 每日流水返利",
+    "🛍️ 奖励商城 — 积分兑换好礼",
+    "🎯 每日 / 每周任务奖励",
+    "👑 VIP 升级奖金 + 专属 Telegram 群",
+    "👥 推荐好友：88 或 38 + 0.2% 回馈",
+  ];
+  const filled = !!form.username.trim() && !!form.password.trim() && !!form.phone.trim() && !!form.fullName.trim();
+
+  const footer = (
+    <div style={{ marginTop: 22, padding: "0 4px" }}>
+      <h3 style={{ fontSize: 17, fontWeight: 800, color: "#fff", lineHeight: 1.3 }}>立即注册 &amp;<br />解锁 Test123 专属福利</h3>
+      <ul style={{ marginTop: 14, display: "flex", flexDirection: "column", gap: 11, listStyle: "disc", paddingLeft: 18 }}>
+        {perks.map(t => (
+          <li key={t} style={{ fontSize: 13, fontWeight: 600, color: "#fff" }}>{t}</li>
+        ))}
+      </ul>
+    </div>
+  );
+
   return (
-    <div className="modal-backdrop" onClick={e => { if (e.target === e.currentTarget) closeModal(); }}>
-      <div className="modal-box" style={{ maxWidth: 420, padding: 24 }}>
-        <button className="absolute top-4 right-4 btn-ghost" onClick={closeModal}>
-          <X size={18} />
-        </button>
-
-        <div className="flex justify-center" style={{ marginBottom: 16 }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.png" alt="Logo" style={{ height: 72, width: "auto", margin: "-10px 0" }} />
-        </div>
-
-        {/* Promo banner */}
-        <div
-          className="flex flex-col justify-end"
-          style={{ aspectRatio: "343 / 150", borderRadius: 12, padding: 16, marginBottom: 16, background: "linear-gradient(135deg, #1a1050 0%, #0b0e1e 100%)" }}
-        >
-          <div style={{ fontSize: 18, fontWeight: 800, color: "#fff" }}>LET&apos;S MAKE YOU RICH</div>
-          <div style={{ fontSize: 12, color: "var(--text-muted)" }}>Rise higher. Win bigger.</div>
-        </div>
-
-        {/* Tabs */}
-        <div className="flex items-center justify-center" style={{ gap: 16, marginBottom: 20 }}>
-          <button
-            className="text-sm"
-            style={{ color: "var(--text-muted)", paddingBottom: 6 }}
-            onClick={() => { closeModal(); setTimeout(openLogin, 100); }}
-          >
-            登录
-          </button>
-          <span style={{ color: "var(--border-main)" }}>|</span>
-          <button className="text-sm font-semibold" style={{ color: "var(--gold)", paddingBottom: 6, borderBottom: "2px solid var(--gold)" }}>
-            注册
-          </button>
-        </div>
-
-          <form onSubmit={handleSubmit} className="space-y-3">
+    <>
+    <AuthPanel>
+          <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 14 }}>
             <div className="form-field">
               <label className="form-label">用户名 *</label>
               <input className="form-input" placeholder="用户名" value={form.username} onChange={set("username")} />
@@ -128,32 +118,12 @@ export default function RegisterModal() {
 
             {error && <p className="text-xs" style={{ color: error.includes("已发送") ? "var(--gold)" : "var(--live-red)" }}>{error}</p>}
 
-            <button type="submit" className="btn-primary w-full py-2.5" disabled={loading}>
+            <button type="submit" disabled={loading} className="w-full text-sm font-semibold" style={{ height: 40, borderRadius: 8, background: filled ? "var(--gold)" : "var(--btn-dark)", color: filled ? "#000" : "#6c7390", transition: "background .2s, color .2s" }}>
               {loading ? "注册中..." : "提交"}
             </button>
           </form>
-
-        {/* Register perks */}
-        <div className="flex flex-col items-center text-center" style={{ marginTop: 20, gap: 8 }}>
-          <h3 className="text-sm font-bold" style={{ color: "var(--text-primary)" }}>
-            立即注册 &amp; 解锁 TitanX 专属福利
-          </h3>
-          {[
-            "🎁 高达 299% 欢迎奖金",
-            "💰 每日存款返水",
-            "👑 VIP 终身会员",
-            "🎯 每日任务奖励",
-          ].map(b => (
-            <div
-              key={b}
-              className="w-full text-left px-3 py-2 rounded-lg text-xs"
-              style={{ background: "rgba(240,168,25,0.1)", color: "var(--text-primary)", border: "1px solid rgba(240,168,25,0.2)" }}
-            >
-              {b}
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
+    </AuthPanel>
+    {footer}
+    </>
   );
 }

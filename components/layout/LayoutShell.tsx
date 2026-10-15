@@ -5,9 +5,8 @@ import LiveFeed from "./LiveFeed";
 import Footer from "./Footer";
 import MobileNav from "./MobileNav";
 import NavProgress from "./NavProgress";
-import LoginModal from "@/components/modals/LoginModal";
-import RegisterModal from "@/components/modals/RegisterModal";
-import AnnouncementModal from "@/components/modals/AnnouncementModal";
+import AuthModal from "@/components/modals/AuthModal";
+import AnnouncementModal from "@/components/modals/RewardsModalV2";
 import FloatingChat, { SideSocial } from "@/components/ui/FloatingChat";
 import Translator from "@/components/i18n/Translator";
 import { useModal } from "@/context/ModalContext";
@@ -38,8 +37,7 @@ export default function LayoutShell({ children }: { children: React.ReactNode })
       <LiveFeed />
       <MobileNav />
 
-      {modal === "login" && <LoginModal />}
-      {modal === "register" && <RegisterModal />}
+      {(modal === "login" || modal === "register") && <AuthModal />}
       {modal === "announcement" && <AnnouncementModal />}
 
       <FloatingChat />
