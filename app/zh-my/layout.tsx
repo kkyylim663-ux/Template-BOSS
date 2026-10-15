@@ -3,6 +3,7 @@ import { AuthProvider }     from "@/context/AuthContext";
 import { ModalProvider }    from "@/context/ModalContext";
 import { LanguageProvider } from "@/context/LanguageContext";
 import LayoutShell          from "@/components/layout/LayoutShell";
+import ViewportScale        from "@/components/layout/ViewportScale";
 
 export const metadata: Metadata = {
   title: "Test123 马来西亚 | 在线游戏、优惠活动与奖励",
@@ -14,6 +15,7 @@ export default function ZhMyLayout({ children }: { children: React.ReactNode }) 
     <LanguageProvider>
       <AuthProvider>
         <ModalProvider>
+          <ViewportScale />
           <LayoutShell>{children}</LayoutShell>
         </ModalProvider>
       </AuthProvider>
