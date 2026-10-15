@@ -10,4 +10,3 @@ npm-debug.log*
 docs/research/**/shots/
 
 # third-party game cover art pulled locally for the mock UI (provider-owned); not redistributed
-/public/games/
